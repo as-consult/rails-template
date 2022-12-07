@@ -1,0 +1,94 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  background-color: $dark;
+  height: 64px;
+}
+header p {
+  margin: 0;
+}
+header .logo {
+  height: 64px;
+  width: 100px;
+  background-color: $success;
+  line-height: 64px;
+}
+header .logo-text {
+  font-size: 2em;
+  color: $light;
+  text-align: center;
+}
+header .burger {
+  color: white;
+  margin-right: 1em;
+}
+header nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+header .nav-links {
+  display: none;
+  position: relative;
+}
+header .nav-link {
+  text-align: center;
+  line-height: 64px;
+  transition: 0.25s;
+  width: 6em;
+}
+header .nav-link:hover {
+  background-color: $secondary;
+  transition: 0.25s;
+}
+header .nav-button {
+  color: white;
+  margin: 0 1em 0 1em;
+  //text-align: center;
+  line-height: 64px;
+  transition: 0.25s;
+  width: 6em;
+}
+header .nav-account {
+  line-height: 64px;
+  text-align: center;
+  width: 3em;
+  background-color: $dark;
+  cursor: pointer;
+}
+header .nav-link a {
+  color: white;
+  text-decoration: none;
+  font-weight: 400;
+}
+header .account-menu-content {
+  background-color: $dark;
+  position: absolute;
+  width: auto;
+  display: none;
+  right: 0;
+  top: 64px;
+}
+header .account-menu-content a {
+  color: white;
+  text-decoration: none;
+  padding: 1em;
+}
+header .account-menu-content a:hover {
+  color: $info;
+}
+header .account-menu-content p {
+  text-align: center;
+  padding: 1em;
+}
+header .show {
+  display: inline-block;
+}
+@media only screen and (min-width: 700px) {
+  header .nav-links {
+    display: flex;
+  }
+  .burger {
+    display: none;
+  }
+}

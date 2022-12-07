@@ -1,0 +1,92 @@
+.forms-container {
+  width: fit-content;
+  margin: 20px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: $border-radius;
+  box-shadow: $box-shadow $box-shadow $box-shadow;
+}
+
+.forms-light {
+  background-color: $light;
+  border: 1px solid $secondary;
+  h2 {
+    color: $dark;
+  }
+  label {
+    color: $dark;
+  }
+  em {
+    color: $dark;
+  }
+  li {
+    color: $danger;
+  }
+  p {
+    color: $secondary;
+  }
+  i {
+    color: $secondary;
+  }
+}
+
+.forms-dark {
+  background-color: $dark;
+  border: 1px solid $secondary;
+  h2 {
+    color: $light;
+  }
+  label {
+    color: $light;
+  }
+  em {
+    color: $light;
+  }
+  li {
+    color: $danger;
+  }
+  p {
+    color: $secondary;
+  }
+  i {
+    color: $secondary;
+  }
+}
+
+.forms-element {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+  input {
+    padding: 5px;
+    border: 1px solid $secondary;
+    box-shadow: none;
+    background-color: $light;
+    outline: none;
+    border-radius: $border-radius;
+  }
+  input:focus {
+    border: 3px solid $info;
+    box-shadow: none;
+    outline: none;
+  }
+}
+
+.forms-submit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.forms-links {
+  margin-top: 15px;
+  text-align: center;
+  a {
+    color: $info;
+    text-decoration: none;
+  }
+}
+

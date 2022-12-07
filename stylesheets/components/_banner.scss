@@ -1,0 +1,32 @@
+.banner {
+  color: white;
+  background: linear-gradient(135deg,
+  rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.3) 50%), url('https://unsplash.it/300/250?image=0');
+  background-size: cover;
+  text-align: center;
+  position: relative;
+  display: flex;
+}
+
+.full {
+  height: 100vh;
+}
+
+.half {
+  height: 50vh;
+}
+
+.banner h1 {
+  font-family: 'Nunito', sans-serif;
+  font-size: 72px;
+  font-weight: bold;
+}
+.banner p {
+  font-size: 36px;
+  font-weight: lighter;
+  opacity: 0.8;
+}
+
+.banner-container {
+  align-items: center;
+}
