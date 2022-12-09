@@ -13,25 +13,27 @@
         <p class="nav-link"><%= link_to "Services", root_path %></p>
         <p class="nav-link"><%= link_to "A Propos", root_path %></p>
         <p class="nav-link"><%= link_to "Blog", root_path %></p>
-        <p class="nav-button"><%= link_to "Contact", root_path %></p>
-      <% else %>
-        <p class="nav-link"><%= link_to "Services", root_path, class: "" %></p>
-        <p class="nav-link"><%= link_to "A Propos", root_path, class: "" %></p>
-        <p class="nav-link"><%= link_to "Blog", root_path, class: "" %></p>
+        <p class="nav-link"><%= link_to "FAQ", root_path %></p>
         <p class="nav-button"><%= link_to "Contact", root_path, class: "btn btn-primary" %></p>
-        <div data-controller="account" data-action="click->account#menu">
-          <p class="nav-account">&#127877;</p>
-            <div class="account-menu-content" data-account-target="account">
-              <% if user_signed_in? %>
-                <p><%= link_to "Account", edit_user_registration_path %></p>
-                <p><%= link_to "Sign Out", destroy_user_session_path, data: {turbo_method: :delete} %></p>
-              <% else %>
-                <p><%= link_to "Sign In", new_user_session_path %></p>
-                <p><%= link_to "Sign Up", new_user_registration_path %></p>
-              <% end %>
-          </div>
-        </div>
+      <% else %>
+        <p class="nav-link"><%= link_to "Services", root_path %></p>
+        <p class="nav-link"><%= link_to "A Propos", root_path %></p>
+        <p class="nav-link"><%= link_to "Blog", root_path %></p>
+        <p class="nav-link"><%= link_to "FAQ", root_path %></p>
+        <p class="nav-button"><%= link_to "Contact", root_path, class: "btn btn-primary" %></p>
       <% end %>
+      <div data-controller="account" data-action="click->account#menu">
+        <p class="nav-account">&#127877;</p>
+          <div class="account-menu-content" data-account-target="account">
+            <% if user_signed_in? %>
+              <p><%= link_to "Account", edit_user_registration_path %></p>
+              <p><%= link_to "Sign Out", destroy_user_session_path, data: {turbo_method: :delete} %></p>
+            <% else %>
+              <p><%= link_to "Sign In", new_user_session_path %></p>
+              <p><%= link_to "Sign Up", new_user_registration_path %></p>
+            <% end %>
+        </div>
+      </div>
     </div>
     <div data-controller="burger" data-action="click->burger#menu" class="burger">
       <p>&#9477;</p>
