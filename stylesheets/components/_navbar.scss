@@ -62,7 +62,7 @@ header .nav-link a {
   font-weight: 400;
 }
 header .account-menu-content {
-  background-color: $dark;
+  background-color: $secondary;
   position: absolute;
   width: auto;
   display: none;
@@ -70,12 +70,12 @@ header .account-menu-content {
   top: 64px;
 }
 header .account-menu-content a {
-  color: white;
+  color: $dark;
   text-decoration: none;
   padding: 1em;
 }
 header .account-menu-content a:hover {
-  color: $info;
+  color: $light;
 }
 header .account-menu-content p {
   text-align: center;

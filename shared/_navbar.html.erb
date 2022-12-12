@@ -36,7 +36,7 @@
       </div>
     </div>
     <div data-controller="burger" data-action="click->burger#menu" class="burger">
-      <p>&#9477;</p>
+      <p data-burger-target="icon">&#9477;</p>
       <div class="burger-menu-content" data-burger-target="burger">
         <% if user_signed_in? %>
           <p><%= link_to "Services", root_path %></p>
