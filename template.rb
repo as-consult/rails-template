@@ -212,6 +212,8 @@ run "tar -xf javascript.tar.gz --directory app/javascript/controllers && rm java
 
 # Pages
 ########################################
-run "rm app/views/pages/home.html.erb"
-run "curl -L https://raw.githubusercontent.com/alexstan67/rails-template/master/pages.tar.gz > pages.tar.gz"
-run "tar -xf pages.tar.gz --directory app/views/ && rm pages.tar.gz"
+after_bundle do
+  run "rm app/views/pages/home.html.erb"
+  run "curl -L https://raw.githubusercontent.com/alexstan67/rails-template/master/pages.tar.gz > pages.tar.gz"
+  run "tar -xf pages.tar.gz --directory app/views/ && rm pages.tar.gz"
+end
