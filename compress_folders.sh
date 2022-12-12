@@ -21,6 +21,9 @@ fi
 if [ -e images.tar.gz ]
   then echo "✅ images.tar.gz successfully removed"
 fi
+if [ -e pages.tar.gz ]
+  then echo "✅ pages.tar.gz successfully removed"
+fi
 echo -e "---"
 echo -e "Creating compressed forlders:"
 tar -czf stylesheets.tar.gz stylesheets
@@ -46,4 +49,10 @@ if [ -e images.tar.gz ]
   then echo "✅ images.tar.gz created successfully"
 else
   echo "⛔ Error for images.tar.gz"
+fi
+tar -czf pages.tar.gz pages
+if [ -e pages.tar.gz ]
+  then echo "✅ pages.tar.gz created successfully"
+else
+  echo "⛔ Error for pages.tar.gz"
 fi

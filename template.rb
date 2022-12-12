@@ -209,3 +209,9 @@ file "app/javascript/controllers/burger_controller.js"
 file "app/javascript/controllers/account_controller.js"
 run "curl -L https://raw.githubusercontent.com/alexstan67/rails-template/master/javascript.tar.gz > javascript.tar.gz"
 run "tar -xf javascript.tar.gz --directory app/javascript/controllers && rm javascript.tar.gz"
+
+# Pages
+########################################
+run "rm app/views/pages/home.html.erb"
+run "curl -L https://raw.githubusercontent.com/alexstan67/rails-template/master/pages.tar.gz > pages.tar.gz"
+run "tar -xf pages.tar.gz --directory app/views/ && rm pages.tar.gz"

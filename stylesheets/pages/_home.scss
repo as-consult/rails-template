@@ -1,0 +1,31 @@
+.home-main {
+  height: calc(100vh - 64px);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.3)),
+    url(http://unsplash.it/1600/800?grayscale);
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  h1 {
+    font-size: 3em;
+    color: $light;
+    text-align: center;
+  }
+  h3 {
+    font-size: 2em;
+    color: $light;
+    text-align: center;
+  }
+}
+@media only screen and (min-width: 700px) {
+  .home-main h1 {
+    font-size: 5em;
+  }
+  .home-main h3 {
+    font-size: 3em;
+  }
+  .home-main .btn {
+    font-size: 1.5em;
+  }
+}
