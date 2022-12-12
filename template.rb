@@ -201,6 +201,12 @@ end
 inject_into_file "app/views/layouts/application.html.erb", :after => "<body>\n" do
    "    <%= render 'shared/navbar' %>\n"
 end
+inject_into_file "app/views/layouts/application.html.erb", :after => "<body>\n" do
+   "  <div class='container'>\n"
+end
+inject_into_file "app/views/layouts/application.html.erb", :before => "</body>\n" do
+   "</div>\n"
+end
 
 # Javascripts
 ########################################
