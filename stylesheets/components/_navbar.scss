@@ -68,6 +68,7 @@ header .account-menu-content {
   display: none;
   right: 0;
   top: 64px;
+  z-index: 20;
 }
 header .account-menu-content a {
   color: $dark;

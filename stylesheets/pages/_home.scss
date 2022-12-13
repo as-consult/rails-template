@@ -1,12 +1,13 @@
 .home-main {
   height: calc(100vh - 64px);
   background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.3)),
-    url(http://unsplash.it/1600/800?grayscale);
+    url(http://unsplash.it/1600/800?grayscale?blur=2);
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
   align-items: center;
   flex-direction: column;
+  position: relative;
   h1 {
     font-size: 3em;
     color: $light;
@@ -18,14 +19,81 @@
     text-align: center;
   }
 }
+.home-arrow {
+  position: absolute;
+  bottom: 30px;
+  text-decoration: none;
+  text-align: center;
+  border-radius: 50%;
+  width: 2em;
+  height: 2em;
+  background-color: $dark;
+  color: $light;
+  border: 2px solid $primary;
+  line-height: 2em;
+  opacity: 0.7;
+}
+.home-products {
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+}
+.home-product-card {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  align-items: center;
+
+  .home-product-card-image {
+    background-image: url(http://unsplash.it/390/300);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 300px;
+    width: 100%;
+  }
+  .home-product-card-content {
+    height: calc(100vh - 300px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    h1 {
+      text-align: center;
+      margin-bottom: 0;
+    }
+    .home-product-card-content-title {
+      border-bottom: 2px solid $primary;
+    }
+  }
+}
 @media only screen and (min-width: 700px) {
-  .home-main h1 {
-    font-size: 5em;
+  .home-main {
+    h1 {
+      font-size: 5em;
+    }
+    h3 {
+      font-size: 3em;
+    }
+    .btn {
+      font-size: 1.5em;
+    }
   }
-  .home-main h3 {
-    font-size: 3em;
+  .home-product-card {
+    max-width: 1000px;
+    margin: auto;
+    margin-bottom: 1em;
+    flex-direction: row;
+    .home-product-card-content {
+      min-height: 300px;
+      min-width: 400px;
+      height: 100%;
+      border: 1px solid $secondary;
+    }
+    .home-product-card-image {
+      background-image: url(http://unsplash.it/600/300);
+      min-height: 300px;
+    }
   }
-  .home-main .btn {
-    font-size: 1.5em;
+  .row-reverse {
+    flex-direction: row-reverse;
   }
 }
