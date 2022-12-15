@@ -1,0 +1,33 @@
+footer {
+  background-color: $dark;
+  color: $light;
+  padding: 1em;
+  a {
+    text-decoration: none;
+    color: $light;
+  }
+  .footer-copyright {
+    text-align: center;
+  }
+  .footer-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    h3 {
+      text-decoration: underline;
+    }
+    .footer-content-legal {
+      text-align: center;
+    }
+    .footer-content-social {
+      text-align: center;
+    }
+  }
+}
+@media only screen and (min-width: 700px) {
+  footer .footer-content {
+    flex-direction: row;
+    align-items: normal;
+  }
+}
