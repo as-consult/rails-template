@@ -10,11 +10,11 @@
   <nav>
     <div class="nav-links">
       <% if user_signed_in? %>
-        <p class="nav-link"><%= link_to "Services", root_path %></p>
-        <p class="nav-link"><%= link_to "A Propos", root_path %></p>
+        <p class="nav-link"><%= link_to "Services", services_index_path %></p>
+        <p class="nav-link"><%= link_to "A Propos", apropos_index_path %></p>
         <p class="nav-link"><%= link_to "Blog", root_path %></p>
-        <p class="nav-link"><%= link_to "FAQ", root_path %></p>
-        <p class="nav-button"><%= link_to "Contact", root_path, class: "btn btn-primary" %></p>
+        <p class="nav-link"><%= link_to "FAQ", gaq_index_path %></p>
+        <p class="nav-button"><%= link_to "Contact", contacts_new_path, class: "btn btn-primary" %></p>
       <% else %>
         <p class="nav-link"><%= link_to "Services", root_path %></p>
         <p class="nav-link"><%= link_to "A Propos", root_path %></p>

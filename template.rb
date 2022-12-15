@@ -177,6 +177,10 @@ after_bundle do
   generate(:controller, 'mentions-legales', 'index')
   generate(:controller, 'politique-confidentialite', 'index')
   generate(:controller, 'cgv', 'index')
+  generate(:controller, 'services', 'index')
+  generate(:controller, 'apropos', 'index')
+  generate(:controller, 'faq', 'index')
+  generate(:controller, 'contacts', 'new')
 
   # Devise Authentication update
   ######################################
@@ -193,6 +197,18 @@ after_bundle do
     "  skip_before_action :authenticate_user!\n"
   end
   inject_into_file "app/controllers/cgv_controller.rb", :before => "def index\n" do
+    "  skip_before_action :authenticate_user!\n"
+  end
+  inject_into_file "app/controllers/services_controller.rb", :before => "def index\n" do
+    "  skip_before_action :authenticate_user!\n"
+  end
+  inject_into_file "app/controllers/apropos_controller.rb", :before => "def index\n" do
+    "  skip_before_action :authenticate_user!\n"
+  end
+  inject_into_file "app/controllers/faq_controller.rb", :before => "def index\n" do
+    "  skip_before_action :authenticate_user!\n"
+  end
+  inject_into_file "app/controllers/contacts_controller.rb", :before => "def new\n" do
     "  skip_before_action :authenticate_user!\n"
   end
   
