@@ -10,6 +10,7 @@ class ContactsController < ApplicationController
     @contact.active = true  #False would mean not accepting any emails from company
 
     if @contact.save
+      flash.notice = "Votre message a bien été envoyé!"
       redirect_to root_path
     else
       render "new", contact: @contact
