@@ -1,0 +1,12 @@
+.container-contacts {
+  h1 {
+    font-size: 2em;
+    text-align: center;
+  }
+}
+@media only screen and (min-width: 700px) {
+  .container-contacts h1 {
+    font-size: normal;
+    text-align: left;
+  }
+}

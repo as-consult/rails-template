@@ -1,4 +1,4 @@
-# Test presence of 'env' file
+# Test presence of 'env' file, only for email services
 run 'if [ ! -e "../env" ]; then echo "File env not found, please check README.md" && exit 1; fi'
 
 # GEMFILE
@@ -16,24 +16,14 @@ gem_group :development do
   gem 'capistrano-rbenv', '~> 2.1', '>= 2.1.4'
 end
 
-#gsub_file('Gemfile', /# gem 'sassc-rails'/, "gem 'sassc-rails'")
-
 # app/assets
 ########################################
 run 'rm -rf app/assets/stylesheets'
 run 'rm -rf vendor'
-# local way
-#run "tar -xf ../stylesheets.tar.gz --directory app/assets"
-#run "tar -xf ../images.tar.gz --directory app/assets"
-
-# Github way
 run "curl -L https:///raw.githubusercontent.com/alexstan67/rails-template/master/stylesheets.tar.gz > stylesheets.tar.gz"
 run "tar -xf stylesheets.tar.gz --directory app/assets && rm stylesheets.tar.gz"
 run "curl -L https:///raw.githubusercontent.com/alexstan67/rails-template/master/images.tar.gz > images.tar.gz"
 run "tar -xf images.tar.gz --directory app/assets && rm images.tar.gz"
-
-#run "curl -L https://github.com/alexstan67/css-components/raw/master/scss/stylesheets.zip > stylesheets.zip"
-#run "unzip stylesheets.zip -d app/assets && rm -f stylesheets.zip"
 
 # config/environments/development.rb
 ########################################
@@ -170,6 +160,12 @@ after_bundle do
 
   generate(:migration, "ChangeSignInCountToUser",  "sign_in_count:string")
 
+  # Models
+  ######################################
+  generate(:model, contact, last_name:string first_name:string company:string email:string phone:string category:string description:text accept_private_data_policy:boolean)
+  run "curl -L https:///raw.githubusercontent.com/alexstan67/rails-template/master/models.tar.gz > models.tar.gz"
+  run "tar -xf models.tar.gz --directory app/ && rm models.tar.gz"
+
   # Generators: db +  pages controller
   ######################################
   rails_command 'db:drop db:create db:migrate'
@@ -214,29 +210,31 @@ after_bundle do
   
 end
 
-# View shared
+# Views
 ########################################
-file "app/views/shared/_alerts.html.erb"
-file "app/views/shared/_navbar.html.erb"
-run "curl -L https://raw.githubusercontent.com/alexstan67/rails-template/master/shared.tar.gz > shared.tar.gz"
-run "tar -xf shared.tar.gz --directory app/views && rm shared.tar.gz"
-inject_into_file "app/views/layouts/application.html.erb", :after => "<%= csp_meta_tag %>\n" do
-   "    <%= favicon_link_tag %>\n"
-end
-inject_into_file "app/views/layouts/application.html.erb", :after => "<body>\n" do
-   "    <%= render 'shared/alerts' %>\n"
-end
-inject_into_file "app/views/layouts/application.html.erb", :after => "<body>\n" do
-   "    <%= render 'shared/navbar' %>\n"
-end
-inject_into_file "app/views/layouts/application.html.erb", :after => "<%= yield %>\n" do
-   "    <%= render 'shared/footer' %>\n"
-end
-inject_into_file "app/views/layouts/application.html.erb", :after => "<body>\n" do
-   "  <div class='container'>\n"
-end
-inject_into_file "app/views/layouts/application.html.erb", :before => "</body>\n" do
+after_bundle do
+  file "app/views/shared/_alerts.html.erb"
+  file "app/views/shared/_navbar.html.erb"
+  run "curl -L https://raw.githubusercontent.com/alexstan67/rails-template/master/views.tar.gz > views.tar.gz"
+  run "tar -xf views.tar.gz --directory app/ && rm views.tar.gz"
+  inject_into_file "app/views/layouts/application.html.erb", :after => "<%= csp_meta_tag %>\n" do
+     "    <%= favicon_link_tag %>\n"
+  end
+  inject_into_file "app/views/layouts/application.html.erb", :after => "<body>\n" do
+     "    <%= render 'shared/alerts' %>\n"
+  end
+  inject_into_file "app/views/layouts/application.html.erb", :after => "<body>\n" do
+     "    <%= render 'shared/navbar' %>\n"
+  end
+  inject_into_file "app/views/layouts/application.html.erb", :after => "<%= yield %>\n" do
+     "    <%= render 'shared/footer' %>\n"
+  end
+  inject_into_file "app/views/layouts/application.html.erb", :after => "<body>\n" do
+     "  <div class='container'>\n"
+  end
+  inject_into_file "app/views/layouts/application.html.erb", :before => "</body>\n" do
    "</div>\n"
+  end
 end
 
 # Javascripts
@@ -249,8 +247,8 @@ run "tar -xf javascript.tar.gz --directory app/javascript/controllers && rm java
 
 # Pages
 ########################################
-after_bundle do
-  run "rm app/views/pages/home.html.erb"
-  run "curl -L https://raw.githubusercontent.com/alexstan67/rails-template/master/pages.tar.gz > pages.tar.gz"
-  run "tar -xf pages.tar.gz --directory app/views/ && rm pages.tar.gz"
-end
+#after_bundle do
+#  run "rm app/views/pages/home.html.erb"
+#  run "curl -L https://raw.githubusercontent.com/alexstan67/rails-template/master/views.tar.gz > views.tar.gz"
+#  run "tar -xf views.tar.gz --directory app/ && rm views.tar.gz"
+#end

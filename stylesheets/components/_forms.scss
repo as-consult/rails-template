@@ -1,92 +1,34 @@
-.forms-container {
-  width: fit-content;
-  margin: 20px;
-  padding: 10px;
+form {
+  color: $dark;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  border-radius: $border-radius;
-  box-shadow: $box-shadow $box-shadow $box-shadow;
-}
-
-.forms-light {
   background-color: $light;
-  border: 1px solid $secondary;
-  h2 {
-    color: $dark;
-  }
-  label {
-    color: $dark;
-  }
-  em {
-    color: $dark;
-  }
-  li {
-    color: $danger;
-  }
-  p {
-    color: $secondary;
-  }
-  i {
-    color: $secondary;
-  }
-}
-
-.forms-dark {
-  background-color: $dark;
-  border: 1px solid $secondary;
-  h2 {
-    color: $light;
-  }
-  label {
-    color: $light;
-  }
-  em {
-    color: $light;
-  }
-  li {
-    color: $danger;
-  }
-  p {
-    color: $secondary;
-  }
-  i {
-    color: $secondary;
-  }
-}
-
-.forms-element {
-  display: flex;
-  flex-direction: column;
   align-items: center;
-  margin-top: 10px;
-  input {
-    padding: 5px;
-    border: 1px solid $secondary;
-    box-shadow: none;
-    background-color: $light;
-    outline: none;
-    border-radius: $border-radius;
+  .field {
+    font-weight: 600;
+    margin-bottom: 1em;
+    display: flex;
+    flex-direction: column;
   }
-  input:focus {
-    border: 3px solid $info;
-    box-shadow: none;
-    outline: none;
+  .actions {
+    margin: 1em;
   }
-}
-
-.forms-submit {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.forms-links {
-  margin-top: 15px;
-  text-align: center;
   a {
     color: $info;
     text-decoration: none;
   }
 }
 
+@media only screen and (min-width: 700px) {
+  form {
+    border-radius: $border-radius;
+    box-shadow: $box-shadow $box-shadow $box-shadow;
+    align-items: center;
+    margin: 20px;
+    padding: 10px;
+    border: 1px solid $dark;
+    width: fit-containt;
+    max-width: 800px;
+
+  }
+}
