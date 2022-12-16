@@ -208,12 +208,9 @@ after_bundle do
   inject_into_file "app/controllers/faq_controller.rb", :before => "def index\n" do
     "  skip_before_action :authenticate_user!\n"
   end
-  inject_into_file "app/controllers/contacts_controller.rb", :before => "def new\n" do
-    "  skip_before_action :authenticate_user!\n"
-  end
 
   # Update routes
-  inject_into_file "app/config/routes.rb", :after => "Rails.application.routes.draw do\n" do
+  inject_into_file "config/routes.rb", :after => "Rails.application.routes.draw do\n" do
     "  resources :contacts\n"
   end
 
@@ -253,4 +250,4 @@ file "app/javascript/controllers/alerts_controller.js"
 file "app/javascript/controllers/burger_controller.js"
 file "app/javascript/controllers/account_controller.js"
 run "curl -L https://raw.githubusercontent.com/alexstan67/rails-template/master/javascript.tar.gz > javascript.tar.gz"
-run "tar -xf javascript.tar.gz --directory app/javascript/controllers && rm javascript.tar.gz"
+run "tar -xf javascript.tar.gz --directory app/ && rm javascript.tar.gz"

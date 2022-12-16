@@ -35,7 +35,7 @@ if [ -e stylesheets.tar.gz ]
 else
   echo "⛔ Error for stylesheets.tar.gz"
 fi
-tar -czf javascript.tar.gz *.js
+tar -czf javascript.tar.gz javascript
 if [ -e javascript.tar.gz ]
   then echo "✅ javascript.tar.gz created successfully"
 else
