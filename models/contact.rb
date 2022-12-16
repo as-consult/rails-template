@@ -6,4 +6,6 @@ class Contact < ApplicationRecord
   validates :category, inclusion: { in: CATEGORIES }
   validates :description, presence: true, length: { minimum: 10 }
   validates_inclusion_of :accept_private_data_policy, in: [ true ], message: "Merci d'accepter la politique de confidentialité"
+  validates_inclusion_of :active, in: [ true, false ]
+
 end

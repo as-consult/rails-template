@@ -40,6 +40,11 @@
       <%= f.label :description, "Description*" %>
       <%= f.text_area :description, size: "50x10" %>
     </div>
+    <div class="field">
+      <%= f.label :accept_private_data_policy, "En cochant cette case, j'accepte la politique de confientialité du site*" %>
+      <%= link_to "Politique de confidentialité", politique_confidentialite_index_path %>
+      <%= f.check_box :accept_private_data_policy %>
+    </div>
     <div class="actions">
       <%= f.submit "Soumettre", class: "btn btn-success" %>
     </div>

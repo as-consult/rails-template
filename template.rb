@@ -162,7 +162,7 @@ after_bundle do
 
   # Models
   ######################################
-  generate(:model, "contact", "last_name:string", "first_name:string", "company:string", "email:string", "phone:string", "category:string", "description:text", "accept_private_data_policy:boolean", "active")
+  generate(:model, "contact", "last_name:string", "first_name:string", "company:string", "email:string", "phone:string", "category:string", "description:text", "accept_private_data_policy:boolean", "active:boolean")
   run "curl -L https:///raw.githubusercontent.com/alexstan67/rails-template/master/models.tar.gz > models.tar.gz"
   run "tar -xf models.tar.gz --directory app/ && rm models.tar.gz"
 
