@@ -5,9 +5,13 @@ footer {
   a {
     text-decoration: none;
     color: $light;
+    &:hover {
+      color: $primary;
+    }
   }
   .footer-copyright {
     text-align: center;
+    font-size: 0.8em;
   }
   .footer-content {
     display: flex;
