@@ -24,6 +24,9 @@ fi
 if [ -e models.tar.gz ]
   then echo "✅ models.tar.gz successfully removed"
 fi
+if [ -e controllers.tar.gz ]
+  then echo "✅ controllers.tar.gz successfully removed"
+fi
 echo -e "---"
 echo -e "Creating compressed forlders:"
 tar -czf stylesheets.tar.gz stylesheets
@@ -55,4 +58,10 @@ if [ -e models.tar.gz ]
   then echo "✅ models.tar.gz created successfully"
 else
   echo "⛔ Error for models.tar.gz"
+fi
+tar -czf controllers.tar.gz controllers
+if [ -e controllers.tar.gz ]
+  then echo "✅ controllers.tar.gz created successfully"
+else
+  echo "⛔ Error for controllers.tar.gz"
 fi

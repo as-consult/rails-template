@@ -162,7 +162,7 @@ after_bundle do
 
   # Models
   ######################################
-  generate(:model, contact, last_name:string first_name:string company:string email:string phone:string category:string description:text accept_private_data_policy:boolean)
+  generate(:model, "contact", "last_name:string", "first_name:string", "company:string", "email:string", "phone:string", "category:string", "description:text", "accept_private_data_policy:boolean")
   run "curl -L https:///raw.githubusercontent.com/alexstan67/rails-template/master/models.tar.gz > models.tar.gz"
   run "tar -xf models.tar.gz --directory app/ && rm models.tar.gz"
 
@@ -176,7 +176,11 @@ after_bundle do
   generate(:controller, 'services', 'index')
   generate(:controller, 'apropos', 'index')
   generate(:controller, 'faq', 'index')
-  generate(:controller, 'contacts', 'new')
+  generate(:controller, 'contacts', 'new', '--skip-routes')
+  run "rm app/controllers/contacts_controller.rb"
+  run "curl -L https:///raw.githubusercontent.com/alexstan67/rails-template/master/controllers.tar.gz > controllers.tar.gz"
+  run "tar -xf controllers.tar.gz --directory app/ && rm controllers.tar.gz"
+
 
   # Devise Authentication update
   ######################################
@@ -207,9 +211,15 @@ after_bundle do
   inject_into_file "app/controllers/contacts_controller.rb", :before => "def new\n" do
     "  skip_before_action :authenticate_user!\n"
   end
-  
-end
 
+  # Update routes
+  inject_into_file "app/config/routes.rb", :after => "Rails.application.routes.draw do\n" do
+    "  resources :contacts\n"
+  end
+
+
+end
+  
 # Views
 ########################################
 after_bundle do
@@ -244,11 +254,3 @@ file "app/javascript/controllers/burger_controller.js"
 file "app/javascript/controllers/account_controller.js"
 run "curl -L https://raw.githubusercontent.com/alexstan67/rails-template/master/javascript.tar.gz > javascript.tar.gz"
 run "tar -xf javascript.tar.gz --directory app/javascript/controllers && rm javascript.tar.gz"
-
-# Pages
-########################################
-#after_bundle do
-#  run "rm app/views/pages/home.html.erb"
-#  run "curl -L https://raw.githubusercontent.com/alexstan67/rails-template/master/views.tar.gz > views.tar.gz"
-#  run "tar -xf views.tar.gz --directory app/ && rm views.tar.gz"
-#end
