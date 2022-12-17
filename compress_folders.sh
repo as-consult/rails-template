@@ -27,6 +27,9 @@ fi
 if [ -e controllers.tar.gz ]
   then echo "✅ controllers.tar.gz successfully removed"
 fi
+if [ -e mailers.tar.gz ]
+  then echo "✅ mailers.tar.gz successfully removed"
+fi
 echo -e "---"
 echo -e "Creating compressed forlders:"
 tar -czf stylesheets.tar.gz stylesheets
@@ -64,4 +67,10 @@ if [ -e controllers.tar.gz ]
   then echo "✅ controllers.tar.gz created successfully"
 else
   echo "⛔ Error for controllers.tar.gz"
+fi
+tar -czf mailers.tar.gz mailers
+if [ -e mailers.tar.gz ]
+  then echo "✅ mailers.tar.gz created successfully"
+else
+  echo "⛔ Error for mailers.tar.gz"
 fi

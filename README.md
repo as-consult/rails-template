@@ -28,3 +28,6 @@ Ensure to have a "env" file at root directory containing devise confirmable emai
 
 - config/environments/production.rb
   `config.action_mailer.default_url_options = { host: "http://TODO_PUT_YOUR_DOMAIN_HERE", :protocol => "http" }`
+
+- app/mailers/application_mailer.rb
+  `default from: "from@example.com"`

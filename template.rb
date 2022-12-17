@@ -251,3 +251,9 @@ file "app/javascript/controllers/burger_controller.js"
 file "app/javascript/controllers/account_controller.js"
 run "curl -L https://raw.githubusercontent.com/alexstan67/rails-template/master/javascript.tar.gz > javascript.tar.gz"
 run "tar -xf javascript.tar.gz --directory app/ && rm javascript.tar.gz"
+
+# Mailer
+########################################
+#run "rm app/mailers/application_mailer.rb"
+run "curl -L https://raw.githubusercontent.com/alexstan67/rails-template/master/mailer.tar.gz > mailers.tar.gz"
+run "tar -xf mailers.tar.gz --directory app/ && rm mailers.tar.gz"
