@@ -1,3 +1,6 @@
+# Documentation
+# https://guides.rubyonrails.org/rails_application_templates.html
+
 # Test presence of 'env' file, only for email services
 run 'if [ ! -e "../env" ]; then echo "File env not found, please check README.md" && exit 1; fi'
 
@@ -255,4 +258,10 @@ after_bundle do
   run "curl -L https://raw.githubusercontent.com/alexstan67/rails-template/master/seeds.rb > seeds.rb"
   run "cp seeds.rb db && rm seeds.rb"
   rails_command 'db:seed'
+end
+
+# Capistrano config files
+########################################
+after_bundle do
+  run "bundle exec cap install STAGES=production"
 end
