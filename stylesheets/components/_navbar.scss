@@ -57,7 +57,7 @@ header .nav-link a {
   font-weight: 400;
 }
 header .account-menu-content {
-  background-color: $secondary;
+  background-color: $dark;
   position: absolute;
   width: auto;
   display: none;
@@ -74,7 +74,7 @@ header .account-menu-content p:hover{
   transition: 0.25s;
 }
 header .account-menu-content a {
-  color: $dark;
+  color: $light;
   text-decoration: none;
   padding: 1em;
 }
