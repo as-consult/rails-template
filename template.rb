@@ -130,28 +130,11 @@ after_bundle do
 
   gsub_file('config/initializers/devise.rb', "config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'", "config.mailer_sender = 'noreply@aerostan.com'")
 
-  #Hereunder we extend devise to :confirmable, :trackable, :lockable, :rememberable, :recoverable
-  run 'rm app/models/user.rb'
-  file 'app/models/user.rb'
-  append_to_file 'app/models/user.rb' do
-    <<~RUBY
-    class User < ApplicationRecord
-    # Remainings timeoutable :omniauthable
-      devise :database_authenticatable, :registerable,
-             :recoverable, :rememberable, :validatable,
-             :trackable, :confirmable, :lockable
-      enum role: [ :user, :admin ]
-      after_initialize :set_default_role, if: :new_record?
-
-      private
-
-      def set_default_role
-        self.role ||= :user
-      end 
-    end
-    RUBY
-  end 
-
+  # Models
+  ######################################
+  # user.rb
+  # extended devise with: :confirmable, :trackable, :lockable, :rememberable, :recoverable
+  # Adding a role to user
   generate(:migration, "AddDeviseOptionsToUser",  "sign_in_count:integer",
                                                   "current_sign_in_at:datetime",
                                                   "last_sign_in_at:datetime",
@@ -165,12 +148,14 @@ after_bundle do
                                                   "unlock_token:string",
                                                   "locked_at:datetime"
   )
-
+  
   generate(:migration, "ChangeSignInCountToUser",  "sign_in_count:string")
+  run 'rm app/models/user.rb'
 
-  # Models
-  ######################################
+  # contact.rb
   generate(:model, "contact", "last_name:string", "first_name:string", "company:string", "email:string", "phone:string", "category:string", "description:text", "accept_private_data_policy:boolean", "active:boolean")
+
+  # Loading all models
   run "curl -L https:///raw.githubusercontent.com/alexstan67/rails-template/master/models.tar.gz > models.tar.gz"
   run "tar -xf models.tar.gz --directory app/ && rm models.tar.gz"
 
@@ -222,7 +207,6 @@ after_bundle do
     "  resources :contacts\n"
   end
 
-
 end
   
 # Views
@@ -262,6 +246,5 @@ run "tar -xf javascript.tar.gz --directory app/ && rm javascript.tar.gz"
 
 # Mailer
 ########################################
-#run "rm app/mailers/application_mailer.rb"
 run "curl -L https://raw.githubusercontent.com/alexstan67/rails-template/master/mailers.tar.gz > mailers.tar.gz"
 run "tar -xf mailers.tar.gz --directory app/ && rm mailers.tar.gz"
