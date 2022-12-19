@@ -1,0 +1,20 @@
+.container-apropos {
+  display: flex;
+  flex-direction: column;
+  .container-apropos-image {
+  }
+  .container-apropos-description {
+    padding: 1em;
+  }
+}
+@media only screen and (min-width: 700px) {
+  .container-apropos {
+    flex-direction: row;
+  }
+  .container-apropos-description {
+  }
+  .container-apropos-image {
+    height: auto;
+    background-size: auto;
+  }
+}
