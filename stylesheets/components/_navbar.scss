@@ -14,7 +14,7 @@ header .logo {
   line-height: 64px;
 }
 header .burger {
-  color: white;
+  color: $light;
   margin-right: 1em;
 }
 header nav {
@@ -37,7 +37,7 @@ header .nav-link:hover {
   transition: 0.25s;
 }
 header .nav-button {
-  color: white;
+  color: $light;
   margin: 0 1em 0 1em;
   //text-align: center;
   line-height: 64px;
@@ -52,7 +52,7 @@ header .nav-account {
   cursor: pointer;
 }
 header .nav-link a {
-  color: white;
+  color: $light;
   text-decoration: none;
   font-weight: 400;
 }
@@ -64,6 +64,14 @@ header .account-menu-content {
   right: 0;
   top: 64px;
   z-index: 20;
+}
+header .account-menu-content p{
+  line-height: 2em;
+  transition: 0.25s;
+}
+header .account-menu-content p:hover{
+  background-color: $secondary;
+  transition: 0.25s;
 }
 header .account-menu-content a {
   color: $dark;
