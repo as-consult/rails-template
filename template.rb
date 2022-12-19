@@ -251,7 +251,8 @@ run "tar -xf mailers.tar.gz --directory app/ && rm mailers.tar.gz"
 
 # Seeds
 ########################################
-run "curl -L https://raw.githubusercontent.com/alexstan67/rails-template/master/seeds.rb > seeds.rb"
-run "cp seeds.rb app/db && rm seeds.rb"
-
-rails_command 'db:seed'
+after_bundle do
+  run "curl -L https://raw.githubusercontent.com/alexstan67/rails-template/master/seeds.rb > seeds.rb"
+  run "cp seeds.rb db && rm seeds.rb"
+  rails_command 'db:seed'
+end
