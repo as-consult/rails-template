@@ -101,10 +101,11 @@ after_bundle do
   ######################################
   route "root to: 'pages#home'"
 
-  # Gem Devise + user model + init
+  # Gem Devise
   ######################################
   generate('devise:install')
-  generate('devise', 'User', 'role:integer')
+  # Adding a role, first_name, last_name to user
+  generate('devise', 'User', 'role:integer', 'first_name:string', 'last_name:string')
   generate("devise:views")
   
   gsub_file(
@@ -134,7 +135,6 @@ after_bundle do
   ######################################
   # user.rb
   # extended devise with: :confirmable, :trackable, :lockable, :rememberable, :recoverable
-  # Adding a role to user
   generate(:migration, "AddDeviseOptionsToUser",  "sign_in_count:integer",
                                                   "current_sign_in_at:datetime",
                                                   "last_sign_in_at:datetime",
@@ -248,3 +248,10 @@ run "tar -xf javascript.tar.gz --directory app/ && rm javascript.tar.gz"
 ########################################
 run "curl -L https://raw.githubusercontent.com/alexstan67/rails-template/master/mailers.tar.gz > mailers.tar.gz"
 run "tar -xf mailers.tar.gz --directory app/ && rm mailers.tar.gz"
+
+# Seeds
+########################################
+run "curl -L https://raw.githubusercontent.com/alexstan67/rails-template/master/seeds.rb > seeds.rb"
+run "cp seeds.rb app/db && rm seeds.rb"
+
+rails_command 'db:seed'
