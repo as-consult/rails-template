@@ -104,7 +104,7 @@ after_bundle do
   # Gem Devise + user model + init
   ######################################
   generate('devise:install')
-  generate('devise', 'User')
+  generate('devise', 'User', 'role:integer')
   generate("devise:views")
   
   gsub_file(
@@ -140,6 +140,14 @@ after_bundle do
       devise :database_authenticatable, :registerable,
              :recoverable, :rememberable, :validatable,
              :trackable, :confirmable, :lockable
+      enum role: [ :user, :admin ]
+      after_initialize :set_default_role, if: :new_record?
+
+      private
+
+      def set_default_role
+        self.role ||= :user
+      end 
     end
     RUBY
   end 
