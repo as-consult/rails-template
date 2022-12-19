@@ -31,3 +31,5 @@ Ensure to have a "env" file at root directory containing devise confirmable emai
 
 - app/mailers/application_mailer.rb
   `default from: "from@example.com"`
+
+- Capistrano deployment setup

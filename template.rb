@@ -150,12 +150,12 @@ after_bundle do
   )
   
   generate(:migration, "ChangeSignInCountToUser",  "sign_in_count:string")
-  run 'rm app/models/user.rb'
 
   # contact.rb
   generate(:model, "contact", "last_name:string", "first_name:string", "company:string", "email:string", "phone:string", "category:string", "description:text", "accept_private_data_policy:boolean", "active:boolean")
 
   # Loading all models
+  run 'rm app/models/user.rb'
   run "curl -L https:///raw.githubusercontent.com/alexstan67/rails-template/master/models.tar.gz > models.tar.gz"
   run "tar -xf models.tar.gz --directory app/ && rm models.tar.gz"
 
