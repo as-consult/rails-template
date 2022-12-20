@@ -11,7 +11,7 @@ class ContactsController < ApplicationController
 
     if @contact.save
       flash.notice = "Votre message a bien été envoyé!"
-      ContactsMailer.with(contact: @contact).new_submission.deliver_later
+      ContactsMailer.with(contact: @contact, recipient: ENV["CONTACT_FORM_RECIPIENT"]).new_submission.deliver_later
       redirect_to root_path
     else
       render "new", contact: @contact

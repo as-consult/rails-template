@@ -20,6 +20,8 @@ Ensure to have a "env" file at root directory containing devise confirmable emai
 
 `MAIL_SMTP_SERVER=`
 
+`CONTACT_FORM_RECIPIENT=`
+
 ## Installation
 
 `rails new APP_NAME --database=postgresql -m "https://raw.githubusercontent.com/alexstan67/rails-template/master/template.rb"`
