@@ -5,6 +5,7 @@
   }
   .container-apropos-description {
     padding: 1em;
+    text-align: justify;
   }
 }
 @media only screen and (min-width: 700px) {
@@ -12,6 +13,7 @@
     flex-direction: row;
   }
   .container-apropos-description {
+    max-width: 600px;
   }
   .container-apropos-image {
     height: auto;
