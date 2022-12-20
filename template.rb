@@ -107,32 +107,51 @@ after_bundle do
   # Gem Devise
   ######################################
   generate('devise:install')
+
   # Adding a role, first_name, last_name to user
   generate('devise', 'User', 'role:integer', 'first_name:string', 'last_name:string')
   generate("devise:views")
   
-  gsub_file(
-    "app/views/devise/registrations/new.html.erb",
-    "<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>",
-    "<%= form_for(resource, as: resource_name, url: registration_path(resource_name), data: { turbo: :false }) do |f| %>"
-  )
+  # Devise init
+  gsub_file('config/initializers/devise.rb', "config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'", "config.mailer_sender = 'noreply@aerostan.com'")
+
+  # Sessions
   gsub_file(
     "app/views/devise/sessions/new.html.erb",
     "<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>",
     "<%= form_for(resource, as: resource_name, url: session_path(resource_name), data: { turbo: :false }) do |f| %>"
   )
-  link_to = <<~HTML
-    <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-  HTML
+  gsub_file("app/views/devise/sessions/new.html.erb", 
+            '<%= f.submit "Log in" %>',
+            '<%= f.submit "Log in", class: "btn btn-primary" %>')
+  
+  # Registrations
+  gsub_file(
+    "app/views/devise/registrations/new.html.erb",
+    "<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>",
+    "<%= form_for(resource, as: resource_name, url: registration_path(resource_name), data: { turbo: :false }) do |f| %>"
+  )
+  gsub_file("app/views/devise/registrations/new.html.erb", 
+            '<%= f.submit "Update" %>', 
+            '<%= f.submit "Update", class: "btn btn-success" %>')
   button_to = <<~HTML
-    <div class="d-flex align-items-center">
-      <div>Unhappy?</div>
-      <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-link" %>
+    <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+  HTML
+  link_to = <<~HTML
+    <div class="d-flex align-items-center flex-column">
+    <%= button_to "Cancel my account", registration_path(resource_name), data: { turbo: :false }, method: :delete, class: "btn btn-danger" %>
     </div>
   HTML
-  gsub_file("app/views/devise/registrations/edit.html.erb", link_to, button_to)
+  # Link_to not working here: https://github.com/hotwired/turbo-rails/issues/388
+  # So we use button_to instead
+  gsub_file("app/views/devise/registrations/edit.html.erb", button_to, link_to)
+  gsub_file("app/views/devise/registrations/edit.html.erb",
+            '<%= link_to "Back", :back %>',
+            '<div class="form-links"><%= link_to "Back", :back %></div>')
 
-  gsub_file('config/initializers/devise.rb', "config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'", "config.mailer_sender = 'noreply@aerostan.com'")
+  # Devise shared
+  prepend_file('app/views/devise/shared/_links.html.erb', '<div class="forms-links">')
+  append_file('app/views/devise/shared/_links.html.erb', '</div>')
 
   # Models
   ######################################
@@ -210,11 +229,8 @@ after_bundle do
     "  resources :contacts\n"
   end
 
-end
-  
-# Views
-########################################
-after_bundle do
+  # Views
+  ########################################
   file "app/views/shared/_alerts.html.erb"
   file "app/views/shared/_navbar.html.erb"
   run "curl -L https://raw.githubusercontent.com/alexstan67/rails-template/master/views.tar.gz > views.tar.gz"
@@ -237,31 +253,34 @@ after_bundle do
   inject_into_file "app/views/layouts/application.html.erb", :before => "</body>\n" do
    "</div>\n"
   end
-end
 
-# Javascripts
-########################################
-file "app/javascript/controllers/alerts_controller.js"
-file "app/javascript/controllers/burger_controller.js"
-file "app/javascript/controllers/account_controller.js"
-run "curl -L https://raw.githubusercontent.com/alexstan67/rails-template/master/javascript.tar.gz > javascript.tar.gz"
-run "tar -xf javascript.tar.gz --directory app/ && rm javascript.tar.gz"
+  # Javascripts
+  ########################################
+  file "app/javascript/controllers/alerts_controller.js"
+  file "app/javascript/controllers/burger_controller.js"
+  file "app/javascript/controllers/account_controller.js"
+  run "curl -L https://raw.githubusercontent.com/alexstan67/rails-template/master/javascript.tar.gz > javascript.tar.gz"
+  run "tar -xf javascript.tar.gz --directory app/ && rm javascript.tar.gz"
 
-# Mailer
-########################################
-run "curl -L https://raw.githubusercontent.com/alexstan67/rails-template/master/mailers.tar.gz > mailers.tar.gz"
-run "tar -xf mailers.tar.gz --directory app/ && rm mailers.tar.gz"
+  # Mailer
+  ########################################
+  run "curl -L https://raw.githubusercontent.com/alexstan67/rails-template/master/mailers.tar.gz > mailers.tar.gz"
+  run "tar -xf mailers.tar.gz --directory app/ && rm mailers.tar.gz"
 
-# Seeds
-########################################
-after_bundle do
+  # Seeds
+  ########################################
   run "curl -L https://raw.githubusercontent.com/alexstan67/rails-template/master/seeds.rb > seeds.rb"
   run "cp seeds.rb db && rm seeds.rb"
   rails_command 'db:seed'
-end
 
-# Capistrano config files
-########################################
-after_bundle do
+  # Capistrano config files
+  ########################################
   run "bundle exec cap install STAGES=production"
+
+  # Git
+  ########################################
+  git :init
+  git add: "."
+  git commit: "-m 'Initial commit with template https://raw.githubusercontent.com/alexstan67/rails-template/master/template.rb'"
+
 end
