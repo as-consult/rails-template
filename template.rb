@@ -150,7 +150,7 @@ after_bundle do
             '<div class="form-links"><%= link_to "Back", :back %></div>')
 
   # Devise shared
-  prepend_file('app/views/devise/shared/_links.html.erb', '<div class="forms-links">')
+  prepend_file('app/views/devise/shared/_links.html.erb', '<div class="form-links">')
   append_file('app/views/devise/shared/_links.html.erb', '</div>')
 
   # Models

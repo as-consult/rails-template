@@ -5,8 +5,10 @@
   }
 }
 @media only screen and (min-width: 700px) {
+  .container-contacts {
+    margin-bottom: 2em;
+  }
   .container-contacts h1 {
     font-size: normal;
-    text-align: left;
   }
 }

@@ -1,6 +1,9 @@
 .container-apropos {
   display: flex;
   flex-direction: column;
+  h3 {
+    text-align: left;
+  }
   .container-apropos-image {
   }
   .container-apropos-description {
