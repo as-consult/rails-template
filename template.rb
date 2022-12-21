@@ -286,6 +286,24 @@ after_bundle do
   RUBY
   append_file('Capfile', capfile)
 
+  # i18n and locales
+  ########################################
+  # Translation files
+  run "curl -L https://raw.githubusercontent.com/alexstan67/rails-template/master/locales.tar.gz > locales.tar.gz"
+  run "tar -xf locales.tar.gz --directory config/ && rm locales.tar.gz"
+
+  # Initializers
+  file "config/initializers/locale.rb"
+  locale = <<~RUBY
+  # Where the I18n library should search for translation files
+  I18n.load_path += Dir[Rails.root.join('lib', 'locale', '*.{rb,yml}')]
+  # Permitted locales available for the application
+  I18n.available_locales = [:en, :fr]
+  # Set default locale to something other than :en
+  I18n.default_locale = :fr
+  RUBY
+  append_file("config/initializers.locale.rb", locale)
+
   # Git
   ########################################
   git :init
