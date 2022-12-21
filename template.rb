@@ -302,7 +302,7 @@ after_bundle do
   # Set default locale to something other than :en
   I18n.default_locale = :fr
   RUBY
-  append_file("config/initializers.locale.rb", locale)
+  append_file("config/initializers/locale.rb", locale)
 
   # Git
   ########################################
