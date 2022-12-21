@@ -30,6 +30,9 @@ fi
 if [ -e mailers.tar.gz ]
   then echo "✅ mailers.tar.gz successfully removed"
 fi
+if [ -e db.tar.gz ]
+  then echo "✅ db.tar.gz successfully removed"
+fi
 echo -e "---"
 echo -e "Creating compressed forlders:"
 tar -czf stylesheets.tar.gz stylesheets
@@ -73,4 +76,10 @@ if [ -e mailers.tar.gz ]
   then echo "✅ mailers.tar.gz created successfully"
 else
   echo "⛔ Error for mailers.tar.gz"
+fi
+tar -czf db.tar.gz mailers
+if [ -e db.tar.gz ]
+  then echo "✅ db.tar.gz created successfully"
+else
+  echo "⛔ Error for db.tar.gz"
 fi
