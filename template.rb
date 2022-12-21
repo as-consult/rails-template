@@ -276,6 +276,15 @@ after_bundle do
   # Capistrano config files
   ########################################
   run "bundle exec cap install STAGES=production"
+  capfile = <<~RUBY
+    require 'capistrano/rails'
+    require 'capistrano/passenger'
+    require 'capistrano/rbenv'
+    require 'capistrano/rake'
+    set :rbenv_type, :user
+    set :rbenv_ruby, '3.1.3'
+  RUBY
+  append_file('Capfile', capfile)
 
   # Git
   ########################################
