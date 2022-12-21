@@ -77,7 +77,7 @@ if [ -e mailers.tar.gz ]
 else
   echo "⛔ Error for mailers.tar.gz"
 fi
-tar -czf db.tar.gz mailers
+tar -czf db.tar.gz db
 if [ -e db.tar.gz ]
   then echo "✅ db.tar.gz created successfully"
 else

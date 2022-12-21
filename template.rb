@@ -270,7 +270,7 @@ after_bundle do
   # Seeds
   ########################################
   run "curl -L https://raw.githubusercontent.com/alexstan67/rails-template/master/db.tar.gz > db.tar.gz"
-  run "tar -xf db.tar.gz --directory / && rm db.tar.gz"
+  run "tar -xf db.tar.gz && rm db.tar.gz"
   rails_command 'db:seed'
 
   # Capistrano config files
