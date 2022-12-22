@@ -1,17 +1,17 @@
 <footer>
   <div class="footer-content">
     <div class="footer-content-legal">
-      <h3>Mentions légales</h3>
-        <p><%= link_to "Mentions légales", mentions_legales_index_path %></p>
-        <p><%= link_to "Politique de confidentialité", politique_confidentialite_index_path %></p>
-        <p><%= link_to "CGV", cgv_index_path %></p>
+      <h3><%= t 'shared.legal_mentions' %></h3>
+        <p><%= link_to t('shared.legal_mentions'), mentions_legales_index_path %></p>
+        <p><%= link_to t('shared.legal_privacy_policy'), politique_confidentialite_index_path %></p>
+        <p><%= link_to t('shared.terms_and_conditions'), cgv_index_path %></p>
     </div>
     <div class="footer-content-social">
-      <h3>Réseaux Sociaux</h3>
+      <h3><%= t 'shared.social' %></h3>
         <p><a href="#">LinkedIn</a></p>
         <p><a href="#">Mastodon</a></p>
         <p><a href="#">You Tube</a></p>
     </div>
   </div>
-  <p class="footer-copyright">Copyright © 2022-2023 SOCIETE, Tous droits réservés.</p>
+  <p class="footer-copyright">Copyright © 2022-2023 SOCIETE, <%= t 'shared.copyright' %></p>
 </footer>

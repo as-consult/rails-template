@@ -1,10 +1,10 @@
 <div class="container-contacts">
-  <h1>Contactez-nous, on s'occupe du reste!</h1>
+  <h1><%= t('contacts.title') %></h1>
 
   <%= form_with model: @contact, data: { turbo: false } do |f| %>
     <% if @contact.errors.any? %>
       <div class="alert-danger">
-        <p><%= pluralize(@contact.errors.count, "error") %> prohibited trip information from being processed:</p>
+        <h3 class="form-title-error"><%= t("forms.messages.errors", count: @contact.errors.count) %> </h3>
         <ul>
           <% @contact.errors.each do |error| %>
             <li><%= error.full_message %></li>
@@ -13,40 +13,40 @@
       </div>
     <% end %>
     <div class="field">
-      <%= f.label :last_name, "Nom" %>
+      <%= f.label :last_name %>
       <%= f.text_field :last_name %>
     </div>
     <div class="field">
-      <%= f.label :first_name, "Prénom" %>
+      <%= f.label :first_name %>
       <%= f.text_field :first_name %>
     </div>
     <div class="field">
-      <%= f.label :company, "Societé" %>
+      <%= f.label :company %>
       <%= f.text_field :company %>
     </div>
     <div class="field">
-      <%= f.label :email, "Email*" %>
+      <%= f.label :email %>
       <%= f.text_field :email %>
     </div>
     <div class="field">
-      <%= f.label :phone, "Tel" %>
+      <%= f.label :phone %>
       <%= f.text_field :phone %>
     </div>
     <div class="field">
-      <%= f.label :category, "Catégorie" %>
+      <%= f.label :category %>
       <%= f.select :category, Contact::CATEGORIES %>
     </div>
     <div class="field">
-      <%= f.label :description, "Description*" %>
+      <%= f.label :description %>
       <%= f.text_area :description, size: "50x10" %>
     </div>
     <div class="field">
-      <%= f.label :accept_private_data_policy, "En cochant cette case, j'accepte la politique de confientialité du site*" %>
+      <%= f.label :accept_private_data_policy, t("contacts.acceptation") %>
       <%= link_to "Politique de confidentialité", politique_confidentialite_index_path %>
       <%= f.check_box :accept_private_data_policy %>
     </div>
     <div class="actions">
-      <%= f.submit "Soumettre", class: "btn btn-success" %>
+      <%= f.submit t("forms.submit"), class: "btn btn-success" %>
     </div>
   <% end %>
 </div>

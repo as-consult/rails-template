@@ -1,13 +1,13 @@
-Soumission d'un nouveau formulaire!
+<%= t('contacts_mailer.new_submission.title') %>
 ===================================
-[<%= @contact.category %>]
+<%= t('contacts_mailer.new_submission.category') %>:<%= @contact.category %>
 ---
-Provenance: <%= @contact.email %>
-Date: <%= @contact.created_at %>
-Nom: <%= @contact.last_name %>
-Prenom: <%= @contact.first_name %>
-Tel: <%= @contact.phone %>
-Societé: <%= @contact.company %>
+<%= t('contacts_mailer.new_submission.from') %>:<%= @contact.email %>
+<%= t('contacts_mailer.new_submission.date') %>:<%= l @contact.created_at %>
+<%= t('contacts_mailer.new_submission.last_name') %>:<%= @contact.last_name %>
+<%= t('contacts_mailer.new_submission.first_name') %>:<%= @contact.first_name %>
+<%= t('contacts_mailer.new_submission.phone')%>:<%= @contact.phone %>
+<%= t('contacts_mailer.new_submission.company') %>:<%= @contact.company %>
 ---
-Description: <%= @contact.description %>
+<%= t('contacts_mailer.new_submission.description') %>:<%= @contact.description %>
 ---

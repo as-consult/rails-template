@@ -4,14 +4,14 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>📢 Soumission d'un nouveau formulaire!</h1>
-    <h3>Concerne: <%= @contact.category %></h3>
-    <p>Provenance: <%= @contact.email %></p>
-    <p>Date: <%= @contact.created_at %></p>
-    <p>Nom: <%= @contact.last_name %></p>
-    <p>Prenom: <%= @contact.first_name %></p>
-    <p>Tel: <%= @contact.phone %></p>
-    <p>Societé: <%= @contact.company %></p>
-    <p>Description: <%= @contact.description %></p>
+    <h1><%= t('contacts_mailer.new_submission.title') %></h1>
+    <h3><%= t('contacts_mailer.new_submission.category') %>:<%= @contact.category %></h3>
+    <p><%= t('contacts_mailer.new_submission.from') %>:<%= @contact.email %></p>
+    <p><%= t('contacts_mailer.new_submission.date') %>:<%= l @contact.created_at %></p>
+    <p><%= t('contacts_mailer.new_submission.last_name') %>:<%= @contact.last_name %></p>
+    <p><%= t('contacts_mailer.new_submission.first_name') %>:<%= @contact.first_name %></p>
+    <p><%= t('contacts_mailer.new_submission.phone')%>:<%= @contact.phone %></p>
+    <p><%= t('contacts_mailer.new_submission.company') %>:<%= @contact.company %></p>
+    <p><%= t('contacts_mailer.new_submission.description') %>:<%= @contact.description %></p>
   </body>
 </html>

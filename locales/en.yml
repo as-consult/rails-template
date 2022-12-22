@@ -1,0 +1,61 @@
+#https://github.com/rails/rails/blob/968de9cc6d48ca026303566d7d1f437d40360820/activemodel/lib/active_model/locale/en.yml
+
+en:
+  activerecord:
+    models:
+      contact: "Contact"
+      user: "User"
+    attributes:
+      contact:
+        last_name:
+        first_name:
+        company:
+        email:
+        phone:
+        category:
+        description:
+        accept_private_data_policy: "Privacy policy:"
+        categories:
+          quotation: "Ask for quotation"
+          invoicing_problem: "Invoicing problem"
+          other: "Other"
+    errors:
+      messages:
+        blank:
+        taken:
+        invalid:
+        too_short:
+          one:
+          other:
+      models:
+        contact:
+          attributes:
+            accept_private_data_policy:
+              inclusion: "Please read and accept"
+  forms:
+    submit: "Submit"
+    messages:
+      errors:
+        one: "An error prevent from saving"
+        other: "%{count} errors prevent from saving"
+  shared:
+    sign_in:
+    sign_out:
+    sign_up:
+    account:
+    services:
+    about_us:
+    blog:
+    faq: "FAQ"
+    contact:
+    legal_mentions:
+    privacy_policy:
+    terms_and_conditions:
+    social: "Social Networks"
+    copyright: "All rights reserved"
+  contacts:
+    acceptation: "By checking this box, I agree with the privacy policy of this website"
+    privacy_policy:
+    title: "Contact us, we'll take care!"
+  pages:
+    discover_services: "Discover our services"

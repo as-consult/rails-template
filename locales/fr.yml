@@ -1,0 +1,61 @@
+#https://github.com/rails/rails/blob/968de9cc6d48ca026303566d7d1f437d40360820/activemodel/lib/active_model/locale/en.yml
+
+fr:
+  activerecord:
+    models:
+      contact: "Contact"
+      user: "utilisateur"
+    attributes:
+      contact:
+        last_name: "Nom"
+        first_name: "Prénom"
+        company: "Societé"
+        email: "Courriel"
+        phone: "Téléphone"
+        category: "Catégorie"
+        description: "Description"
+        accept_private_data_policy: "Politique de confidentialité:"
+        categories:
+          quotation: "Demande de devis"
+          invoicing_problem: "Problème de facturation"
+          other: "Autre"
+    errors:
+      messages:
+        blank: "ne peut pas être vide"
+        taken: "a déjà été pris"
+        invalid: "n'est pas valide"
+        too_short:
+          one: "est trop court (minimum de 1 caractère)"
+          other: "est trop court (minimum de %{count} caractères)"
+      models:
+        contact:
+          attributes:
+            accept_private_data_policy:
+              inclusion: "Merci de la lire et l'accepter"
+  forms:
+    submit: "Soumettre"
+    messages:
+      errors:
+        one: "Une erreur empêche l'enregistrement"
+        other: "%{count} erreurs empêchent l'enregistrement"
+  shared:
+    sign_in: "S'identifier"
+    sign_out: "Déconnexion"
+    sign_up: "S'inscrire"
+    account: "Compte"
+    services: "Services"
+    about_us: "A Propos"
+    blog: "Blog"
+    faq: "FAQ"
+    contact: "Contact"
+    legal_mentions: "Mentions Légales"
+    privacy_policy: "Politique de confidentialité"
+    terms_and_conditions: "CGV"
+    social: "Réseaux Sociaux"
+    copyright: "Tous droits réservés"
+  contacts:
+    acceptation: "En cochant cette case, j'accepte la politique de confientialité du site" 
+    privacy_policy: "Politique de confidentialité"
+    title: "Contactez-nous, on s'occupe du reste!"
+  pages:
+    discover_services: "Découvrez nos services"

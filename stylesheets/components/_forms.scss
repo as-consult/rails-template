@@ -4,6 +4,9 @@ form {
   flex-direction: column;
   background-color: $light;
   align-items: center;
+  .form-title-error {
+    color: #8d2d36;
+  }
   .field {
     font-weight: 400;
     font-size: 1em;
@@ -57,6 +60,5 @@ form {
     border: 1px solid $dark;
     width: fit-containt;
     max-width: 400px;
-
   }
 }

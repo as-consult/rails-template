@@ -168,7 +168,8 @@ after_bundle do
                                                   "unconfirmed_email:string",
                                                   "failed_attempts:integer",
                                                   "unlock_token:string",
-                                                  "locked_at:datetime"
+                                                  "locked_at:datetime",
+                                                  "locale"
   )
   
   generate(:migration, "ChangeSignInCountToUser",  "sign_in_count:string")

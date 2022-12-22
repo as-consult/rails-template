@@ -9,20 +9,20 @@
   </div>
   <nav>
     <div class="nav-links">
-      <p class="nav-link"><%= link_to "Services", services_index_path %></p>
-      <p class="nav-link"><%= link_to "A Propos", apropos_index_path %></p>
-      <p class="nav-link"><%= link_to "Blog", root_path %></p>
-      <p class="nav-link"><%= link_to "FAQ", faq_index_path %></p>
+      <p class="nav-link"><%= link_to t("shared.services"), services_index_path %></p>
+      <p class="nav-link"><%= link_to t("shared.about_us"), apropos_index_path %></p>
+      <p class="nav-link"><%= link_to t("shared.blog"), root_path %></p>
+      <p class="nav-link"><%= link_to t("shared.faq"), faq_index_path %></p>
       <p class="nav-button"><%= link_to "Contact", new_contact_path, class: "btn btn-primary" %></p>
       <div data-controller="account" data-action="click->account#menu">
         <p class="nav-account">&#127877;</p>
           <div class="account-menu-content" data-account-target="account">
             <% if user_signed_in? %>
-              <p><%= link_to "Account", edit_user_registration_path %></p>
-              <p><%= link_to "Sign Out", destroy_user_session_path, data: {turbo_method: :delete} %></p>
+              <p><%= link_to t("shared.account"), edit_user_registration_path %></p>
+              <p><%= link_to t("shared.sign_out"), destroy_user_session_path, data: {turbo_method: :delete} %></p>
             <% else %>
-              <p><%= link_to "Sign In", new_user_session_path %></p>
-              <p><%= link_to "Sign Up", new_user_registration_path %></p>
+              <p><%= link_to t("shared.sign_in"), new_user_session_path %></p>
+              <p><%= link_to t("shared.sign_up"), new_user_registration_path %></p>
             <% end %>
         </div>
       </div>
@@ -30,17 +30,17 @@
     <div data-controller="burger" data-action="click->burger#menu" class="burger">
       <p data-burger-target="icon">&#9477;</p>
       <div class="burger-menu-content" data-burger-target="burger">
-        <p><%= link_to "Services", services_index_path %></p>
-        <p><%= link_to "A Propos", apropos_index_path %></p>
-        <p><%= link_to "Blog", root_path %></p>
-        <p><%= link_to "FAQ", faq_index_path %></p>
-        <p><%= link_to "Contact", new_contact_path, class: "burger-divider"%></p>
+        <p><%= link_to t("shared.services"), services_index_path %></p>
+        <p><%= link_to t("shared.about_us"), apropos_index_path %></p>
+        <p><%= link_to t("shared.blog"), root_path %></p>
+        <p><%= link_to t("shared.faq"), faq_index_path %></p>
+        <p><%= link_to t("shared.contact"), new_contact_path, class: "burger-divider"%></p>
         <% if user_signed_in? %>
-          <p><%= link_to "Account", edit_user_registration_path %></p>
-          <p><%= link_to "Sign Out", destroy_user_session_path, data: {turbo_method: :delete} %></p>
+          <p><%= link_to t("shared.account"), edit_user_registration_path %></p>
+          <p><%= link_to t("shared.sign_out"), destroy_user_session_path, data: {turbo_method: :delete} %></p>
         <% else %>
-          <p><%= link_to "Sign In", new_user_session_path %></p>
-          <p><%= link_to "Sign Up", new_user_registration_path %></p>
+          <p><%= link_to t("shared.sign_in"), new_user_session_path %></p>
+          <p><%= link_to t("shared.sign_up"), new_user_registration_path %></p>
         <% end %>
       </div>
     </div>
