@@ -38,6 +38,18 @@ fr:
       errors:
         one: "Une erreur empêche l'enregistrement"
         other: "%{count} erreurs empêchent l'enregistrement"
+  time:
+    am: a.m.
+    formats:
+      default: "%a, %d %b %Y %H:%M:%S %z"
+      long: "%B %d, %Y %H:%M"
+      short: "%d %b %H:%M"
+    pm: p.m.
+  date:
+    abbr_day_names: [Dim, Lun, Mar, Mer, Jeu, Ven, Sam]
+    abbr_month_names:
+      [~, Jan, Fév, Mar, Avr, Mai, Jun, Jul, Août, Sep, Oct, Nov, Déc]
+    day_names: [Dimanche, Lundi, Mardi, Mercredi, Jeudi, Vendredi, Samedi]
   shared:
     sign_in: "S'identifier"
     sign_out: "Déconnexion"
