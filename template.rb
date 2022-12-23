@@ -102,8 +102,8 @@ end
 after_bundle do
   # config/routes.rb
   ######################################
-  route "root to: 'pages#home'"
-  route "resources: 'contacts'"
+  #route "root to: 'pages#home'"
+  #route "resources: 'contacts'"
   #inject_into_file "config/routes.rb", :after => "Rails.application.routes.draw do\n" do
   #  "  resources :contacts\n"
   #end
@@ -250,7 +250,7 @@ after_bundle do
 
   # Config
   ########################################
-  # Config folder including i18n
+  # Config folder including i18n, routes.rb
   run "curl -L https://raw.githubusercontent.com/alexstan67/rails-template/master/config.tar.gz > config.tar.gz"
   run "tar -xf config.tar.gz  && rm config.tar.gz"
 
