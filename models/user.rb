@@ -3,8 +3,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          :trackable, :confirmable, :lockable
-  enum role: [ :user, :admin ]
-  after_initialize :set_default_role, if: :new_record?
+  #enum role: [ :user, :admin ]
+  #after_initialize :set_default_role, if: :new_record?
 
   private
 

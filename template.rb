@@ -130,8 +130,7 @@ after_bundle do
                                                   "unconfirmed_email:string",
                                                   "failed_attempts:integer",
                                                   "unlock_token:string",
-                                                  "locked_at:datetime",
-                                                  "locale"
+                                                  "locked_at:datetime"
   )
   
   generate(:migration, "ChangeSignInCountToUser",  "sign_in_count:string")
@@ -163,7 +162,18 @@ after_bundle do
   # Devise Authentication update
   ######################################
   inject_into_file "app/controllers/application_controller.rb", :after => "class ApplicationController < ActionController::Base\n" do
+    <<-RUBY
+    "  before_action :configure_permitted_parameters, if: :devise_controller?\n"
     "  before_action :authenticate_user!\n"
+    "\n"
+    "  protected\n"
+    "\n"
+    "  def configure_permitted_parameters\n"
+    "    attributes = [ :last_name, :first_name ]\n"
+    "    devise_parameter_sanitizer.permit(:account_update, keys: attributes)\n"
+    "    devise_parameter_sanitizer.permit(:sign_up, keys: attributes)\n"
+    "  end\n"
+    RUBY
   end
   inject_into_file "app/controllers/pages_controller.rb", :after => "class PagesController < ApplicationController\n" do
     "  skip_before_action :authenticate_user!\n"

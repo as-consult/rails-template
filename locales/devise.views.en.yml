@@ -25,7 +25,8 @@ en:
         unconfirmed_email: Unconfirmed email
         unlock_token: Unlock token
         updated_at: Updated at
-        locale: Language
+        last_name: Last name
+        first_name: First name
         role: Role
     models:
       user:
