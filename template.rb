@@ -100,13 +100,6 @@ end
 # AFTER BUNDLE
 ########################################
 after_bundle do
-  # config/routes.rb
-  ######################################
-  #route "root to: 'pages#home'"
-  #route "resources: 'contacts'"
-  #inject_into_file "config/routes.rb", :after => "Rails.application.routes.draw do\n" do
-  #  "  resources :contacts\n"
-  #end
 
   # Gem Devise
   ######################################
@@ -120,7 +113,8 @@ after_bundle do
   gsub_file('config/initializers/devise.rb', "config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'", "config.mailer_sender = 'noreply@aerostan.com'")
 
   # Remove devise default translations
-  run 'rm app/config/locales/devise.en.yml'
+  run 'rm config/locales/devise.en.yml'
+  run 'rm config/locales/en.yml'
 
   # Models
   ######################################
