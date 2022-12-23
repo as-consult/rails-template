@@ -163,16 +163,16 @@ after_bundle do
   ######################################
   inject_into_file "app/controllers/application_controller.rb", :after => "class ApplicationController < ActionController::Base\n" do
     <<-RUBY
-    "  before_action :configure_permitted_parameters, if: :devise_controller?\n"
-    "  before_action :authenticate_user!\n"
-    "\n"
-    "  protected\n"
-    "\n"
-    "  def configure_permitted_parameters\n"
-    "    attributes = [ :last_name, :first_name ]\n"
-    "    devise_parameter_sanitizer.permit(:account_update, keys: attributes)\n"
-    "    devise_parameter_sanitizer.permit(:sign_up, keys: attributes)\n"
-    "  end\n"
+    before_action :configure_permitted_parameters, if: :devise_controller?
+    before_action :authenticate_user!
+  
+    protected
+  
+    def configure_permitted_parameters
+      attributes = [ :last_name, :first_name ]
+      devise_parameter_sanitizer.permit(:account_update, keys: attributes)
+      devise_parameter_sanitizer.permit(:sign_up, keys: attributes)
+    end
     RUBY
   end
   inject_into_file "app/controllers/pages_controller.rb", :after => "class PagesController < ApplicationController\n" do

@@ -10,7 +10,6 @@ user.last_name = "Stanescot"
 user.email = "contact@as-consult.io"
 user.role = :admin
 user.password = "password123"
-user.locale = :fr
 user.confirmed_at = Time.zone.now - 1.hour
 user.confirmation_sent_at = Time.zone.now - 2.hours
 if user.valid?
