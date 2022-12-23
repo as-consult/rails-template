@@ -33,8 +33,8 @@ fi
 if [ -e db.tar.gz ]
   then echo "✅ db.tar.gz successfully removed"
 fi
-if [ -e locales.tar.gz ]
-  then echo "✅ locales.tar.gz successfully removed"
+if [ -e config.tar.gz ]
+  then echo "✅ config.tar.gz successfully removed"
 fi
 echo -e "---"
 echo -e "Creating compressed forlders:"
@@ -86,9 +86,9 @@ if [ -e db.tar.gz ]
 else
   echo "⛔ Error for db.tar.gz"
 fi
-tar -czf locales.tar.gz locales
-if [ -e locales.tar.gz ]
-  then echo "✅ locales.tar.gz created successfully"
+tar -czf config.tar.gz config
+if [ -e config.tar.gz ]
+  then echo "✅ config.tar.gz created successfully"
 else
-  echo "⛔ Error for locales.tar.gz"
+  echo "⛔ Error for config.tar.gz"
 fi

@@ -103,6 +103,10 @@ after_bundle do
   # config/routes.rb
   ######################################
   route "root to: 'pages#home'"
+  route "resources: 'contacts'"
+  #inject_into_file "config/routes.rb", :after => "Rails.application.routes.draw do\n" do
+  #  "  resources :contacts\n"
+  #end
 
   # Gem Devise
   ######################################
@@ -114,6 +118,9 @@ after_bundle do
   
   # Devise init
   gsub_file('config/initializers/devise.rb', "config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'", "config.mailer_sender = 'noreply@aerostan.com'")
+
+  # Remove devise default translations
+  run 'rm app/config/locales/devise.en.yml'
 
   # Models
   ######################################
@@ -143,9 +150,12 @@ after_bundle do
   run "curl -L https:///raw.githubusercontent.com/alexstan67/rails-template/master/models.tar.gz > models.tar.gz"
   run "tar -xf models.tar.gz --directory app/ && rm models.tar.gz"
 
-  # Generators: db +  pages controller
+  # Generators: db
   ######################################
   rails_command 'db:drop db:create db:migrate'
+
+  # Controllers
+  ######################################
   generate(:controller, 'pages', 'home', '--skip-routes')
   generate(:controller, 'mentions-legales', 'index')
   generate(:controller, 'politique-confidentialite', 'index')
@@ -155,26 +165,10 @@ after_bundle do
   generate(:controller, 'faq', 'index')
   generate(:controller, 'contacts', 'new', '--skip-routes')
   run "rm app/controllers/contacts_controller.rb"
+  run "rm app/controllers/application_controller.rb"
   run "curl -L https:///raw.githubusercontent.com/alexstan67/rails-template/master/controllers.tar.gz > controllers.tar.gz"
   run "tar -xf controllers.tar.gz --directory app/ && rm controllers.tar.gz"
 
-
-  # Devise Authentication update
-  ######################################
-  inject_into_file "app/controllers/application_controller.rb", :after => "class ApplicationController < ActionController::Base\n" do
-    <<-RUBY
-    before_action :configure_permitted_parameters, if: :devise_controller?
-    before_action :authenticate_user!
-  
-    protected
-  
-    def configure_permitted_parameters
-      attributes = [ :last_name, :first_name ]
-      devise_parameter_sanitizer.permit(:account_update, keys: attributes)
-      devise_parameter_sanitizer.permit(:sign_up, keys: attributes)
-    end
-    RUBY
-  end
   inject_into_file "app/controllers/pages_controller.rb", :after => "class PagesController < ApplicationController\n" do
     "  skip_before_action :authenticate_user!\n"
   end
@@ -195,11 +189,6 @@ after_bundle do
   end
   inject_into_file "app/controllers/faq_controller.rb", :before => "def index\n" do
     "  skip_before_action :authenticate_user!\n"
-  end
-
-  # Update routes
-  inject_into_file "config/routes.rb", :after => "Rails.application.routes.draw do\n" do
-    "  resources :contacts\n"
   end
 
   # Views
@@ -259,11 +248,11 @@ after_bundle do
   RUBY
   append_file('Capfile', capfile)
 
-  # i18n and locales
+  # Config
   ########################################
-  # Translation files
-  run "curl -L https://raw.githubusercontent.com/alexstan67/rails-template/master/locales.tar.gz > locales.tar.gz"
-  run "tar -xf locales.tar.gz --directory config/ && rm locales.tar.gz"
+  # Config folder including i18n
+  run "curl -L https://raw.githubusercontent.com/alexstan67/rails-template/master/config.tar.gz > config.tar.gz"
+  run "tar -xf config.tar.gz  && rm config.tar.gz"
 
   # Initializers
   file "config/initializers/locale.rb"
