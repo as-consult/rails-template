@@ -115,44 +115,6 @@ after_bundle do
   # Devise init
   gsub_file('config/initializers/devise.rb', "config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'", "config.mailer_sender = 'noreply@aerostan.com'")
 
-  # Sessions
-  gsub_file(
-    "app/views/devise/sessions/new.html.erb",
-    "<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>",
-    "<%= form_for(resource, as: resource_name, url: session_path(resource_name), data: { turbo: :false }) do |f| %>"
-  )
-  gsub_file("app/views/devise/sessions/new.html.erb", 
-            '<%= f.submit "Log in" %>',
-            '<%= f.submit "Log in", class: "btn btn-primary" %>')
-  
-  # Registrations
-  gsub_file(
-    "app/views/devise/registrations/new.html.erb",
-    "<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>",
-    "<%= form_for(resource, as: resource_name, url: registration_path(resource_name), data: { turbo: :false }) do |f| %>"
-  )
-  gsub_file("app/views/devise/registrations/new.html.erb", 
-            '<%= f.submit "Update" %>', 
-            '<%= f.submit "Update", class: "btn btn-success" %>')
-  button_to = <<~HTML
-    <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-  HTML
-  link_to = <<~HTML
-    <div class="d-flex align-items-center flex-column">
-    <%= button_to "Cancel my account", registration_path(resource_name), data: { turbo: :false }, method: :delete, class: "btn btn-danger" %>
-    </div>
-  HTML
-  # Link_to not working here: https://github.com/hotwired/turbo-rails/issues/388
-  # So we use button_to instead
-  gsub_file("app/views/devise/registrations/edit.html.erb", button_to, link_to)
-  gsub_file("app/views/devise/registrations/edit.html.erb",
-            '<%= link_to "Back", :back %>',
-            '<div class="form-links"><%= link_to "Back", :back %></div>')
-
-  # Devise shared
-  prepend_file('app/views/devise/shared/_links.html.erb', '<div class="form-links">')
-  append_file('app/views/devise/shared/_links.html.erb', '</div>')
-
   # Models
   ######################################
   # user.rb
