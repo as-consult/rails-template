@@ -47,9 +47,10 @@ header .nav-button {
 header .nav-account {
   line-height: 64px;
   text-align: center;
-  width: 3em;
-  background-color: $dark;
+  width: 2em;
   cursor: pointer;
+  font-size: 1.5em;
+  color: $light;
 }
 header .nav-link a {
   color: $light;
