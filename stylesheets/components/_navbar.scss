@@ -62,6 +62,9 @@ header .nav-lang {
   margin: 0;
   padding: 0;
   align-self: center;
+  a {
+    text-decoration: none;
+  }
 }
 header .account-menu-content {
   background-color: $dark;
@@ -72,11 +75,11 @@ header .account-menu-content {
   top: 64px;
   z-index: 20;
 }
-header .account-menu-content p{
+header .account-menu-content p {
   line-height: 2em;
   transition: 0.25s;
 }
-header .account-menu-content p:hover{
+header .account-menu-content p:hover {
   background-color: $secondary;
   transition: 0.25s;
 }
