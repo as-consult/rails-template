@@ -15,8 +15,8 @@
       <p class="nav-link"><%= link_to t("shared.faq"), faq_index_path %></p>
       <p class="nav-button"><%= link_to t("shared.contact"), new_contact_path, class: "btn btn-primary" %></p>
       <ul class="nav-lang">
-        <% I18n.available_locales.each do |locale| %>
-          <li><%= link_to displayFlag(locale), root_path(locale: locale) %></li>
+        <% I18n.available_locales.each do |loc| %>
+          <li><%= link_to displayFlag(loc), root_path(locale: loc) %></li>
         <% end %>
       </ul>
 
