@@ -1,13 +1,14 @@
 <%= t('contacts_mailer.new_submission.title') %>
 ===================================
-<%= t('contacts_mailer.new_submission.category') %>:<%= @contact.category %>
+<%= t('activerecord.attributes.contact.category') %>:<%= @contact.category %>
 ---
-<%= t('contacts_mailer.new_submission.from') %>:<%= @contact.email %>
-<%= t('contacts_mailer.new_submission.date') %>:<%= l @contact.created_at %>
-<%= t('contacts_mailer.new_submission.last_name') %>:<%= @contact.last_name %>
-<%= t('contacts_mailer.new_submission.first_name') %>:<%= @contact.first_name %>
-<%= t('contacts_mailer.new_submission.phone')%>:<%= @contact.phone %>
-<%= t('contacts_mailer.new_submission.company') %>:<%= @contact.company %>
+<%= t('activerecord.attributes.contact.email') %>:<%= @contact.email %>
+<%= t('activerecord.attributes.contact.created_at') %>:<%= l @contact.created_at %>
+<%= t('activerecord.attributes.contact.last_name') %>:<%= @contact.last_name %>
+<%= t('activerecord.attributes.contact.first_name') %>:<%= @contact.first_name %>
+<%= t('activerecord.attributes.contact.phone')%>:<%= @contact.phone %>
+<%= t('activerecord.attributes.contact.company') %>:<%= @contact.company %>
 ---
-<%= t('contacts_mailer.new_submission.description') %>:<%= @contact.description %>
+<%= t('activerecord.attributes.contact.description') %>:
+<%= @contact.description %>
 ---
