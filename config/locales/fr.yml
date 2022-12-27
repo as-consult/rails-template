@@ -15,6 +15,7 @@ fr:
         category: "Catégorie"
         description: "Description"
         accept_private_data_policy: "Politique de confidentialité:"
+        created_at: "Crée le"
         categories:
           quotation: "Demande de devis"
           invoicing_problem: "Problème de facturation"
@@ -69,5 +70,9 @@ fr:
     acceptation: "En cochant cette case, j'accepte la politique de confientialité du site" 
     privacy_policy: "Politique de confidentialité"
     title: "Contactez-nous, on s'occupe du reste!"
+  contacts_mailer:
+    new_submission:
+      subject: "Nouveau formulaire! [%{category}]"
+      title: "📢 Nouvelle soumission de formulaire!"
   pages:
     discover_services: "Découvrez nos services"

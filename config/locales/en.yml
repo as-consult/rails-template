@@ -15,6 +15,7 @@ en:
         category:
         description:
         accept_private_data_policy: "Privacy policy:"
+        created_at:
         categories:
           quotation: "Ask for quotation"
           invoicing_problem: "Invoicing problem"
@@ -69,5 +70,9 @@ en:
     acceptation: "By checking this box, I agree with the privacy policy of this website"
     privacy_policy:
     title: "Contact us, we'll take care!"
+  contacts_mailer:
+    new_submission:
+      subject: "New submission! [%{category}]"
+      title: "📢 New Contact Form Submission!"
   pages:
     discover_services: "Discover our services"

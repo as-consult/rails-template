@@ -5,13 +5,13 @@
   </head>
   <body>
     <h1><%= t('contacts_mailer.new_submission.title') %></h1>
-    <h3><%= t('contacts_mailer.new_submission.category') %>:<%= @contact.category %></h3>
-    <p><%= t('contacts_mailer.new_submission.from') %>:<%= @contact.email %></p>
-    <p><%= t('contacts_mailer.new_submission.date') %>:<%= l @contact.created_at %></p>
-    <p><%= t('contacts_mailer.new_submission.last_name') %>:<%= @contact.last_name %></p>
-    <p><%= t('contacts_mailer.new_submission.first_name') %>:<%= @contact.first_name %></p>
-    <p><%= t('contacts_mailer.new_submission.phone')%>:<%= @contact.phone %></p>
-    <p><%= t('contacts_mailer.new_submission.company') %>:<%= @contact.company %></p>
-    <p><%= t('contacts_mailer.new_submission.description') %>:<%= @contact.description %></p>
+    <h3><%= t('activerecord.attributes.contact.category') %>:<%= @contact.category %></h3>
+    <p><%= t('activerecord.attributes.contact.email') %>:<%= @contact.email %></p>
+    <p><%= t('activerecord.attributes.contact.created_at') %>:<%= l @contact.created_at %></p>
+    <p><%= t('activerecord.attributes.contact.last_name') %>:<%= @contact.last_name %></p>
+    <p><%= t('activerecord.attributes.contact.first_name') %>:<%= @contact.first_name %></p>
+    <p><%= t('activerecord.attributes.contact.phone')%>:<%= @contact.phone %></p>
+    <p><%= t('activerecord.attributes.contact.company') %>:<%= @contact.company %></p>
+    <p><%= t('activerecord.attributes.contact.description') %>:<%= @contact.description %></p>
   </body>
 </html>
