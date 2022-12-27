@@ -229,6 +229,11 @@ after_bundle do
   run "tar -xf db.tar.gz && rm db.tar.gz"
   rails_command 'db:seed'
 
+  # Helpers
+  ########################################
+  run "curl -L https://raw.githubusercontent.com/alexstan67/rails-template/master/helpers.tar.gz > helpers.tar.gz"
+  run "tar -xf helpers.tar.gz --directory app/ && rm helpers.tar.gz"
+
   # Capistrano config files
   ########################################
   run "bundle exec cap install STAGES=production"

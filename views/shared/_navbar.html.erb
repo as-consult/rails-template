@@ -15,8 +15,9 @@
       <p class="nav-link"><%= link_to t("shared.faq"), faq_index_path %></p>
       <p class="nav-button"><%= link_to t("shared.contact"), new_contact_path, class: "btn btn-primary" %></p>
       <ul class="nav-lang">
-        <li><%= link_to '🇬🇧',   root_path(locale: :en) %></li>
-        <li><%= link_to '🇨🇵',   root_path(locale: :fr) %></li>
+        <% I18n.available_locales.each do |locale| %>
+          <li><%= link_to displayFlag(locale), root_path(locale: locale) %></li>
+        <% end %>
       </ul>
 
       <div data-controller="account" data-action="click->account#menu">

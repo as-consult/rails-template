@@ -36,6 +36,9 @@ fi
 if [ -e config.tar.gz ]
   then echo "✅ config.tar.gz successfully removed"
 fi
+if [ -e helpers.tar.gz ]
+  then echo "✅ helpers.tar.gz successfully removed"
+fi
 echo -e "---"
 echo -e "Creating compressed forlders:"
 tar -czf stylesheets.tar.gz stylesheets
@@ -91,4 +94,10 @@ if [ -e config.tar.gz ]
   then echo "✅ config.tar.gz created successfully"
 else
   echo "⛔ Error for config.tar.gz"
+fi
+tar -czf helpers.tar.gz helpers
+if [ -e helpers.tar.gz ]
+  then echo "✅ helpers.tar.gz created successfully"
+else
+  echo "⛔ Error for helpers.tar.gz"
 fi
