@@ -116,6 +116,11 @@ after_bundle do
   run 'rm config/locales/devise.en.yml'
   run 'rm config/locales/en.yml'
 
+  # Solve turbo-links issues with flash notice
+  inject_into_file 'config/initializers/devise.rb', :after => "# config.navigational_formats = ['*/*', :html]\n" do
+    "  config.navigational_formats = ['*/*', :html, :turbo_stream]\n"
+  end
+
   # Models
   ######################################
   # user.rb
