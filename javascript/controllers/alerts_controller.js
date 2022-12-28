@@ -9,7 +9,7 @@ export default class extends Controller {
       this.fadeOut();
     }, 5000);
     setTimeout(() => {
-      this.close();
+      this.closeAfterFadeOut();
     }, 7000);
   }
 
@@ -19,5 +19,11 @@ export default class extends Controller {
 
   close() {
     this.noticeTarget.parentNode.removeChild(this.noticeTarget);
+  }
+
+  closeAfterFadeOut() {
+    if (!this.noticeTarget.classList.contains("alert-fadeout")) {
+      this.noticeTarget.parentNode.removeChild(this.noticeTarget);
+    }
   }
 }
