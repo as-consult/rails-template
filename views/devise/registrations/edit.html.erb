@@ -47,9 +47,8 @@
 <% end %>
 
 <h3><%= t('.cancel_my_account') %></h3>
-
 <div class="d-flex align-items-center flex-column">
-<%= button_to t('.cancel_my_account'), registration_path(resource_name), data: { turbo: :false }, method: :delete, class: "btn btn-danger" %>
+  <%= link_to t('.cancel_my_account'), registration_path(resource_name), data: { turbo_method: :delete, turbo_confirm: t(".are_you_sure") }, class: "btn btn-danger" %>
 </div>
 
 <div class="form-links"><%= link_to t('devise.shared.links.back'), :back %></div>
