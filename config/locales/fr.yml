@@ -5,6 +5,7 @@ fr:
     models:
       contact: "Contact"
       user: "utilisateur"
+      blog: "Blog"
     attributes:
       contact:
         last_name: "Nom"
@@ -20,6 +21,13 @@ fr:
           quotation: "Demande de devis"
           invoicing_problem: "Problème de facturation"
           other: "Autre"
+      blog:
+        picture: "Image"
+        title: "Titre"
+        content: "Contenu html"
+        created_at: "Crée le"
+        updated_at: "Mis à jour le"
+        views: "vues"
     errors:
       messages:
         blank: "ne peut pas être vide"
@@ -44,7 +52,9 @@ fr:
     formats:
       default: "%a, %d %b %Y %H:%M:%S %z"
       long: "%B %d, %Y %H:%M"
-      short: "%d %b %H:%M"
+      short: "%d %b %Y %H:%M"
+      date_short: "%d %b %Y"
+      date_very_short: "%d %b"
     pm: p.m.
   date:
     abbr_day_names: [Dim, Lun, Mar, Mer, Jeu, Ven, Sam]
@@ -76,3 +86,27 @@ fr:
       title: "📢 Nouvelle soumission de formulaire!"
   pages:
     discover_services: "Découvrez nos services"
+  blogs:
+    buttons:
+      edit: "Modifier"
+      remove: "Supprimer"
+      back: "Retour"
+      new: "Nouveau"
+    flash:
+      created: "Billet crée!"
+      updated: "Billet mis à jour!"
+      deleted: "Billet supprimé!"
+    errors:
+      image_size: "Image doit peser moins de 5MB"
+      file_type: "Le fichier doit être une image"
+    index:
+      lecture: "lecture"
+    show:
+      last_update: "Mis à jour"
+      lecture: "lecture"
+    edit:
+      title: "Modifier un billet"
+    new:
+      title: "📎 Nouveau billet"
+    delete:
+      are_you_sure: "Etes-vous certain?"

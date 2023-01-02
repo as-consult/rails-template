@@ -8,8 +8,9 @@ run 'if [ ! -e "../env" ]; then echo "File env not found, please check README.md
 ###################################
 gem "devise"
 gem "dotenv-rails"
-gem 'whenever', '~> 1.0'
+#gem 'whenever', '~> 1.0'
 gem 'sassc-rails'
+gem 'image_processing', '~> 1.12'
 
 gem_group :development do
   gem 'capistrano-rake', require: false
@@ -144,6 +145,10 @@ after_bundle do
   # contact.rb
   generate(:model, "contact", "last_name:string", "first_name:string", "company:string", "email:string", "phone:string", "category:integer", "description:text", "accept_private_data_policy:boolean", "active:boolean")
 
+  # blog.rb
+  generate(:model, "blog", "title:string", "content:text", "picture:attachment", "views:integer")
+  generate(:migration, "AddUserRefToBlogs", "user:references")
+
   # Loading all models
   run 'rm app/models/user.rb'
   run "curl -L https:///raw.githubusercontent.com/alexstan67/rails-template/master/models.tar.gz > models.tar.gz"
@@ -163,7 +168,9 @@ after_bundle do
   generate(:controller, 'apropos', 'index')
   generate(:controller, 'faq', 'index')
   generate(:controller, 'contacts', 'new', '--skip-routes')
+  generate(:controller, 'blogs', 'index')
   run "rm app/controllers/contacts_controller.rb"
+  run "rm app/controllers/blogs_controller.rb"
   run "rm app/controllers/application_controller.rb"
   run "curl -L https:///raw.githubusercontent.com/alexstan67/rails-template/master/controllers.tar.gz > controllers.tar.gz"
   run "tar -xf controllers.tar.gz --directory app/ && rm controllers.tar.gz"

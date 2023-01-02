@@ -1,0 +1,16 @@
+.container-blog-edit {
+  h1 {
+    font-size: 2em;
+    text-align: center;
+    margin-bottom: 0.5em;
+  }
+}
+@media only screen and (min-width: 700px) {
+  .container-blog-edit {
+    h1 {
+      font-size: 3em;
+    }
+  }
+}
+  
+
