@@ -122,6 +122,10 @@ after_bundle do
     "  config.navigational_formats = ['*/*', :html, :turbo_stream]\n"
   end
 
+  # Active Storage
+  ######################################
+  rails_command 'active_storage:install'
+
   # Models
   ######################################
   # user.rb
