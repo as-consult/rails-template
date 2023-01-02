@@ -1,5 +1,6 @@
 class User < ApplicationRecord
-  has_many :blogs
+  has_many :blogs, :dependent => :delete_all
+
 # Remainings timeoutable :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
