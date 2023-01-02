@@ -270,6 +270,10 @@ after_bundle do
   RUBY
   append_file("config/initializers/locale.rb", locale)
 
+  # Readme
+  ########################################
+  run "curl -L https://raw.githubusercontent.com/alexstan67/rails-template/master/README.md > README.md"
+
   # Git
   ########################################
   git :init
