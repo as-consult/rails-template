@@ -1,0 +1,32 @@
+<div class="container-blog-show">
+  <div class="d-flex flex-row">
+    <% if user_signed_in? && current_user.role == "admin" %>
+      <%= link_to t('blogs.buttons.edit'), edit_blog_path(@blog.id), class: "btn btn-primary m-5" %>
+      <%= link_to t('blogs.buttons.remove'), @blog, data: { turbo_method: :delete, turbo_confirm: t('blogs.delete.are_you_sure') }, class: "btn btn-danger m-5" %>
+    <% end %>
+    <%= link_to t('blogs.buttons.back'), blogs_path, class: "btn btn-secondary m-5" %>
+  </div>
+  <article class="blog-show">
+    <h1><%= @blog.title %></h1>
+    <div class="blog-show-content">
+      <% if @blog.picture.attached? %>
+        <%= image_tag @blog.picture.variant(:thumb_big) %>
+      <% end %>
+    </div>
+    <div class="blog-show-details mb-10">
+      <p><%= "#{@blog.user.first_name.capitalize} #{@blog.user.last_name.capitalize}" %></p>
+      <p><%= "#{l @blog.created_at, format: :date_very_short} · #{@blog.content.scan(/\w+/).size / 250} min #{t('.lecture')}" %></p>
+    </div>
+    <div class="blog-show-content">
+      <p align="justify"><%= @blog.content.html_safe %></p>
+    </div>
+    <div class="blog-show-details mb-10 mt-5">
+      <p>
+        <%= t('.last_update') %> · 
+        <%#= @blog.updated_at.strftime("%b %e") %>
+        <%= l @blog.updated_at, format: :date_short %> · 
+        <%= "👁 #{@blog.views}" %>
+      </p>
+    </div>
+  </article>
+</div>

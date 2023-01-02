@@ -1,0 +1,32 @@
+<%= form_with model: @blog, data: { turbo: false },class: "mb-15"  do |f| %>
+  <% if @blog.errors.any? %>
+    <div class="alert-danger">
+      <h3 class="form-title-error"><%= t("forms.messages.errors", count: @blog.errors.count) %> </h3>
+      <ul>
+        <% @blog.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :picture %>
+    <%= f.file_field :picture %>
+  </div>
+
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= f.label :content %>
+    <%= f.text_area :content, size: "50x30" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit t("forms.submit"), class: "btn btn-success" %>
+  </div>
+
+<% end %>
