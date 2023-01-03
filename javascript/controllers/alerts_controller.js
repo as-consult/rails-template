@@ -5,24 +5,26 @@ export default class extends Controller {
 
   connect() {
     console.log("Alerts connected!");
-    setTimeout(() => {
+    this.myTimeOut1 = setTimeout(() => {
       this.fadeOut();
     }, 5000);
-    setTimeout(() => {
-      this.closeAfterFadeOut();
-    }, 7000);
   }
 
   fadeOut() {
     this.noticeTarget.classList.add("alert-fadeout");
+    this.myTimeOut2 = setTimeout(() => {
+      this.closeAfterFadeOut();
+    }, 2000);
   }
 
   close() {
+    clearTimeout(this.myTimeOut1);
+    clearTimeout(this.myTimeOut2);
     this.noticeTarget.parentNode.removeChild(this.noticeTarget);
   }
 
   closeAfterFadeOut() {
-    if (!this.noticeTarget.classList.contains("alert-fadeout")) {
+    if (this.noticeTarget.classList.contains("alert-fadeout")) {
       this.noticeTarget.parentNode.removeChild(this.noticeTarget);
     }
   }
