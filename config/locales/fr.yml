@@ -77,7 +77,7 @@ fr:
     social: "Réseaux Sociaux"
     copyright: "Tous droits réservés"
   contacts:
-    acceptation: "En cochant cette case, j'accepte la politique de confientialité du site" 
+    acceptation: "En cochant cette case, j'accepte la politique de confientialité du site"
     privacy_policy: "Politique de confidentialité"
     title: "Contactez-nous, on s'occupe du reste!"
   contacts_mailer:
@@ -101,6 +101,7 @@ fr:
       file_type: "Le fichier doit être une image"
     index:
       lecture: "lecture"
+      no_posts_yet: "📌 Pas de billets pour l'instant!"
     show:
       last_update: "Mis à jour"
       lecture: "lecture"

@@ -101,6 +101,7 @@ en:
       file_type: "Filetype should be an image"
     index:
       lecture: "read"
+      no_posts_yet: "📌 No posts yest!"
     show:
       last_update: "Updated"
       lecture: "read"

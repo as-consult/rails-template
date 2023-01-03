@@ -6,7 +6,7 @@
     <%= link_to t('blogs.buttons.back'), root_path, class: "btn btn-secondary m-5" %>
   </div>
   <% if @blogs.count == 0 %>
-    <p>No posts yet</p>
+    <p class="ml-5"><%= t('blogs.index.no_posts_yet') %></p>
   <% else %>
     <div class="blog-elements">
     <% @blogs.each do | blog | %>
