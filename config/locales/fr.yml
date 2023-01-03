@@ -80,6 +80,7 @@ fr:
     acceptation: "En cochant cette case, j'accepte la politique de confientialité du site"
     privacy_policy: "Politique de confidentialité"
     title: "Contactez-nous, on s'occupe du reste!"
+    notice_send_ok: "Your message has been sent!"
   contacts_mailer:
     new_submission:
       subject: "Nouveau formulaire! [%{category}]"

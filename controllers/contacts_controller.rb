@@ -10,7 +10,7 @@ class ContactsController < ApplicationController
     @contact.active = true  #False would mean not accepting any emails from company
 
     if @contact.save
-      flash.notice = "Votre message a bien été envoyé!"
+      flash.notice = t('contacts.notice_send_ok')
       ContactsMailer.with(contact: @contact, recipient: ENV["CONTACT_FORM_RECIPIENT"]).new_submission.deliver_later
       redirect_to root_path
     else
