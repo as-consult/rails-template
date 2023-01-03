@@ -26,7 +26,12 @@
             <%= link_to blog.title, blog_path(blog.id) %>
           </div>
           <div class="blog-element-description-details">
-            <p><%= "#{blog.created_at.strftime("%b %e")} · #{blog.content.length / 275} min #{t('.lecture')}" %></p>
+            <p>
+              <%= "#{blog.created_at.strftime("%b %e")} · #{blog.content.length / 275} min #{t('.lecture')}" %>
+              <% if blog.views >= 20 %>
+                <%= "· 👁 #{blog.views}" %>
+              <% end %>
+            </p>
           </div>
         </div>
       </article>

@@ -24,8 +24,10 @@
       <p>
         <%= t('.last_update') %> · 
         <%#= @blog.updated_at.strftime("%b %e") %>
-        <%= l @blog.updated_at, format: :date_short %> · 
-        <%= "👁 #{@blog.views}" %>
+        <%= l @blog.updated_at, format: :date_short %>
+        <% if @blog.views >= 20 %>
+          <%= " · 👁 #{@blog.views}" %>
+        <% end %>
       </p>
     </div>
   </article>
