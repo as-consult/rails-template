@@ -153,6 +153,9 @@ after_bundle do
   generate(:model, "blog", "title:string", "content:text", "picture:attachment", "views:integer")
   generate(:migration, "AddUserRefToBlogs", "user:references")
 
+  # faq.rb
+  generate(:model, "faq", "question:string", "answer:text", "lang:string", "rank:integer")
+
   # Loading all models
   run 'rm app/models/user.rb'
   run "curl -L https:///raw.githubusercontent.com/alexstan67/rails-template/master/models.tar.gz > models.tar.gz"
@@ -170,11 +173,12 @@ after_bundle do
   generate(:controller, 'cgv', 'index')
   generate(:controller, 'services', 'index')
   generate(:controller, 'apropos', 'index')
-  generate(:controller, 'faq', 'index')
+  generate(:controller, 'faqs', 'index')
   generate(:controller, 'contacts', 'new', '--skip-routes')
   generate(:controller, 'blogs', 'index')
   run "rm app/controllers/contacts_controller.rb"
   run "rm app/controllers/blogs_controller.rb"
+  run "rm app/controllers/faq_controller.rb"
   run "rm app/controllers/application_controller.rb"
   run "curl -L https:///raw.githubusercontent.com/alexstan67/rails-template/master/controllers.tar.gz > controllers.tar.gz"
   run "tar -xf controllers.tar.gz --directory app/ && rm controllers.tar.gz"
