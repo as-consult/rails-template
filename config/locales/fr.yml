@@ -112,3 +112,9 @@ fr:
       title: "📎 Nouveau billet"
     delete:
       are_you_sure: "Etes-vous certain?"
+  faqs:
+    index:
+      title: "Questions Fréquements Posées"
+      title_additional_question: "Vous avez d'autres questions?"
+      additional_question: "✨ Vous avez des questions additionnelles? Nous sommes là pour y répondre! 😉"
+      button_question: "Poser votre question"

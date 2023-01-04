@@ -112,3 +112,9 @@ en:
       title: "📎 New post"
     delete:
       are_you_sure: "Are you sure?"
+  faqs:
+    index:
+      title: "Frequently Asked Questions"
+      title_additional_question: "You may have further questions?"
+      additional_question: "✨ You have additional questions? We are here to answer them! 😉"
+      button_question: "Ask your question"

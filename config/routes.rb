@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     resources :blogs
     devise_for :users
     get 'apropos/index'
-    get 'faq/index'
+    get 'faqs/index'
     get 'services/index'
     get 'cgv/index'
     get 'politique_confidentialite/index'

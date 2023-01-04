@@ -1,0 +1,48 @@
+<!-- ☒ -->
+<div class="container-faq">
+  <h1><%= t('.title') %></h1>
+  <section class="container-faq-elements" data-controller="faq">
+    <% @faqs.each_with_index do | faq, index | %>
+      <div class="container-faq-element mb-5">
+        <div class="container-faq-element-header">
+          <div id="<%= index + 1 %>" class="container-faq-element-header-symbol" data-action="click->faq#show" >
+            <p>&#x25B6;</p> 
+          </div>
+          <div class="container-faq-element-header-question">
+            <p><%= faq.question %></p>
+          </div>
+        </div>
+        <div id="<%= index + 1 %>" class="container-faq-element-answer" data-faq-target="answer" >
+          <em><%= faq.answer %></em>
+        </div>
+      </div>
+  <% end %>
+  </section>
+  <section class="mt-20">
+    <h1><%= t('.title_additional_question') %></h1>
+    <p><%= t(".additional_question") %></p>
+    <p ><%= link_to t(".button_question"), new_contact_path, class: "btn btn-success" %></p>
+  </section>
+</div>
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [{
+      "@type": "Question",
+      "name": "What is the return policy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "<p>Most unopened items in new condition and returned within <b>90 days</b> will receive a refund or exchange. Some items have a modified return policy noted on the receipt or packing slip. Items that are opened or damaged or do not have a receipt may be denied a refund or exchange. Items purchased online or in-store may be returned to any store.</p><p>Online purchases may be returned via a major parcel carrier. <a href=https://example.com/returns> Click here </a> to initiate a return.</p>"
+      }
+    }, {
+      "@type": "Question",
+      "name": "How long does it take to process a refund?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We will reimburse you for returned items in the same way you paid for them. For example, any amounts deducted from a gift card will be credited back to a gift card. For returns by mail, once we receive your return, we will process it within 4–5 business days. It may take up to 7 days after we process the return to reflect in your account, depending on your financial institution's processing time."
+      }
+    }]
+  }
+  </script>
