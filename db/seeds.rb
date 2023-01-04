@@ -38,14 +38,14 @@ if Rails.env.development?
   puts "Cleaning blogs..."
   Blog.destroy_all
   # Create blog 1
-  blog = Blog.new(title: "Mon premier Billet!", content: "Hello World</br>How are you today?", views: 52, user_id: User.last.id, created_at: DateTime.current, updated_at: DateTime.current)
+  blog = Blog.new(title: "Blog1", content: "Hello World</br>How are you today?", views: 52, user_id: User.last.id, created_at: DateTime.current, updated_at: DateTime.current)
   if blog.save!
     puts "Blog#1 cretaed in test"
   else
     puts "Error creation Blog#1 in test"
   end
   # Create blog 2
-  blog = Blog.new(title: "Et v'la, un autre!", content: "Hello World</br>Still nothing to say!", views: 2, user_id: User.last.id, created_at: DateTime.current, updated_at: DateTime.current)
+  blog = Blog.new(title: "Blog2", content: "Hello World</br>Still nothing to say!", views: 2, user_id: User.last.id, created_at: DateTime.current, updated_at: DateTime.current)
   if blog.save!
     puts "Blog#2 cretaed in test"
   else
@@ -63,9 +63,9 @@ if Rails.env.development?
                  lang: "fr",
                  rank: 1)
   if faq.save!
-    puts "FAQ#1 created in test"
+    puts "FAQ#1 -fr- created in test"
   else
-    puts "Error creation FAQ#1 in test"
+    puts "Error creation FAQ#1 -fr- in test"
   end
   # Create FAQ2
   faq = Faq.new( question: "Quels sont vos délais d'envoi des achats?", 
@@ -73,9 +73,9 @@ if Rails.env.development?
                  lang: "fr",
                  rank: 2)
   if faq.save!
-    puts "FAQ#2 created in test"
+    puts "FAQ#2 -fr- created in test"
   else
-    puts "Error creation FAQ#2 in test"
+    puts "Error creation FAQ#2 -fr- in test"
   end
   # Create FAQ3
   faq = Faq.new( question: "Pourquoi avez-vous arrêté de commercialiser le produit X?", 
@@ -83,8 +83,39 @@ if Rails.env.development?
                  lang: "fr",
                  rank: 3)
   if faq.save!
-    puts "FAQ#3 created in test"
+    puts "FAQ#3 -fr- created in test"
   else
-    puts "Error creation FAQ#3 in test"
+    puts "Error creation FAQ#3 -fr- in test"
+  end
+   # Create FAQ1
+  faq = Faq.new( question: "Why is there no refund available?", 
+                 answer: "In finibus vestibulum pretium. Nunc vel suscipit ligula. Nullam orci orci, sagittis ut egestas nec, viverra nec diam. Vivamus commodo nibh nulla, nec interdum nisi semper ut. Vestibulum lacinia, felis eget aliquam convallis, urna enim vulputate felis, eu porta purus lacus et sapien. Aliquam convallis in dui vitae pellen tesque. Integer sagittis semper vestibulum.",
+                 lang: "en",
+                 rank: 1)
+  if faq.save!
+    puts "FAQ#1 -en- created in test"
+  else
+    puts "Error creation FAQ#1 -en- in test"
+  end
+  # Create FAQ2
+  faq = Faq.new( question: "What are your delivery times for purchases?", 
+                 answer: "In finibus vestibulum pretium. Nunc vel suscipit ligula. Nullam orci orci, sagittis ut egestas nec, viverra nec diam. Vivamus commodo nibh nulla, nec interdum nisi semper ut. Vestibulum lacinia, felis eget aliquam convallis, urna enim vulputate felis, eu porta purus lacus et sapien. Aliquam convallis in dui vitae pellen tesque. Integer sagittis semper vestibulum.",
+                 lang: "en",
+                 rank: 2)
+  if faq.save!
+    puts "FAQ#2 -en- created in test"
+  else
+    puts "Error creation FAQ#2 -en- in test"
+  end
+  # Create FAQ3
+  faq = Faq.new( question: "Why did you stop distributing Product X?", 
+                 answer: "In finibus vestibulum pretium. Nunc vel suscipit ligula. Nullam orci orci, sagittis ut egestas nec, viverra nec diam. Vivamus commodo nibh nulla, nec interdum nisi semper ut. Vestibulum lacinia, felis eget aliquam convallis, urna enim vulputate felis, eu porta purus lacus et sapien. Aliquam convallis in dui vitae pellen tesque. Integer sagittis semper vestibulum.",
+                 lang: "en",
+                 rank: 3)
+  if faq.save!
+    puts "FAQ#3 -en- created in test"
+  else
+    puts "Error creation FAQ#3 -en- in test"
   end
 end
+

@@ -178,7 +178,7 @@ after_bundle do
   generate(:controller, 'blogs', 'index')
   run "rm app/controllers/contacts_controller.rb"
   run "rm app/controllers/blogs_controller.rb"
-  run "rm app/controllers/faq_controller.rb"
+  run "rm app/controllers/faqs_controller.rb"
   run "rm app/controllers/application_controller.rb"
   run "curl -L https:///raw.githubusercontent.com/alexstan67/rails-template/master/controllers.tar.gz > controllers.tar.gz"
   run "tar -xf controllers.tar.gz --directory app/ && rm controllers.tar.gz"
@@ -199,9 +199,6 @@ after_bundle do
     "  skip_before_action :authenticate_user!\n"
   end
   inject_into_file "app/controllers/apropos_controller.rb", :before => "def index\n" do
-    "  skip_before_action :authenticate_user!\n"
-  end
-  inject_into_file "app/controllers/faq_controller.rb", :before => "def index\n" do
     "  skip_before_action :authenticate_user!\n"
   end
 
