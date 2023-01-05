@@ -226,6 +226,7 @@ after_bundle do
   inject_into_file "app/views/layouts/application.html.erb", :before => "</body>\n" do
    "</div>\n"
   end
+  gsub_file("app/views/layouts/application.html.erb","<html>", '<html lang="<%= I18n.locale %>">')
 
   # Javascripts
   ########################################
