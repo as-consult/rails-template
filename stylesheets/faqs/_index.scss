@@ -23,6 +23,7 @@
           font-size: 1em;
         }
         .container-faq-element-header-question {
+          padding-left: 0.5em;
           flex-grow: 4;
           margin-left: 0.5em;
           font-size: 0.8em;
@@ -59,6 +60,7 @@
       .container-faq-element {
         .container-faq-element-header {
           .container-faq-element-header-question {
+            padding-left: 1em;
             font-size: 1em;
           }
         }
