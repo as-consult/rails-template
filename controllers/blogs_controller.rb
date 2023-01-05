@@ -8,7 +8,11 @@ class BlogsController < ApplicationController
   # GET blogs/1
   def show
     @blog = Blog.find_by_id(params[:id])
-    @blog.increase_views
+    # A cookie is set to know if we have already viewed this page or not
+    if cookies[params[:id]].nil?
+      @blog.increase_views
+      cookies[params[:id]] = 1
+    end
   end
 
   # GET blogs/new
