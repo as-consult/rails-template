@@ -1,0 +1,18 @@
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+    <% @faqs.each do | faq | %>
+    {
+      "@type": "Question",
+      "name": "<%= faq.question %>",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "<%= faq.answer %>"
+      }
+    },
+    <% end %>
+    ]
+  }
+</script>
