@@ -12,7 +12,7 @@
           </div>
         </div>
         <div id="<%= index + 1 %>" class="container-faq-element-answer" data-faq-target="answer" >
-          <em><%= faq.answer %></em>
+          <em><%= faq.answer.html_safe %></em>
         </div>
       </div>
   <% end %>
