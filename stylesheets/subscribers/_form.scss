@@ -1,0 +1,33 @@
+.container-newsletter {
+  min-height: 100px;
+  background-color: $primary;
+  color: $light;
+  padding: 1em;
+  h1 {
+    text-align: center;
+    color: $light;
+  }
+  p {
+    text-align: center;
+    font-size: 1.5em;
+  }
+  form {
+    color: $light;
+    box-shadow: none;
+    background-color: $primary;
+    .field {
+      text-align: center;
+    }
+  }
+}
+@media only screen and (min-width: 700px) {
+  .container-newsletter {
+    form {
+      background-color: $primary;
+      border: 1px solid $light;
+      .field {
+        text-align: center;
+      }
+    }
+  }
+}

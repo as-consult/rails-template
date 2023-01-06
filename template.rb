@@ -32,6 +32,9 @@ run "tar -xf images.tar.gz --directory app/assets && rm images.tar.gz"
 # config/environments/development.rb
 ########################################
 environment 'config.action_mailer.default_url_options = { host: "http://localhost:3000" }', env: 'development'
+
+# config/environments/production.rb
+########################################
 environment 'config.action_mailer.default_url_options = { host: "http://TODO_PUT_YOUR_DOMAIN_HERE", :protocol => "http" }', env: 'production'
 
 # config/environment.rb
@@ -156,6 +159,9 @@ after_bundle do
   # faq.rb
   generate(:model, "faq", "question:string", "answer:text", "lang:string", "rank:integer")
 
+  # newsletter.rb
+  generate(:model, "subscriber", "name:string", "email:string", "accept_private_data_policy:boolean")
+
   # Loading all models
   run 'rm app/models/user.rb'
   run "curl -L https:///raw.githubusercontent.com/alexstan67/rails-template/master/models.tar.gz > models.tar.gz"
@@ -176,6 +182,7 @@ after_bundle do
   generate(:controller, 'faqs', 'index')
   generate(:controller, 'contacts', 'new', '--skip-routes')
   generate(:controller, 'blogs', 'index')
+  generate(:controller, 'subscribers', 'create')
   run "rm app/controllers/contacts_controller.rb"
   run "rm app/controllers/blogs_controller.rb"
   run "rm app/controllers/faqs_controller.rb"

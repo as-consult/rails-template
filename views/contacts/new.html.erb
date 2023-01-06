@@ -42,7 +42,7 @@
     </div>
     <div class="field">
       <%= f.label :accept_private_data_policy, t("contacts.acceptation") %>
-      <%= link_to "Politique de confidentialité", politique_confidentialite_index_path %>
+      <%= link_to t('contacts.privacy_policy'), politique_confidentialite_index_path %>
       <%= f.check_box :accept_private_data_policy %>
     </div>
     <div class="actions">
