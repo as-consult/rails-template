@@ -28,6 +28,10 @@ en:
         created_at:
         updated_at:
         views:
+      subscriber:
+        name: "Name"
+        email: "Email"
+        accept_private_data_policy: "Privacy policy:"
     errors:
       messages:
         blank:
@@ -118,3 +122,13 @@ en:
       title_additional_question: "You may have further questions?"
       additional_question: "✨ You have additional questions? We are here to answer them! 😉"
       button_question: "Ask your question"
+  subscribers:
+    flash:
+      register_ok: "You successfully subscribed to our Newsletter!"
+      register_nok: "A problem occured while Newsletter subscription. Please complete all fields."
+    form:
+      acceptation: "By checking this box, I agree with the privacy policy of this website"
+      subscribe: "Subscribe to our Newsletter!"
+      thanks_sign_up: "Thanks having subscribed to our Newsletter!"
+      submit: "Submit"
+      privacy_policy: "Privacy Policy"

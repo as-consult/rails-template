@@ -234,6 +234,7 @@ after_bundle do
    "</div>\n"
   end
   gsub_file("app/views/layouts/application.html.erb","<html>", '<html lang="<%= I18n.locale %>">')
+  run "rm app/views/subscribers/create.html.erb"
 
   # Javascripts
   ########################################

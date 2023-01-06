@@ -28,6 +28,10 @@ fr:
         created_at: "Crée le"
         updated_at: "Mis à jour le"
         views: "vues"
+      subscriber:
+        name: "Prénom"
+        email: "Courriel"
+        accept_private_data_policy: "Politique de confidentialité:"
     errors:
       messages:
         blank: "ne peut pas être vide"
@@ -118,3 +122,13 @@ fr:
       title_additional_question: "Vous avez d'autres questions?"
       additional_question: "✨ Vous avez des questions additionnelles? Nous sommes là pour y répondre! 😉"
       button_question: "Poser votre question"
+  subscribers:
+    flash:
+      register_ok: "Vous êtes bien enregistré à notre Newsletter!"
+      register_nok: "Echec de l'enregistrement à la newsletter. Veuillez compléter tous les champs."
+    form:
+      acceptation: "En cochant vous acceptez de recevoir des courriels conformément à notre "
+      subscribe: "Abonnez-vous à notre Newsletter!"
+      thanks_sign_up: "Merci de vous être inscris à notre Newsletter!"
+      submit: "Soumettre"
+      privacy_policy: "Politique de confidentialité"
