@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     get 'politique_confidentialite/index'
     get 'mentions_legales/index'
     post '/', to: 'subscribers#create'
+    get 'subscribers/unsubscribe/:unsubscribe_hash', to: 'subscribers#unsubscribe', as: 'unsubscribe'
     root to: 'pages#home'
   end
 

@@ -3,7 +3,7 @@
     <p><%= t('subscribers.form.thanks_sign_up')%></p>
   <% else %>
     <h1><%= t('subscribers.form.subscribe') %></h1>
-    <%= form_with model: @subscriber, url: "/", data: { turbo: false } do |f| %>
+    <%= form_with model: @subscriber, url: root_path, data: { turbo: false } do |f| %>
       <div class="field">
         <%= f.text_field :name, placeholder: t('activerecord.attributes.subscriber.name') %>
       </div>

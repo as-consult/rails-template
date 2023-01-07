@@ -160,7 +160,7 @@ after_bundle do
   generate(:model, "faq", "question:string", "answer:text", "lang:string", "rank:integer")
 
   # newsletter.rb
-  generate(:model, "subscriber", "name:string", "email:string", "accept_private_data_policy:boolean")
+  generate(:model, "subscriber", "name:string", "email:string", "accept_private_data_policy:boolean", "unsubscribe_hash:string")
 
   # Loading all models
   run 'rm app/models/user.rb'
@@ -246,6 +246,7 @@ after_bundle do
 
   # Mailer
   ########################################
+  generate(:mailer, "subscribers", "subscribed")
   run "curl -L https://raw.githubusercontent.com/alexstan67/rails-template/master/mailers.tar.gz > mailers.tar.gz"
   run "tar -xf mailers.tar.gz --directory app/ && rm mailers.tar.gz"
 

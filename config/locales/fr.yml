@@ -132,3 +132,9 @@ fr:
       thanks_sign_up: "Merci de vous être inscris à notre Newsletter!"
       submit: "Soumettre"
       privacy_policy: "Politique de confidentialité"
+    unsubscribe:
+      email_unsubscribe: "a été désinscrit de notre Newsletter."
+      see_you: "A bienttôt de la part de toute l'équipe!"
+  subscribers_mailer:
+    subscribed:
+      subject: "Vous êtes bien enregistré à notre Newsletter!"

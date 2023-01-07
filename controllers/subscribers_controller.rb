@@ -6,6 +6,7 @@ class SubscribersController < ApplicationController
     if @subscriber.save
       cookies[:saved_subscriber] = true
       flash.notice = t("subscribers.flash.register_ok")
+      SubscribersMailer.with(subscriber: @subscriber, link: unsubscribe_url(@subscriber.unsubscribe_hash)).subscribed.deliver_later
       redirect_to root_path
     else
       flash.alert = t("subscribers.flash.register_nok")
@@ -13,9 +14,15 @@ class SubscribersController < ApplicationController
     end
   end
 
+  def unsubscribe
+    record = Subscriber.find_by(unsubscribe_hash: params[:unsubscribe_hash])
+    @email = record.email
+    record.destroy
+  end
+
   private
 
   def subscriber_input_params
-    params.permit(:name, :email, :accept_private_data_policy)
+    params.permit(:name, :email, :accept_private_data_policy, :unsubscribe_hash)
   end
 end
