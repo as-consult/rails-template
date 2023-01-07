@@ -18,6 +18,7 @@ class SubscribersController < ApplicationController
     record = Subscriber.find_by(unsubscribe_hash: params[:unsubscribe_hash])
     @email = record.email
     record.destroy
+    cookies.delete :saved_subscriber
   end
 
   private
