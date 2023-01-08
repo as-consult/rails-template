@@ -1,0 +1,53 @@
+.container-products {
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+}
+.container-product-card {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  align-items: center;
+
+  .container-product-card-image {
+    background-image: url(http://unsplash.it/390/300);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 300px;
+    width: 100%;
+  }
+  .container-product-card-content {
+    height: calc(100vh - 300px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    h1 {
+      text-align: center;
+      margin-bottom: 0;
+    }
+    .container-product-card-content-title {
+      border-bottom: 2px solid $primary;
+    }
+  }
+}
+@media only screen and (min-width: 700px) {
+  .container-product-card {
+    max-width: 1000px;
+    margin: auto;
+    margin-bottom: 1em;
+    flex-direction: row;
+    .container-product-card-content {
+      min-height: 300px;
+      min-width: 400px;
+      height: 100%;
+      border: 1px solid $secondary;
+    }
+    .container-product-card-image {
+      background-image: url(http://unsplash.it/600/300);
+      min-height: 300px;
+    }
+  }
+  .row-reverse {
+    flex-direction: row-reverse;
+  }
+}

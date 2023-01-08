@@ -1,62 +1,9 @@
 <article class="home-main">
   <h1>Lorem ipsum dolor sit amet</h1>
   <h3>Mauris placerat, magna ut sollicitudin tincidunt, ante nulla accumsan nisl</h3>
-  <p><%= link_to t('pages.discover_services'), root_path, class: "btn btn-primary" %></p>
+  <p><%= link_to t('pages.discover_services'), services_index_path, class: "btn btn-primary" %></p>
   <a class="home-arrow" href="#service_1">▽</a>
 </article>
-<article id="home-products">
-  <div id="service_1" class="home-product-card"> 
-    <div class="home-product-card-image"></div>
-    <div class="home-product-card-content"> 
-      <div class="home-product-card-content-title">
-        <h1>Service 1</h1>
-      </div>
-      <div class="home-product-card-content-description">
-        <ul>
-          <li>Aliquam eget arcu in risus sagittis efficitur in ac nisi.</li>
-          <li>In ac ante cursus, posuere risus ullamcorper, mollis purus.</li>
-          <li>In ut lacus quis lectus accumsan pellentesque in a augue.</li>
-          <li>Ut auctor risus ut diam tincidunt posuere.</li>
-          <li>Integer eleifend risus in tristique euismod.</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-  <div id="service_2" class="home-product-card row-reverse"> 
-    <div class="home-product-card-image"></div>
-    <div class="home-product-card-content"> 
-      <div class="home-product-card-content-title">
-        <h1>Service 2</h1>
-      </div>
-      <div class="home-product-card-content-description">
-        <ul>
-          <li>Aliquam eget arcu in risus sagittis efficitur in ac nisi.</li>
-          <li>In ac ante cursus, posuere risus ullamcorper, mollis purus.</li>
-          <li>In ut lacus quis lectus accumsan pellentesque in a augue.</li>
-          <li>Ut auctor risus ut diam tincidunt posuere.</li>
-          <li>Integer eleifend risus in tristique euismod.</li>
-          <li>Donec viverra nisl imperdiet odio aliquam convallis.</li>
-          <li>Vestibulum in ex fermentum, consectetur dolor sit amet, posuere nulla.</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-  <div id="service_3" class="home-product-card"> 
-    <div class="home-product-card-image"></div>
-    <div class="home-product-card-content"> 
-      <div class="home-product-card-content-title">
-        <h1>Service 3</h1>
-      </div>
-      <div class="home-product-card-content-description">
-        <ul>
-          <li>Aliquam eget arcu in risus sagittis efficitur in ac nisi.</li>
-          <li>In ac ante cursus, posuere risus ullamcorper, mollis purus.</li>
-          <li>In ut lacus quis lectus accumsan pellentesque in a augue.</li>
-          <li>Ut auctor risus ut diam tincidunt posuere.</li>
-          <li>Integer eleifend risus in tristique euismod.</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</article>
+
+<%= render "services/services_main" %>
 <%= render "subscribers/form" %>
