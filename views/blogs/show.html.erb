@@ -10,7 +10,7 @@
     <h1><%= @blog.title %></h1>
     <div class="blog-show-content">
       <% if @blog.picture.attached? %>
-        <%= image_tag @blog.picture.variant(:thumb_big) %>
+        <%= link_to image_tag(@blog.picture.variant(:thumb_big)), @blog.picture, target: :_blank %>
       <% end %>
     </div>
     <div class="blog-show-details mb-10">
