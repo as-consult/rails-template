@@ -7,7 +7,6 @@ class ContactsController < ApplicationController
 
   def create
     @contact = Contact.new(contact_input_params)
-    @contact.active = true  #False would mean not accepting any emails from company
 
     if @contact.save
       flash.notice = t('contacts.notice_send_ok')
@@ -21,7 +20,7 @@ class ContactsController < ApplicationController
   private
 
   def contact_input_params
-    params.require(:contact).permit(:first_name, :last_name, :company, :email, :phone, :category, :description, :accept_private_data_policy, :active)
+    params.require(:contact).permit(:first_name, :last_name, :company, :email, :phone, :category, :description, :accept_private_data_policy)
 
   end
 end
