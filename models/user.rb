@@ -7,6 +7,8 @@ class User < ApplicationRecord
          :trackable, :confirmable, :lockable
   enum role: [ :user, :admin ]
   after_initialize :set_default_role, if: :new_record?
+  validates :last_name, presence: true
+  validates :first_name, presence: true
 
   private
 
