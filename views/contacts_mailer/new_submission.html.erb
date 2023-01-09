@@ -7,7 +7,7 @@
     <h1><%= t('contacts_mailer.new_submission.title') %></h1>
     <h3><%= t('activerecord.attributes.contact.category') %>:<%= @contact.category %></h3>
     <p><%= t('activerecord.attributes.contact.email') %>:<%= @contact.email %></p>
-    <p><%= t('activerecord.attributes.contact.created_at') %>:<%= l @contact.created_at %></p>
+    <p><%= t('activerecord.attributes.contact.created_at') %>:<%= l @contact.created_at, format: :short %></p>
     <p><%= t('activerecord.attributes.contact.last_name') %>:<%= @contact.last_name %></p>
     <p><%= t('activerecord.attributes.contact.first_name') %>:<%= @contact.first_name %></p>
     <p><%= t('activerecord.attributes.contact.phone')%>:<%= @contact.phone %></p>
