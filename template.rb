@@ -255,12 +255,6 @@ after_bundle do
   run "curl -L https://raw.githubusercontent.com/alexstan67/rails-template/master/mailers.tar.gz > mailers.tar.gz"
   run "tar -xf mailers.tar.gz --directory app/ && rm mailers.tar.gz"
 
-  # Seeds
-  ########################################
-  run "curl -L https://raw.githubusercontent.com/alexstan67/rails-template/master/db.tar.gz > db.tar.gz"
-  run "tar -xf db.tar.gz && rm db.tar.gz"
-  rails_command 'db:seed'
-
   # Helpers
   ########################################
   run "curl -L https://raw.githubusercontent.com/alexstan67/rails-template/master/helpers.tar.gz > helpers.tar.gz"
@@ -301,6 +295,12 @@ after_bundle do
   I18n.default_locale = :fr
   RUBY
   append_file("config/initializers/locale.rb", locale)
+  
+  # Seeds
+  ########################################
+  run "curl -L https://raw.githubusercontent.com/alexstan67/rails-template/master/db.tar.gz > db.tar.gz"
+  run "tar -xf db.tar.gz && rm db.tar.gz"
+  rails_command 'db:seed'
 
   # Readme
   ########################################
