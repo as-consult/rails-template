@@ -33,6 +33,10 @@ run "tar -xf images.tar.gz --directory app/assets && rm images.tar.gz"
 ########################################
 environment 'config.action_mailer.default_url_options = { host: "http://localhost:3000" }', env: 'development'
 
+# config/environments/test.rb
+########################################
+environment 'config.action_mailer.default_url_options = { host: "http://localhost:3000" }', env: 'test'
+
 # config/environments/production.rb
 ########################################
 environment 'config.action_mailer.default_url_options = { host: "http://TODO_PUT_YOUR_DOMAIN_HERE", :protocol => "http" }', env: 'production'
@@ -55,6 +59,10 @@ inject_into_file "config/environment.rb", after: "Rails.application.initialize!\
   :enable_starttls_auto => true }
   RUBY
 end
+
+# config/application.rb
+########################################
+application 'config.time_zone = "Europe/Paris"'
 
 # .env
 ########################################
@@ -257,6 +265,11 @@ after_bundle do
   ########################################
   run "curl -L https://raw.githubusercontent.com/alexstan67/rails-template/master/helpers.tar.gz > helpers.tar.gz"
   run "tar -xf helpers.tar.gz --directory app/ && rm helpers.tar.gz"
+
+  # Test
+  ########################################
+  run "curl -L https://raw.githubusercontent.com/alexstan67/rails-template/master/test.tar.gz > test.tar.gz"
+  run "tar -xf test.tar.gz && rm test.tar.gz"
 
   # Capistrano config files
   ########################################

@@ -39,6 +39,9 @@ fi
 if [ -e helpers.tar.gz ]
   then echo "✅ helpers.tar.gz successfully removed"
 fi
+if [ -e test.tar.gz ]
+  then echo "✅ test.tar.gz successfully removed"
+fi
 echo -e "---"
 echo -e "Creating compressed forlders:"
 tar -czf stylesheets.tar.gz --exclude="*.swp" stylesheets
@@ -100,4 +103,10 @@ if [ -e helpers.tar.gz ]
   then echo "✅ helpers.tar.gz created successfully"
 else
   echo "⛔ Error for helpers.tar.gz"
+fi
+tar -czf test.tar.gz --exclude="*.swp" test
+if [ -e test.tar.gz ]
+  then echo "✅ test.tar.gz created successfully"
+else
+  echo "⛔ Error for test.tar.gz"
 fi
