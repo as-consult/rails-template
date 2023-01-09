@@ -202,9 +202,6 @@ after_bundle do
   inject_into_file "app/controllers/cgv_controller.rb", :before => "def index\n" do
     "  skip_before_action :authenticate_user!\n"
   end
-  inject_into_file "app/controllers/services_controller.rb", :before => "def index\n" do
-    "  skip_before_action :authenticate_user!\n"
-  end
   inject_into_file "app/controllers/apropos_controller.rb", :before => "def index\n" do
     "  skip_before_action :authenticate_user!\n"
   end

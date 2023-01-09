@@ -1,8 +1,10 @@
 <article id="container-products">
-  <div id="service_1" class="container-product-card"> 
-    <div class="container-product-card-image"></div>
-    <div class="container-product-card-content"> 
-      <div class="conteiner-product-card-content-title">
+  <div id="service_1" class="container-product-card" > 
+    <div id="border-right" class="container-product-card-image">
+      <%= image_tag('Networking', size: "100x100", alt: "Networking", class: "icon-light") %>
+    </div>
+    <div id="service_1" class="container-product-card-content"> 
+      <div class="container-product-card-content-title">
         <h1>Service 1</h1>
       </div>
       <div class="container-product-card-content-description">
@@ -17,7 +19,9 @@
     </div>
   </div>
   <div id="service_2" class="container-product-card row-reverse"> 
-    <div class="container-product-card-image"></div>
+    <div id="border-left" class="container-product-card-image">
+      <%= image_tag('Project Management', size: "100x100", alt: "Project Management") %>
+    </div>
     <div class="container-product-card-content"> 
       <div class="container-product-card-content-title">
         <h1>Service 2</h1>
