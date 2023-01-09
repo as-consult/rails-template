@@ -12,6 +12,7 @@ footer {
   .footer-copyright {
     text-align: center;
     font-size: 0.8em;
+    margin: 0;
   }
   .footer-content {
     display: flex;
@@ -27,6 +28,9 @@ footer {
     .footer-content-social {
       text-align: center;
     }
+  }
+  .ecoindex {
+    color: #00664d;
   }
 }
 @media only screen and (min-width: 700px) {
