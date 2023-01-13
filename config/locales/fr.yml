@@ -90,7 +90,7 @@ fr:
       subject: "Nouveau formulaire! [%{category}]"
       title: "📢 Nouvelle soumission de formulaire!"
   pages:
-    discover_services: "Découvrez nos services"
+    discover_services: "Découvrez nos services →"
   blogs:
     buttons:
       edit: "Modifier"

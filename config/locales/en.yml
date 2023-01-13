@@ -90,7 +90,7 @@ en:
       subject: "New submission! [%{category}]"
       title: "📢 New Contact Form Submission!"
   pages:
-    discover_services: "Discover our services"
+    discover_services: "Discover our services →"
   blogs:
     buttons:
       edit: "Edit"
