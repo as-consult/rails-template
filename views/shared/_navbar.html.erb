@@ -9,6 +9,7 @@
   </div>
   <nav>
     <div class="nav-links">
+      <p class="nav-link"><%= link_to t("shared.home"), root_path %></p>
       <p class="nav-link"><%= link_to t("shared.services"), services_index_path %></p>
       <p class="nav-link"><%= link_to t("shared.about_us"), apropos_index_path %></p>
       <p class="nav-link"><%= link_to t("shared.blog"), blogs_path %></p>
@@ -36,6 +37,7 @@
     <div data-controller="burger" data-action="click->burger#menu" class="burger">
       <p data-burger-target="icon">&#9477;</p>
       <div class="burger-menu-content" data-burger-target="burger">
+        <p><%= link_to t("shared.home"), root_path %></p>
         <p><%= link_to t("shared.services"), services_index_path %></p>
         <p><%= link_to t("shared.about_us"), apropos_index_path %></p>
         <p><%= link_to t("shared.blog"), blogs_path %></p>
