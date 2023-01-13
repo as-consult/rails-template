@@ -1,6 +1,6 @@
 .container-blog-show {
   min-height: calc(100vh - 64px - 230px);
-}   
+}
 .blog-show {
   display: flex;
   flex-direction: column;
@@ -16,10 +16,10 @@
 
   .blog-show-details {
     p {
-        margin: 0;
-        font-size: 0.8em;
-        font-weight: 200;
-        color: $secondary;
+      margin: 0;
+      font-size: 0.8em;
+      font-weight: 200;
+      color: $secondary;
     }
   }
   .blog-show-content {
@@ -35,9 +35,9 @@
       font-size: 3em;
     }
     p {
-        margin: 0;
-        font-size: 1em;
-        font-weight: 200;
+      margin: 0;
+      font-size: 1em;
+      font-weight: 200;
     }
   }
 }

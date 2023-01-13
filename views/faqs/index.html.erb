@@ -1,4 +1,4 @@
-<div class="container-faq">
+<article class="container-faq">
   <h1><%= t('.title') %></h1>
   <section class="container-faq-elements" data-controller="faq">
     <% @faqs.each_with_index do | faq, index | %>
@@ -22,6 +22,6 @@
     <p class="ml-5"><%= t(".additional_question") %></p>
     <p class="ml-5" ><%= link_to t(".button_question"), new_contact_path, class: "btn btn-success" %></p>
   </section>
-</div>
+</article>
 
 <%= render 'seo' %>

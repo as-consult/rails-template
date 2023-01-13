@@ -1,4 +1,4 @@
-<div class="container-blog-show">
+<main class="container-blog-show">
   <div class="d-flex flex-row">
     <% if user_signed_in? && current_user.role == "admin" %>
       <%= link_to t('blogs.buttons.edit'), edit_blog_path(@blog.id), class: "btn btn-primary m-5" %>
@@ -6,7 +6,7 @@
     <% end %>
     <%= link_to t('blogs.buttons.back'), blogs_path, class: "btn btn-secondary m-5" %>
   </div>
-  <article class="blog-show">
+  <section class="blog-show">
     <h1><%= @blog.title %></h1>
     <div class="blog-show-content">
       <% if @blog.picture.attached? %>
@@ -30,5 +30,5 @@
         <% end %>
       </p>
     </div>
-  </article>
-</div>
+  </section>
+</main>

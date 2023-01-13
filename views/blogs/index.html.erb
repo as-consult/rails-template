@@ -1,4 +1,4 @@
-<div class="container-blog-index">
+<main class="container-blog-index">
   <div class="d-flex flex-row mb-15">
     <% if user_signed_in? && current_user.role == "admin" %>
       <%= link_to t('blogs.buttons.new'), new_blog_path, class: "btn btn-primary m-5" %>
@@ -8,9 +8,9 @@
   <% if @blogs.count == 0 %>
     <p class="ml-5"><%= t('blogs.index.no_posts_yet') %></p>
   <% else %>
-    <div class="blog-elements">
+    <section class="blog-elements">
     <% @blogs.each do | blog | %>
-      <article class="blog-element">
+      <div class="blog-element">
         <div class="blog-element-img">
           <% if blog.picture.attached? %>
             <%= image_tag blog.picture.variant(:thumb) %>
@@ -34,8 +34,8 @@
             </p>
           </div>
         </div>
-      </article>
+      </div>
     <% end %>
-    </div>
+    </section>
   <% end %>
-</div>
+</main>
