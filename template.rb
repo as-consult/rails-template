@@ -166,7 +166,7 @@ after_bundle do
 
   # blog_views.rb
   generate(:model, "blog_views", "views:integer", "ip_address:string")
-  generate(:migration, "AddBlogRefToViewBlogs", "blog:references")
+  generate(:migration, "AddBlogRefToBlogViews", "blog:references")
 
   # faq.rb
   generate(:model, "faq", "question:string", "answer:text", "lang:string", "rank:integer")
