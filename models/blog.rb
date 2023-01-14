@@ -4,15 +4,16 @@ class Blog < ApplicationRecord
     attachable.variant :thumb_big, resize_to_limit: [ 200, 200 ]
   end
   belongs_to :user
+  has_many :blog_views, :dependent => :delete_all
 
   validates :title, presence: true, length: { minimum: 3 }
   validates :content, presence: true, length: { minimum: 10 }
   validate :picture_format
   
-  def increase_views
-    self.views += 1
-    save!
-  end
+  #def increase_views
+  #  self.views += 1
+  #  save!
+  #end
   
   private
   

@@ -38,16 +38,24 @@ if Rails.env.development?
   puts "Cleaning blogs..."
   Blog.destroy_all
   # Create blog 1
-  blog = Blog.new(title: "Blog1", content: "Hello World</br>How are you today?", views: 52, user_id: User.last.id, created_at: DateTime.current, updated_at: DateTime.current)
+  blog = Blog.new(title: "Blog1", content: "Hello World</br>How are you today?", user_id: User.last.id, created_at: DateTime.current, updated_at: DateTime.current)
   if blog.save!
-    puts "Blog#1 cretaed in test"
+    puts "Blog#1 created in test"
+    52.times do
+      blog_view = BlogView.new(blog_id: Blog.last.id, ip_address: request.remote_ip, created_at: DateTime.current, updated_at: DateTime.current)
+      blog_view.save!
+    end
   else
     puts "Error creation Blog#1 in test"
   end
   # Create blog 2
-  blog = Blog.new(title: "Blog2", content: "Hello World</br>Still nothing to say!", views: 2, user_id: User.last.id, created_at: DateTime.current, updated_at: DateTime.current)
+  blog = Blog.new(title: "Blog2", content: "Hello World</br>Still nothing to say!", user_id: User.last.id, created_at: DateTime.current, updated_at: DateTime.current)
   if blog.save!
     puts "Blog#2 cretaed in test"
+    12.times do
+      blog_view = BlogView.new(blog_id: Blog.last.id, ip_address: request.remote_ip, created_at: DateTime.current, updated_at: DateTime.current)
+      blog_view.save!
+    end
   else
     puts "Error creation Blog#2 in test"
   end

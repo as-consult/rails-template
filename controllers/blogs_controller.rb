@@ -10,7 +10,8 @@ class BlogsController < ApplicationController
     @blog = Blog.find_by_id(params[:id])
     # A cookie is set to know if we have already viewed this page or not
     if cookies[params[:id]].nil?
-      @blog.increase_views
+      blog_view = BlogView.new(blog_id: @blog.id, ip_address: request.remote_ip)
+      blog_view.save!
       cookies[params[:id]] = 1
     end
   end
@@ -24,7 +25,6 @@ class BlogsController < ApplicationController
   def create
     @blog = Blog.new(blog_input_params)
     @blog.user_id = current_user.id
-    @blog.views = 0
     if @blog.save
       flash.notice = t('blogs.flash.created')
       redirect_to blogs_path

@@ -4,10 +4,8 @@ blog_one:
   user: regular_user
   title: My First Blog
   content: MyTextIssLongEnopughIHope
-  views: 10
 
 blog_two:
   user: regular_user
   title: My Second Blog
   content: MyTextIssLongEnopughIHope
-  views: 103
