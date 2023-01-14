@@ -181,7 +181,7 @@ after_bundle do
 
   # Controllers
   ######################################
-  generate(:controller, 'pages', 'home', '--skip-routes')
+  generate(:controller, 'pages', 'home', 'console', '--skip-routes')
   generate(:controller, 'mentions-legales', 'index')
   generate(:controller, 'politique-confidentialite', 'index')
   generate(:controller, 'cgv', 'index')
@@ -199,7 +199,7 @@ after_bundle do
   run "tar -xf controllers.tar.gz --directory app/ && rm controllers.tar.gz"
 
   inject_into_file "app/controllers/pages_controller.rb", :after => "class PagesController < ApplicationController\n" do
-    "  skip_before_action :authenticate_user!\n"
+    "  skip_before_action :authenticate_user!, only: :home\n"
   end
   inject_into_file "app/controllers/mentions_legales_controller.rb", :before => "def index\n" do
     "  skip_before_action :authenticate_user!\n"

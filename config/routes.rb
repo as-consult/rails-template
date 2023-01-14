@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     get 'mentions_legales/index'
     post '/', to: 'subscribers#create'
     get 'subscribers/unsubscribe/:unsubscribe_hash', to: 'subscribers#unsubscribe', as: 'unsubscribe'
+    get 'pages/console'
     root to: 'pages#home'
   end
 
