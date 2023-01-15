@@ -196,13 +196,11 @@ after_bundle do
   run "rm app/controllers/contacts_controller.rb"
   run "rm app/controllers/blogs_controller.rb"
   run "rm app/controllers/faqs_controller.rb"
+  run "rm app/controllers/pages_controller.rb"
   run "rm app/controllers/application_controller.rb"
   run "curl -L https:///raw.githubusercontent.com/alexstan67/rails-template/master/controllers.tar.gz > controllers.tar.gz"
   run "tar -xf controllers.tar.gz --directory app/ && rm controllers.tar.gz"
 
-  inject_into_file "app/controllers/pages_controller.rb", :after => "class PagesController < ApplicationController\n" do
-    "  skip_before_action :authenticate_user!, only: :home\n"
-  end
   inject_into_file "app/controllers/mentions_legales_controller.rb", :before => "def index\n" do
     "  skip_before_action :authenticate_user!\n"
   end
