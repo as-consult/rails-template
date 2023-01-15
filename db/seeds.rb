@@ -42,7 +42,7 @@ if Rails.env.development?
   if blog.save!
     puts "Blog#1 created in test"
     52.times do
-      blog_view = BlogView.new(blog_id: Blog.last.id, ip_address: request.remote_ip, created_at: DateTime.current, updated_at: DateTime.current)
+      blog_view = BlogView.new(blog_id: Blog.last.id, ip_address: "127.0.0.1", created_at: DateTime.current, updated_at: DateTime.current)
       blog_view.save!
     end
   else
@@ -53,7 +53,7 @@ if Rails.env.development?
   if blog.save!
     puts "Blog#2 cretaed in test"
     12.times do
-      blog_view = BlogView.new(blog_id: Blog.last.id, ip_address: request.remote_ip, created_at: DateTime.current, updated_at: DateTime.current)
+      blog_view = BlogView.new(blog_id: Blog.last.id, ip_address: "127.0.0.1", created_at: DateTime.current, updated_at: DateTime.current)
       blog_view.save!
     end
   else
