@@ -31,7 +31,7 @@
                 <p><%= link_to t("shared.console"), pages_console_path %></p>
               <% end %>
             <% else %>
-              <p><%= link_to t("shared.sign_in"), new_user_session_path(redirect_to: request_path) %></p>
+              <p><%= link_to t("shared.sign_in"), new_user_session_path(redirect_to: request.path) %></p>
               <p><%= link_to t("shared.sign_up"), new_user_registration_path %></p>
             <% end %>
         </div>
@@ -53,7 +53,7 @@
             <p><%= link_to t("shared.console"), pages_console_path %></p>
           <% end %>
         <% else %>
-          <p><%= link_to t("shared.sign_in"), new_user_session_path(redirect_to: request_path) %></p>
+          <p><%= link_to t("shared.sign_in"), new_user_session_path(redirect_to: request.path) %></p>
           <p><%= link_to t("shared.sign_up"), new_user_registration_path %></p>
         <% end %>
       </div>
