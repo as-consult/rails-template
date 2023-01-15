@@ -161,12 +161,10 @@ after_bundle do
   generate(:model, "contact", "last_name:string", "first_name:string", "company:string", "email:string", "phone:string", "category:integer", "description:text", "accept_private_data_policy:boolean")
 
   # blog.rb
-  generate(:model, "blog", "title:string", "content:text", "picture:attachment")
-  generate(:migration, "AddUserRefToBlogs", "user:references")
+  generate(:model, "blog", "user:references", "title:string", "content:text", "picture:attachment")
 
   # blog_views.rb
-  generate(:model, "blog_views", "ip_address:string")
-  generate(:migration, "AddBlogRefToBlogViews", "blog:references")
+  generate(:model, "blog_view", "blog:references", "ip_address:string")
 
   # faq.rb
   generate(:model, "faq", "question:string", "answer:text", "lang:string", "rank:integer")
