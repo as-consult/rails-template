@@ -1,0 +1,21 @@
+class PagesController < ApplicationController
+  skip_before_action :authenticate_user!, only: :home
+  def home
+  end
+
+  def console
+    unless current_user.role == "admin" 
+      render_404
+    end
+  end
+
+  private
+
+  def render_404
+    respond_to do |format|
+      format.html { render :file => "#{Rails.root}/public/404.html", :layout => false, :status => :not_found }
+      format.xml  { head :not_found }
+      format.any  { head :not_found }
+    end
+  end
+end
