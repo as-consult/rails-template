@@ -29,7 +29,7 @@
               <p><%= link_to t("shared.sign_out"), destroy_user_session_path, data: {turbo_method: :delete} %></p>
               <p><%= link_to t("shared.console"), pages_console_path %></p>
             <% else %>
-              <p><%= link_to t("shared.sign_in"), new_user_session_path %></p>
+              <p><%= link_to t("shared.sign_in"), new_user_session_path(redirect_to: request_path) %></p>
               <p><%= link_to t("shared.sign_up"), new_user_registration_path %></p>
             <% end %>
         </div>
@@ -48,7 +48,7 @@
           <p><%= link_to t("shared.account"), edit_user_registration_path %></p>
           <p><%= link_to t("shared.sign_out"), destroy_user_session_path, data: {turbo_method: :delete} %></p>
         <% else %>
-          <p><%= link_to t("shared.sign_in"), new_user_session_path %></p>
+          <p><%= link_to t("shared.sign_in"), new_user_session_path(redirect_to: request_path) %></p>
           <p><%= link_to t("shared.sign_up"), new_user_registration_path %></p>
         <% end %>
       </div>

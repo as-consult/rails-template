@@ -19,6 +19,7 @@
   <% end %>
 
   <div class="actions">
+    <%= hidden_field_tag :redirect_to, params[:redirect_to] %>
     <%= f.submit t('.sign_in'), class: "btn btn-primary" %>
   </div>
 <% end %>
