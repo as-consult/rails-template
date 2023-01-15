@@ -8,7 +8,6 @@ User.destroy_all
 Faq.destroy_all
 
 # Create an admin user
-puts "Create admin user..."
 user = User.new
 user.first_name = "Alexandre"
 user.last_name = "Stanescot"
@@ -17,9 +16,8 @@ user.role = "admin"
 user.password = "password123"
 user.confirmed_at = Time.zone.now - 1.hour
 user.confirmation_sent_at = Time.zone.now - 2.hours
-if user.valid?
+if user.save!
   puts "Admin user created"
-  user.save
 else
   user.errors.each do | error |
     puts "#{error.full_message}"
@@ -41,9 +39,10 @@ if Rails.env.development?
   blog = Blog.new(title: "Blog1", content: "Hello World</br>How are you today?", user_id: User.last.id, created_at: DateTime.current, updated_at: DateTime.current)
   if blog.save!
     puts "Blog#1 created in test"
+    i = 0
     52.times do
-      blog_view = BlogView.new(blog_id: Blog.last.id, ip_address: "127.0.0.1", created_at: DateTime.current, updated_at: DateTime.current)
-      blog_view.save!
+      i += 1
+      blog_view = BlogView.create(blog_id: Blog.last.id, ip_address: "127.0.0.1", created_at: DateTime.current - i.days, updated_at: DateTime.current - i.days)
     end
   else
     puts "Error creation Blog#1 in test"
@@ -52,9 +51,10 @@ if Rails.env.development?
   blog = Blog.new(title: "Blog2", content: "Hello World</br>Still nothing to say!", user_id: User.last.id, created_at: DateTime.current, updated_at: DateTime.current)
   if blog.save!
     puts "Blog#2 cretaed in test"
+    i = 0
     12.times do
-      blog_view = BlogView.new(blog_id: Blog.last.id, ip_address: "127.0.0.1", created_at: DateTime.current, updated_at: DateTime.current)
-      blog_view.save!
+      i += 1
+      blog_view = BlogView.create(blog_id: Blog.last.id, ip_address: "127.0.0.1", created_at: DateTime.current - i.days, updated_at: DateTime.current - i.days)
     end
   else
     puts "Error creation Blog#2 in test"
