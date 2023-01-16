@@ -111,22 +111,6 @@ inject_into_file "config/database.yml", :before => "#   production:", force: tru
     "  port: 5432\n"
 end
 
-# config/importmap.rb
-########################################
-npm_packages = <<~RUBY
-  pin "chartkick", to: "chartkick.js"
-  pin "Chart.bundle", to: "Chart.bundle.js"
-RUBY
-append_file('config/importmap.rb', npm_packages)
-
-# app/javascript/application.js
-########################################
-js_imports = <<~RUBY
-  import "chartkick"
-  import "Chart.bundle"
-RUBY
-append_file('app/javascript/application.js', js_imports)
-
 # AFTER BUNDLE
 ########################################
 after_bundle do
@@ -314,6 +298,22 @@ after_bundle do
   RUBY
   append_file("config/initializers/locale.rb", locale)
   
+  # config/importmap.rb
+  ########################################
+  npm_packages = <<~RUBY
+    pin "chartkick", to: "chartkick.js"
+    pin "Chart.bundle", to: "Chart.bundle.js"
+  RUBY
+  append_file('config/importmap.rb', npm_packages)
+
+  # app/javascript/application.js
+  ########################################
+  js_imports = <<~RUBY
+    import "chartkick"
+    import "Chart.bundle"
+  RUBY
+  append_file('app/javascript/application.js', js_imports)
+
   # Seeds
   ########################################
   run "curl -L https://raw.githubusercontent.com/alexstan67/rails-template/master/db.tar.gz > db.tar.gz"
