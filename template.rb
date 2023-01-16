@@ -11,6 +11,8 @@ gem "dotenv-rails"
 #gem 'whenever', '~> 1.0'
 gem 'sassc-rails'
 gem 'image_processing', '~> 1.12'
+gem 'chartkick', '~> 4.2', '>= 4.2.1'
+gem 'groupdate', '~> 6.1'
 
 gem_group :development do
   gem 'capistrano-rake', require: false
@@ -108,6 +110,22 @@ end
 inject_into_file "config/database.yml", :before => "#   production:", force: true do
     "  port: 5432\n"
 end
+
+# config/importmap.rb
+########################################
+npm_packages = <<~RUBY
+  pin "chartkick", to: "chartkick.js"
+  pin "Chart.bundle", to: "Chart.bundle.js"
+RUBY
+append_file('config/importmap.rb', npm_packages)
+
+# app/javascript/application.js
+########################################
+js_imports = <<~RUBY
+  import "chartkick"
+  import "Chart.bundle"
+RUBY
+append_file('app/javascript/application.js', js_imports)
 
 # AFTER BUNDLE
 ########################################

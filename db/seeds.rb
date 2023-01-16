@@ -136,4 +136,21 @@ if Rails.env.development?
   puts "Create subscriber#2"
   Subscriber.create(name: "Smith", email: "smith@test.com", accept_private_data_policy: true)
 
+  # #####################
+  # CONTACT FORMS
+  # #####################
+  puts "Cleaning contact forms..."
+  Contact.destroy_all
+  #id: integer, last_name: string, first_name: string, company: string, email: string, phone: string, category: integer, description: text, accept_private_data_policy: boolean, created_at: datetime, updated_at: datetime)
+  Contact.create(email: "test@test.com", category: 0,   description: "This is a test description", accept_private_data_policy: true, created_at: DateTime.current, updated_at: DateTime.current)
+  puts "Create contact form#1"
+  Contact.create(email: "test@test.com", category: 10,  description: "This is a test description", accept_private_data_policy: true, created_at: DateTime.current - 1.month, updated_at: DateTime.current - 1.month)
+  puts "Create contact form#2"
+  Contact.create(email: "test@test.com", category: 10,  description: "This is a test description", accept_private_data_policy: true, created_at: DateTime.current - 2.months, updated_at: DateTime.current - 2.months)
+  puts "Create contact form#3"
+  Contact.create(email: "test@test.com", category: 20,  description: "This is a test description", accept_private_data_policy: true, created_at: DateTime.current - 2.months, updated_at: DateTime.current - 2.months)
+  puts "Create contact form#4"
+
+
+
 end

@@ -7,6 +7,7 @@ class PagesController < ApplicationController
     unless current_user.role == "admin" 
       render_404
     end
+    #Link to chartkick tutorial: https://gorails.com/episodes/charts-with-chartkick-and-groupdate
   end
 
   private

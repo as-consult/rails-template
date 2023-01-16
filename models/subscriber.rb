@@ -11,8 +11,8 @@ class Subscriber < ApplicationRecord
     attributes = %w[id name email created_at]
     CSV.generate(headers: true) do |csv|
       csv << attributes
-      all.each do |subscriber|
-        csv << subscriber.attributes.values_at(*attributes)
+      all.each do |contact|
+        csv << contact.attributes.values_at(*attributes)
       end
     end
   end
