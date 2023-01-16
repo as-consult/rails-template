@@ -13,4 +13,13 @@ class Contact < ApplicationRecord
   validates :description, presence: true, length: { minimum: 10 }
   validates_inclusion_of :accept_private_data_policy, in: [ true ]
 
+  def self.to_csv
+    attributes = %w[id last_name first_name comapny email phone category description created_at]
+    CSV.generate(headers: true) do |csv|
+      csv << attributes
+      all.each do |subscriber|
+        csv << subscriber.attributes.values_at(*attributes)
+      end
+    end
+  end
 end

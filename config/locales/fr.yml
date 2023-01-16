@@ -6,6 +6,7 @@ fr:
       contact: "Contact"
       user: "utilisateur"
       blog: "Blog"
+      subscriber: "Souscriptions"
     attributes:
       contact:
         last_name: "Nom"
@@ -95,6 +96,11 @@ fr:
       discover_services: "Découvrez nos services →"
     console:
       title: "Console Administrateur"
+      export_title: "📤 Export de données"
+      export_button: "Export"
+      export_subscribers: "Liste des souscriptions Newsletter"
+      export_contacts: "Formulaires de contact"
+      export_blog_views: "Vues par billet"
   blogs:
     buttons:
       edit: "Modifier"

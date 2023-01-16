@@ -125,5 +125,15 @@ if Rails.env.development?
   else
     puts "Error creation FAQ#3 -en- in test"
   end
-end
 
+  # #####################
+  # SUBSCRIBERS
+  # #####################
+  puts "Cleaning Subscribers..."
+  Subscriber.destroy_all
+  puts "Create subscriber#1"
+  Subscriber.create(name: "John", email: "john@test.com", accept_private_data_policy: true)
+  puts "Create subscriber#2"
+  Subscriber.create(name: "Smith", email: "smith@test.com", accept_private_data_policy: true)
+
+end
