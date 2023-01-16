@@ -1,3 +1,5 @@
+require 'csv'
+
 class BlogView < ApplicationRecord
   belongs_to :blog
   

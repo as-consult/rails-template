@@ -1,3 +1,5 @@
+require 'csv'
+
 class Blog < ApplicationRecord
   has_one_attached :picture do | attachable |
     attachable.variant :thumb, resize_to_fill: [ 100, 100 ]

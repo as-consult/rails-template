@@ -1,3 +1,5 @@
+require 'csv'
+
 class Contact < ApplicationRecord
   CATEGORIES = [  I18n.t('activerecord.attributes.contact.categories.quotation'),
                   I18n.t('activerecord.attributes.contact.categories.invoicing_problem'),

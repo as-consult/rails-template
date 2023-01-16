@@ -1,4 +1,5 @@
 require 'csv'
+
 class Subscriber < ApplicationRecord
   before_create :add_unsubscribe_hash
 
