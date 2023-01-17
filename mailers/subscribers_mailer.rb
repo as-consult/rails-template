@@ -1,5 +1,4 @@
 class SubscribersMailer < ApplicationMailer
-  default from: 'noreply@aerostan.com'
 
   def subscribed
     @subscriber = params[:subscriber]
@@ -8,9 +7,4 @@ class SubscribersMailer < ApplicationMailer
     mail(to: @subscriber.email, subject: default_i18n_subject)
   end
 
-  def unsubscribed
-    @greeting = "Hi"
-
-    mail to: "to@example.org"
-  end
 end

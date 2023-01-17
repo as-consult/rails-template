@@ -50,6 +50,10 @@ bundle exec cap install STAGES=production
 config.action_mailer.default_url_options = { host: "http://TODO_PUT_YOUR_DOMAIN_HERE", :protocol => "http" }
 ````
 ````ruby
+# config/initializers/devise.rb
+config.mailer_sender = 'example@test.com'
+````
+````ruby
 # Capfile
 require 'capistrano/rails'
 require 'capistrano/passenger'

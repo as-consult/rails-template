@@ -124,7 +124,7 @@ after_bundle do
   generate("devise:views")
   
   # Devise init
-  gsub_file('config/initializers/devise.rb', "config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'", "config.mailer_sender = 'noreply@aerostan.com'")
+  gsub_file('config/initializers/devise.rb', "config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'", "config.mailer_sender = 'noreply@as-consult.io'")
 
   # Remove devise default translations
   run 'rm config/locales/devise.en.yml'
@@ -256,6 +256,7 @@ after_bundle do
   generate(:mailer, "subscribers", "subscribed")
   run "curl -L https://raw.githubusercontent.com/alexstan67/rails-template/master/mailers.tar.gz > mailers.tar.gz"
   run "tar -xf mailers.tar.gz --directory app/ && rm mailers.tar.gz"
+  gsub_file('app/mailers/application_mailer.rb', 'default from: "from@example.com"', 'default from: "noreply@as-consult.io"')
 
   # Helpers
   ########################################
