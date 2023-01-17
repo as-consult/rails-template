@@ -16,11 +16,11 @@ This template generates a full working webiste based on Ruby On Rails framework.
 
 Ensure to have a "env" file at root directory containing devise confirmable email settings and contact form recipient:
 ````bash
-MAIL_USERNAME=
-MAIL_PASSWORD=
-MAIL_DOMAIN=
-MAIL_SMTP_SERVER=
-CONTACT_FORM_RECIPIENT=
+MAIL_USERNAME=noreply
+MAIL_PASSWORD=password
+MAIL_DOMAIN=example.com
+MAIL_SMTP_SERVER=example.com
+CONTACT_FORM_RECIPIENT=noreply@example.com
 ````
 
 ## Project Creation
@@ -81,6 +81,13 @@ server 'SERVER_IP', user: 'deploy', roles: %w{app db web}
 ````ruby
 # config/environments/production.rb
 config.action_mailer.default_url_options = { host: 'yourdomain', :protocol => 'http' }
+````
+````ruby
+# The admin user is created via the seeds
+# db/seeds.rb
+user.email = "contact@as-consult.io"
+user.role = "admin"
+user.password = "password123"
 ````
 ### Server Side
 #### .rbenv-vars
