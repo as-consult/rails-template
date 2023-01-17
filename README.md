@@ -39,16 +39,6 @@ config.action_mailer.default_url_options = { host: "http://TODO_PUT_YOUR_DOMAIN_
 config.mailer_sender = 'example@test.com'
 ````
 ````ruby
-# Capfile
-require 'capistrano/rails'
-require 'capistrano/passenger'
-require 'capistrano/rbenv'
-require 'capistrano/rake'
-# At the end of the file
-set :rbenv_type, :user
-set :rbenv_ruby, '3.0.3' # or whatever version you chose
-````
-````ruby
 # config/deploy.rb
 set :application, "APP_NAME"
 set :repo_url, "git@github.com:user/APP_NAME.git"
@@ -67,10 +57,6 @@ server 'SERVER_IP', user: 'deploy', roles: %w{app db web}
 
 `bundle exec rails secret`
 
-````ruby
-# config/environments/production.rb
-config.action_mailer.default_url_options = { host: 'yourdomain', :protocol => 'http' }
-````
 ````ruby
 # The admin user is created via the seeds
 # db/seeds.rb
