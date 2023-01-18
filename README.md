@@ -79,3 +79,7 @@ Execute on client side:
 
 ### Deploy on production server
 `cap production deploy`
+
+To seed the database, run on server side in current folder:
+
+`bundle exec rake db:seed RAILS_ENV=production`
