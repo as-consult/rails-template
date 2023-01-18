@@ -31,37 +31,12 @@ CONTACT_FORM_RECIPIENT=noreply@example.com
 We will use here [Capistrano](https://github.com/capistrano/capistrano) to deploy in production.
 ### Client Side
 ````ruby
-# gemfile
-group :development do
-  gem 'capistrano', '~> 3.11'
-  gem 'capistrano-rake', require: false
-  gem 'capistrano', '~> 3.11'
-  gem 'capistrano-rails', '~> 1.4'
-  gem 'capistrano-passenger', '~> 0.2.0'
-  gem 'capistrano-rbenv', '~> 2.1', '>= 2.1.4'
-end
-````
-````bash
-bundle
-bundle exec cap install STAGES=production
-````
-````ruby
 # config/environments/production.rb
 config.action_mailer.default_url_options = { host: "http://TODO_PUT_YOUR_DOMAIN_HERE", :protocol => "http" }
 ````
 ````ruby
 # config/initializers/devise.rb
 config.mailer_sender = 'example@test.com'
-````
-````ruby
-# Capfile
-require 'capistrano/rails'
-require 'capistrano/passenger'
-require 'capistrano/rbenv'
-require 'capistrano/rake'
-# At the end of the file
-set :rbenv_type, :user
-set :rbenv_ruby, '3.0.3' # or whatever version you chose
 ````
 ````ruby
 # config/deploy.rb
@@ -82,10 +57,6 @@ server 'SERVER_IP', user: 'deploy', roles: %w{app db web}
 
 `bundle exec rails secret`
 
-````ruby
-# config/environments/production.rb
-config.action_mailer.default_url_options = { host: 'yourdomain', :protocol => 'http' }
-````
 ````ruby
 # The admin user is created via the seeds
 # db/seeds.rb
