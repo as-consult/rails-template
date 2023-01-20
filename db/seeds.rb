@@ -1,3 +1,7 @@
+# #####################
+# USERS
+# #####################
+
 # Deleting current users
 puts "---"
 puts "All Environment Seeds"
@@ -25,14 +29,27 @@ else
   puts "Error in admin user creation"
 end
 
-# Development specific tests
-if Rails.env.development?
-  puts "---"
-  puts "Test Specific Environment Seeds"
-  puts "---"
+# #####################
+# FAQS
+# #####################
+
+puts "Cleaning FAQs..."
+Faq.destroy_all
+# Create FAQ1
+faq = Faq.new( question: "Veuillez poser une question ici", 
+              answer: "Veuillez répondre à la question ici.",
+               lang: "fr",
+               rank: 1)
+if faq.save!
+  puts "FAQ#1 -fr- created in test"
+else
+  puts "Error creation FAQ#1 -fr- in test"
+end
+
   # #####################
   # BLOGS
   # #####################
+
   puts "Cleaning blogs..."
   Blog.destroy_all
   # Create blog 1
@@ -63,6 +80,7 @@ if Rails.env.development?
   # #####################
   # FAQS
   # #####################
+
   puts "Cleaning FAQs..."
   Faq.destroy_all
   # Create FAQ1
@@ -125,10 +143,15 @@ if Rails.env.development?
   else
     puts "Error creation FAQ#3 -en- in test"
   end
-
+# Development specific tests
+if Rails.env.development?
+  puts "---"
+  puts "Test Specific Environment Seeds"
+  puts "---"
   # #####################
   # SUBSCRIBERS
   # #####################
+
   puts "Cleaning Subscribers..."
   Subscriber.destroy_all
   puts "Create subscriber#1"
@@ -139,6 +162,7 @@ if Rails.env.development?
   # #####################
   # CONTACT FORMS
   # #####################
+
   puts "Cleaning contact forms..."
   Contact.destroy_all
   #id: integer, last_name: string, first_name: string, company: string, email: string, phone: string, category: integer, description: text, accept_private_data_policy: boolean, created_at: datetime, updated_at: datetime)
@@ -150,7 +174,5 @@ if Rails.env.development?
   puts "Create contact form#3"
   Contact.create(email: "test@test.com", category: 20,  description: "This is a test description", accept_private_data_policy: true, created_at: DateTime.current - 2.months, updated_at: DateTime.current - 2.months)
   puts "Create contact form#4"
-
-
 
 end
