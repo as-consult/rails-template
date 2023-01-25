@@ -269,6 +269,12 @@ after_bundle do
   run "curl -L https://raw.githubusercontent.com/alexstan67/rails-template/master/test.tar.gz > test.tar.gz"
   run "tar -xf test.tar.gz && rm test.tar.gz"
 
+  # Public
+  ########################################
+  run "rm public/robots.txt"
+  run "curl -L https://raw.githubusercontent.com/alexstan67/rails-template/master/public.tar.gz > public.tar.gz"
+  run "tar -xf public.tar.gz && rm public.tar.gz"
+
   # Capistrano config files
   ########################################
   run "bundle exec cap install STAGES=production"
