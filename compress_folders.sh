@@ -42,6 +42,9 @@ fi
 if [ -e test.tar.gz ]
   then echo "✅ test.tar.gz successfully removed"
 fi
+if [ -e public.tar.gz ]
+  then echo "✅ public.tar.gz successfully removed"
+fi
 echo -e "---"
 echo -e "Creating compressed forlders:"
 tar -czf stylesheets.tar.gz --exclude="*.swp" stylesheets
@@ -109,4 +112,10 @@ if [ -e test.tar.gz ]
   then echo "✅ test.tar.gz created successfully"
 else
   echo "⛔ Error for test.tar.gz"
+fi
+tar -czf public.tar.gz --exclude="*.swp" public
+if [ -e public.tar.gz ]
+  then echo "✅ public.tar.gz created successfully"
+else
+  echo "⛔ Error for public.tar.gz"
 fi

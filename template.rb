@@ -13,6 +13,7 @@ gem 'sassc-rails'
 gem 'image_processing', '~> 1.12'
 gem 'chartkick', '~> 4.2', '>= 4.2.1'
 gem 'groupdate', '~> 6.1'
+gem 'sitemap_generator', '~> 6.3'
 
 gem_group :development do
   gem 'capistrano-rake', require: false
@@ -276,6 +277,7 @@ after_bundle do
     require 'capistrano/passenger'
     require 'capistrano/rbenv'
     require 'capistrano/rake'
+    require 'capistrano/sitemap_generator'
     set :rbenv_type, :user
     set :rbenv_ruby, '3.1.3'
   RUBY

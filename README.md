@@ -64,6 +64,21 @@ user.email = "contact@as-consult.io"
 user.role = "admin"
 user.password = "password123"
 ````
+````ruby
+#config/sitemap.rb
+SitemapGenerator::Sitemap.default_host = "https://www.TO_UPDATE"
+````
+````ruby
+#public/robots.txt
+Sitemap: https://TO_UPDATE/sitemap.xml.gz
+````
+````bash
+#Available capistrano tasks:
+sitemap:create   #Create sitemaps without pinging search engines
+sitemap:refresh  #Create sitemaps and ping search engines
+sitemap:clean    #Clean up sitemaps in the sitemap path
+````
+
 ### Server Side
 #### .rbenv-vars
 ````bash
