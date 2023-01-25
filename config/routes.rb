@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   #get 'subscribers/index'
   scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
-    resources :contacts
+    resources :contacts, only: [ :new, :create, :index ]
     resources :blogs
     devise_for :users
     get 'apropos/index'
