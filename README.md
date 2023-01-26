@@ -74,9 +74,9 @@ Sitemap: https://TO_UPDATE/sitemap.xml.gz
 ````
 ````bash
 #Available capistrano tasks:
-sitemap:create   #Create sitemaps without pinging search engines
-sitemap:refresh  #Create sitemaps and ping search engines
-sitemap:clean    #Clean up sitemaps in the sitemap path
+cap production sitemap:create   #Create sitemaps without pinging search engines
+cap production sitemap:refresh  #Create sitemaps and ping search engines
+cap production sitemap:clean    #Clean up sitemaps in the sitemap path
 ````
 
 ### Server Side
