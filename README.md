@@ -79,6 +79,8 @@ cap production sitemap:refresh  #Create sitemaps and ping search engines
 cap production sitemap:clean    #Clean up sitemaps in the sitemap path
 ````
 
+`#config/meta.yml`
+
 ### Server Side
 #### .rbenv-vars
 ````bash

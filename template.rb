@@ -289,13 +289,14 @@ after_bundle do
   RUBY
   append_file('Capfile', capfile)
 
-  # Config
+  # Config files
   ########################################
   # Config folder including i18n, routes.rb
   run "curl -L https://raw.githubusercontent.com/alexstan67/rails-template/master/config.tar.gz > config.tar.gz"
   run "tar -xf config.tar.gz  && rm config.tar.gz"
 
-  # Initializers
+  # i18n
+  ########################################
   file "config/initializers/locale.rb"
   locale = <<~RUBY
   # Where the I18n library should search for translation files
@@ -306,6 +307,20 @@ after_bundle do
   I18n.default_locale = :fr
   RUBY
   append_file("config/initializers/locale.rb", locale)
+  
+  # seo - meta tags
+  ########################################
+  file("config/meta.yml")
+  meta_config =<<~RUBY
+    meta_product_name: "Product Name"
+    meta_title: "Product name | Product tagline"
+    meta_description: "Relevant description"
+    meta_image: "cover.png" # should exist in `app/assets/images/`
+    #twitter_account: "@product_twitter_account"   # required for Twitter Cards
+  RUBY
+
+  file("config/initializers/default_meta.rb")
+  append_file("config/initializers/default_meta.rb", "DEFAULT_META = YAML.load_file(Rails.root.join("config/meta.yml"))")
   
   # config/importmap.rb
   ########################################

@@ -1,0 +1,23 @@
+<% content_for :meta_title, "A Propos | #{meta_product}" %>
+<% content_for :meta_description, "TODO NAME | TODO TITLE" %>
+<% content_for :meta_image, image_path('photo_ast.jpg') %>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "Person",
+  "name": "TODO",
+  "url": "",
+  "image": "",
+  "sameAs": [
+    "https://www.linkedin.com/TODO",
+    "https://github.com/TODO",
+    "<%= request.original_url %>",
+  ],
+  "jobTitle": "TODO",
+  "worksFor": {
+    "@type": "Organization",
+    "name": "TODO"
+  }  
+}
+</script>
