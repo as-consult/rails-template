@@ -57,6 +57,8 @@ server 'SERVER_IP', user: 'deploy', roles: %w{app db web}
 
 `bundle exec rails secret`
 
+#### Seeds
+
 ````ruby
 # The admin user is created via the seeds
 # db/seeds.rb
@@ -64,6 +66,9 @@ user.email = "contact@as-consult.io"
 user.role = "admin"
 user.password = "password123"
 ````
+
+#### Sitemap
+
 ````ruby
 #config/sitemap.rb
 SitemapGenerator::Sitemap.default_host = "https://www.TO_UPDATE"
@@ -78,7 +83,7 @@ cap production sitemap:create   #Create sitemaps without pinging search engines
 cap production sitemap:refresh  #Create sitemaps and ping search engines
 cap production sitemap:clean    #Clean up sitemaps in the sitemap path
 ````
-seo and meta tags configurations:
+#### seo and meta tags configurations
 ````bash
 #config/meta.yml
 #app/views/blogs/_seo.html.erb
