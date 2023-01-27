@@ -320,7 +320,7 @@ after_bundle do
   RUBY
 
   file("config/initializers/default_meta.rb")
-  append_file("config/initializers/default_meta.rb", "DEFAULT_META = YAML.load_file(Rails.root.join("config/meta.yml"))")
+  append_file("config/initializers/default_meta.rb", 'DEFAULT_META = YAML.load_file(Rails.root.join("config/meta.yml"))')
   
   # config/importmap.rb
   ########################################
