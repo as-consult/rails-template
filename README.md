@@ -78,8 +78,15 @@ cap production sitemap:create   #Create sitemaps without pinging search engines
 cap production sitemap:refresh  #Create sitemaps and ping search engines
 cap production sitemap:clean    #Clean up sitemaps in the sitemap path
 ````
-
-`#config/meta.yml`
+seo and meta tags configurations:
+````bash
+#config/meta.yml
+#app/views/blogs/_seo.html.erb
+#app/views/pages/_seo.html.erb
+#app/views/faqs/_seo.html.erb
+#app/views/services/_seo.html.erb
+#app/views/apropos/_seo.html.erb
+````
 
 ### Server Side
 #### .rbenv-vars
