@@ -315,7 +315,7 @@ after_bundle do
     meta_product_name: "Product Name"
     meta_title: "Product name | Product tagline"
     meta_description: "Relevant description"
-    meta_image: "cover.png" # should exist in `app/assets/images/`
+    meta_image: "" # should exist in `app/assets/images/`
     #twitter_account: "@product_twitter_account"   # required for Twitter Cards
   RUBY
   append_file("config/meta.yml", meta_config)
