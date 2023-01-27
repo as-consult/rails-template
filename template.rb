@@ -318,6 +318,7 @@ after_bundle do
     meta_image: "cover.png" # should exist in `app/assets/images/`
     #twitter_account: "@product_twitter_account"   # required for Twitter Cards
   RUBY
+  append_file("config/meta.yml", meta_config)
 
   file("config/initializers/default_meta.rb")
   append_file("config/initializers/default_meta.rb", 'DEFAULT_META = YAML.load_file(Rails.root.join("config/meta.yml"))')
