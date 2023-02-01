@@ -79,6 +79,7 @@ inject_into_file ".gitignore", after: "/config/master.key\n" do
   # AS-Consult specific
   *.swp
   *.env
+  /public/sitemap.xml.gz
   GIT
 end
 
