@@ -8,7 +8,6 @@ Rails.application.routes.draw do
     get 'faqs/index'
     get 'services/index'
     get 'subscribers/index'
-    get 'cgv/index'
     get 'politique_confidentialite/index'
     get 'mentions_legales/index'
     post '/', to: 'subscribers#create'

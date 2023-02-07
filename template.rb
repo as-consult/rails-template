@@ -190,7 +190,6 @@ after_bundle do
   generate(:controller, 'pages', 'home', 'console', '--skip-routes')
   generate(:controller, 'mentions-legales', 'index')
   generate(:controller, 'politique-confidentialite', 'index')
-  generate(:controller, 'cgv', 'index')
   generate(:controller, 'services', 'index')
   generate(:controller, 'apropos', 'index')
   generate(:controller, 'faqs', 'index')
@@ -209,9 +208,6 @@ after_bundle do
     "  skip_before_action :authenticate_user!\n"
   end
   inject_into_file "app/controllers/politique_confidentialite_controller.rb", :before => "def index\n" do
-    "  skip_before_action :authenticate_user!\n"
-  end
-  inject_into_file "app/controllers/cgv_controller.rb", :before => "def index\n" do
     "  skip_before_action :authenticate_user!\n"
   end
   inject_into_file "app/controllers/apropos_controller.rb", :before => "def index\n" do
