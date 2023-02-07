@@ -221,26 +221,29 @@ after_bundle do
   run "curl -L https://raw.githubusercontent.com/alexstan67/rails-template/master/views.tar.gz > views.tar.gz"
   run "tar -xf views.tar.gz --directory app/ && rm views.tar.gz"
   inject_into_file "app/views/layouts/application.html.erb", :after => "<%= csp_meta_tag %>\n" do
-     "    <%= favicon_link_tag %>\n"
-     "    <title><%= meta_product_name %></title>\n"
-     "    <meta name="title" content="<%= meta_title %>">\n"
-     "    <meta name="description" content="<%= meta_description %>">\n"
-     "    <!-- Facebook Open Graph data -->\n"
-     "    <meta property="og:title" content="<%= meta_title %>" />\n"
-     "    <meta property="og:type" content="website" />\n"
-     "    <meta property="og:url" content="<%= request.original_url %>" />\n"
-     "    <meta property="og:image" content="<%= meta_image %>" />\n"
-     "    <meta property="og:description" content="<%= meta_description %>" />\n"
-     "    <meta property="og:site_name" content="<%= meta_title %>" />\n"
-     "    <!-- Twitter Card data -->\n"
-     "    <!--\n"
-     "    <meta name="twitter:card" content="summary_large_image">\n"
-     "    <meta name="twitter:site" content="<%= DEFAULT_META["twitter_account"] %>">\n"
-     "    <meta name="twitter:title" content="<%= meta_title %>">\n"
-     "    <meta name="twitter:description" content="<%= meta_description %>">\n"
-     "    <meta name="twitter:creator" content="<%= DEFAULT_META["twitter_account"] %>">\n"
-     "    <meta name="twitter:image:src" content="<%= meta_image %>">\n"
-     "    -->\n"
+    <<~RUBY
+    <%= favicon_link_tag %>
+    <title><%= meta_product %></title>
+    <!-- Primary Meta Tags -->
+    <meta name="title" content="<%= meta_title %>">
+    <meta name="description" content="<%= meta_description %>">
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="<%= request.original_url %>">
+    <meta property="og:title" content="<%= meta_title %>">
+    <meta property="og:description" content="<%= meta_description %>">
+    <meta property="og:image" content="<%= meta_image %>">
+    <!-- Twitter -->
+    <!--
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="<%= DEFAULT_META["twitter_account"] %>">
+    <meta name="twitter:title" content="<%= meta_title %>">
+    <meta name="twitter:description" content="<%= meta_description %>">
+    <meta name="twitter:creator" content="<%= DEFAULT_META["twitter_account"] %>">
+    <meta name="twitter:image:src" content="<%= meta_image %>">
+    -->
+    <link rel="canonical" href="<%= url_for(:only_path => false) %>" />
+    RUBY
   end
   inject_into_file "app/views/layouts/application.html.erb", :after => "<body>\n" do
      "    <%= render 'shared/alerts' %>\n"
