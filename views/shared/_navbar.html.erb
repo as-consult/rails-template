@@ -56,6 +56,11 @@
           <p><%= link_to t("shared.sign_in"), new_user_session_path(redirect_to: request.path) %></p>
           <p><%= link_to t("shared.sign_up"), new_user_registration_path %></p>
         <% end %>
+        <div class="nav-lang">
+          <% I18n.available_locales.each do |loc| %>
+            <p><%= link_to displayFlag(loc), root_path(locale: loc) %></p>
+          <% end %>
+        </div>
       </div>
     </div>
   </nav>

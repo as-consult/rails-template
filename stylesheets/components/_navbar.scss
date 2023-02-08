@@ -10,8 +10,8 @@ header p {
 header .logo {
   height: 64px;
   width: 100px;
-  background-color: $color4;
-  line-height: 64px;
+  //background-color: $color4;
+  //line-height: 64px;
 }
 header .burger {
   color: $light;
@@ -59,10 +59,11 @@ header .nav-link a {
 }
 header .nav-lang {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   margin: 0;
   padding: 0;
   align-self: center;
+  justify-content: center;
   a {
     text-decoration: none;
   }
@@ -102,6 +103,9 @@ header .show {
 @media only screen and (min-width: 700px) {
   header .nav-links {
     display: flex;
+  }
+  header .nav-lang {
+    flex-direction: column;
   }
   .burger {
     display: none;
