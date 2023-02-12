@@ -14,6 +14,8 @@ gem 'image_processing', '~> 1.12'
 gem 'chartkick', '~> 4.2', '>= 4.2.1'
 gem 'groupdate', '~> 6.1'
 gem 'sitemap_generator', '~> 6.3'
+gem 'ed25519', '>= 1.2', '< 2.0'
+gem 'bcrypt_pbkdf', '>= 1.0', '< 2.0'
 
 gem_group :development do
   gem 'capistrano-rake', require: false
