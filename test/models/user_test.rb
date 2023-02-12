@@ -20,7 +20,6 @@ class UserTest < ActiveSupport::TestCase
 
   test "new created user should have a role" do
     user = User.new(email: "test@example.com", password: "123456", last_name: "last name", first_name: "first name")
-    user.save
     assert_equal  user.role.nil?, false
   end
 
