@@ -6,7 +6,7 @@
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
-    <% @faqs.each do | faq | %>
+    <% @faqs.each_with_index do | faq,i | %>
     {
       "@type": "Question",
       "name": "<%= faq.question %>",
@@ -14,7 +14,7 @@
         "@type": "Answer",
         "text": "<%= faq.answer %>"
       }
-    },
+    }<%= (i == @faqs.count-1)?"":"," %>
     <% end %>
     ]
   }
