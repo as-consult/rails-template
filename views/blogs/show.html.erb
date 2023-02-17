@@ -30,7 +30,13 @@
         <% end %>
       </p>
     </div>
+    <div class="blog-show-keywords mt-5">
+      <% list = @blog.keywords.split(",") %>
+      <% list.each do | item | %>
+        <p class="tag tag-primary"><%= "##{item.lstrip}" %></p>
+      <% end %>
+    </div>
   </section>
 </main>
 
-<%= render("seo") %>
+<%= render "seo" %>

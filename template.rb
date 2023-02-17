@@ -167,7 +167,7 @@ after_bundle do
   generate(:model, "contact", "last_name:string", "first_name:string", "company:string", "email:string", "phone:string", "category:integer", "description:text", "accept_private_data_policy:boolean")
 
   # blog.rb
-  generate(:model, "blog", "user:references", "title:string", "content:text", "picture:attachment")
+  generate(:model, "blog", "user:references", "title:string", "content:text", "picture:attachment", "keywords:string")
 
   # blog_views.rb
   generate(:model, "blog_view", "blog:references", "ip_address:string")

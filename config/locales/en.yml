@@ -29,6 +29,7 @@ en:
         created_at:
         updated_at:
         views:
+        keywords: "Keywords"
       subscriber:
         name: "Name"
         email: "Email"

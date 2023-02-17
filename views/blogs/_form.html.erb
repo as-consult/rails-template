@@ -25,6 +25,11 @@
     <%= f.text_area :content, size: "50x30" %>
   </div>
 
+  <div class="field">
+    <%= f.label :keywords %>
+    <%= f.text_area :keywords, size: "50x2", placeholder: "tag1, tag2, tag3, ..."  %>
+  </div>
+
   <div class="actions">
     <%= f.submit t("forms.submit"), class: "btn btn-success" %>
   </div>
