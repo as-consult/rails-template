@@ -1,5 +1,5 @@
 <% content_for :meta_title, "#{@blog.title} | #{meta_product}" %>
-<% content_for :meta_description, "#{@blog.title}" %>
+<% content_for :meta_description, @blog.content.truncate_words(50, omission: '...') %>
 <% if @blog.picture.attached? %>
   <% content_for :meta_image, url_for(@blog.picture.variant(:thumb_big)) %>
 <% end %>
