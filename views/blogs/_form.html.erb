@@ -17,7 +17,7 @@
 
   <div class="field">
     <%= f.label :title %>
-    <%= f.text_field :title %>
+    <%= f.text_field :title, placeholder: "Blog Title" %>
   </div>
 
   <div class="field">
@@ -34,7 +34,7 @@
 
   <div class="field">
     <%= f.label :keywords %>
-    <%= f.text_area :keywords, size: "50x2", placeholder: "tag1, tag2, tag3, ..."  %>
+    <%= f.text_area :keywords, size: "50x2", placeholder: "tag1, tag2, tag3, ...(coma separated)"  %>
   </div>
 
   <div class="actions">
