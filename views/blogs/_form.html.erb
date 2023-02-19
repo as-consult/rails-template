@@ -21,7 +21,14 @@
   </div>
 
   <div class="field">
-    <%= f.label :content %>
+    <% placeholder =  "<h2>title</h2>\n" \
+                      "<h3>sub-title</h3>\n"\
+                      "<p>Paragraph</p>\n"\
+                      "</br> Empty line\n"\
+                      "<a href=\"https://www.example.com\">A link</a>\n"\
+                      "This is a <b>Bold</b> text.\n"\
+    %>
+    <%= f.label :content, placeholder: placeholder %>
     <%= f.text_area :content, size: "50x30" %>
   </div>
 
