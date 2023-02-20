@@ -45,6 +45,8 @@ environment 'config.action_mailer.default_url_options = { host: "http://localhos
 # config/environments/production.rb
 ########################################
 environment 'config.action_mailer.default_url_options = { host: "http://TODO_PUT_YOUR_DOMAIN_HERE", :protocol => "http" }', env: 'production'
+environment 'config.active_storage.service = :production', env: 'production'
+
 
 # config/environment.rb
 ########################################
@@ -142,6 +144,14 @@ after_bundle do
   # Active Storage
   ######################################
   rails_command 'active_storage:install'
+
+  storage_production = <<~YML
+  production:
+    service: Disk
+    root: <%= Rails.root.join("../shared/storage") %>
+  YML
+  prepend_to_file('config/storage.yml', storage_production)
+  gsub_file('config/environments/production.rb', 'config.active_storage.service = :local', 'config.active_storage.service = :production')
 
   # Models
   ######################################
