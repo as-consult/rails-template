@@ -1,0 +1,23 @@
+<article class="container-newsletter">
+  <% if cookies[:saved_subscriber] %>
+    <p><%= t('subscribers.form.thanks_sign_up')%></p>
+  <% else %>
+    <h1><%= t('subscribers.form.subscribe') %></h1>
+    <%= form_with model: @subscriber, url: root_path, data: { turbo: false } do |f| %>
+      <div class="field">
+        <%= f.text_field :name, placeholder: t('activerecord.attributes.subscriber.name') %>
+      </div>
+      <div class="field">
+        <%= f.email_field :email, placeholder: t('activerecord.attributes.subscriber.email') %>
+      </div>
+      <div class="field">
+        <%= f.label :accept_private_data_policy, t("subscribers.form.acceptation") %>
+        <%= link_to t('subscribers.form.privacy_policy'), politique_confidentialite_index_path %>
+        <%= f.check_box :accept_private_data_policy %>
+      </div>
+      <div class="actions">
+        <%= f.submit t('subscribers.form.submit'), class:"btn btn-secondary" %>
+      </div>
+    <% end %>
+  <% end %>
+</article>

@@ -1,0 +1,21 @@
+<% content_for :meta_title, "FAQ | #{meta_product}" %>
+<% content_for :meta_description, "FAQ | Question Fréquement Posées | Comment | Combien | Pourquoi" %>
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+    <% @faqs.each_with_index do | faq,i | %>
+    {
+      "@type": "Question",
+      "name": "<%= faq.question %>",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "<%= faq.answer %>"
+      }
+    }<%= (i == @faqs.count-1)?"":"," %>
+    <% end %>
+    ]
+  }
+</script>

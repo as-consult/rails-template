@@ -1,0 +1,105 @@
+fr:
+  activerecord:
+    models:
+      contact: "Contact"
+      blog: "Blog"
+      subscriber: "Souscriptions"
+    attributes:
+      contact:
+        last_name: "Nom"
+        first_name: "Prénom"
+        company: "Societé"
+        email: "Courriel"
+        phone: "Téléphone"
+        category: "Catégorie"
+        description: "Description"
+        accept_private_data_policy: "Politique de confidentialité:"
+        created_at: "Crée le"
+        categories:
+          quotation: "Demande de devis"
+          invoicing_problem: "Problème de facturation"
+          other: "Autre"
+      blog:
+        picture: "Image"
+        title: "Titre"
+        content: "Contenu html"
+        created_at: "Crée le"
+        updated_at: "Mis à jour le"
+        views: "vues"
+        keywords: "Mots clés"
+      subscriber:
+        name: "Prénom"
+        email: "Courriel"
+        accept_private_data_policy: "Politique de confidentialité:"
+    errors:
+      models:
+        contact:
+          attributes:
+            accept_private_data_policy:
+              inclusion: "Merci de la lire et l'accepter"
+  shared:
+    services: "Services"
+    about_us: "A Propos"
+    blog: "Blog"
+    faq: "FAQ"
+    contact: "Contact"
+    social: "Réseaux Sociaux"
+  contacts:
+    acceptation: "En cochant cette case, j'accepte la politique de confientialité du site"
+    privacy_policy: "Politique de confidentialité"
+    title: "Contactez-nous, on s'occupe du reste!"
+    notice_send_ok: "Your message has been sent!"
+  contacts_mailer:
+    new_submission:
+      subject: "Nouveau formulaire! [%{category}]"
+      title: "📢 Nouvelle soumission de formulaire!"
+  pages:
+    home:
+      discover_services: "Découvrez nos services →"
+  blogs:
+    buttons:
+      edit: "Modifier"
+      remove: "Supprimer"
+      back: "Retour"
+      new: "Nouveau"
+    flash:
+      created: "Billet crée!"
+      updated: "Billet mis à jour!"
+      deleted: "Billet supprimé!"
+    errors:
+      image_size: "Image doit peser moins de 5MB"
+      file_type: "Le fichier doit être une image"
+    index:
+      lecture: "lecture"
+      no_posts_yet: "📌 Pas de billets pour l'instant!"
+    show:
+      last_update: "Mis à jour"
+      lecture: "lecture"
+    edit:
+      title: "Modifier un billet"
+    new:
+      title: "📎 Nouveau billet"
+    delete:
+      are_you_sure: "Etes-vous certain?"
+  faqs:
+    index:
+      title: "Questions Fréquements Posées"
+      title_additional_question: "Vous avez d'autres questions?"
+      additional_question: "✨ Vous avez des questions additionnelles? Nous sommes là pour y répondre! 😉"
+      button_question: "Poser votre question"
+  subscribers:
+    flash:
+      register_ok: "Vous êtes bien enregistré à notre Newsletter!"
+      register_nok: "Echec de l'enregistrement à la newsletter. Veuillez compléter tous les champs."
+    form:
+      acceptation: "En cochant vous acceptez de recevoir des courriels conformément à notre "
+      subscribe: "Abonnez-vous à notre Newsletter!"
+      thanks_sign_up: "Merci de vous être inscris à notre Newsletter!"
+      submit: "Soumettre"
+      privacy_policy: "Politique de confidentialité"
+    unsubscribe:
+      email_unsubscribe: "a été désinscrit de notre Newsletter."
+      see_you: "A bienttôt de la part de toute l'équipe!"
+  subscribers_mailer:
+    subscribed:
+      subject: "Vous êtes bien enregistré à notre Newsletter!"

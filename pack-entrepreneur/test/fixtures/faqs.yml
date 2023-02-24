@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+question_one:
+  question: Question one
+  answer: Answer one
+  lang: :fr
+  rank: 1
+
+question_two:
+  question: Question two
+  answer: Answer two
+  lang: es
+  rank: 1

@@ -1,0 +1,17 @@
+<footer>
+  <div class="footer-content">
+    <div class="footer-content-legal">
+      <h3><%= t 'shared.legal_mentions' %></h3>
+        <p><%= link_to t('shared.legal_mentions'), mentions_legales_index_path %></p>
+        <p><%= link_to t('shared.privacy_policy'), politique_confidentialite_index_path %></p>
+    </div>
+    <div class="footer-content-social">
+      <h3><%= t 'shared.social' %></h3>
+        <p><a href="#">LinkedIn</a></p>
+        <p><a href="#">Mastodon</a></p>
+        <p><a href="#">You Tube</a></p>
+    </div>
+  </div>
+  <p class="footer-copyright">Copyright © 2022-2023 SOCIETE, <%= t 'shared.copyright' %></p>
+  <p class="footer-copyright">Website by <a href="https://www.as-consult.io", target="_blank">as-consult</a>, <a href="https://www.ecoindex.fr/", class="ecoindex", target="_blank">EcoIndex A</a></p>
+</footer>

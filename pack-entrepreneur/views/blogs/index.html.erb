@@ -1,0 +1,41 @@
+<main class="container-blog-index">
+  <div class="d-flex flex-row mb-15">
+    <% if user_signed_in? && current_user.role == "admin" %>
+      <%= link_to t('blogs.buttons.new'), new_blog_path, class: "btn btn-primary m-5" %>
+    <% end %>
+    <%= link_to t('blogs.buttons.back'), root_path, class: "btn btn-secondary m-5" %>
+  </div>
+  <% if @blogs.count == 0 %>
+    <p class="ml-5"><%= t('blogs.index.no_posts_yet') %></p>
+  <% else %>
+    <section class="blog-elements">
+    <% @blogs.each do | blog | %>
+      <div class="blog-element">
+        <div class="blog-element-img">
+          <% if blog.picture.attached? %>
+            <%= image_tag blog.picture.variant(:thumb) %>
+          <% else %>
+            <p class="blog-element-img">&empty;</p>
+          <% end %>
+        </div>
+        <div class="blog-element-description">
+          <div class="blog-element-description-author">
+            <p><%= "#{blog.user.first_name.capitalize} #{blog.user.last_name.capitalize}" %></p> 
+          </div>
+          <div class="blog-element-description-title">
+            <%= link_to blog.title, blog_path(blog.id) %>
+          </div>
+          <div class="blog-element-description-details">
+            <p>
+            <%= "#{blog.created_at.strftime("%b %e")} · #{blog.content.scan(/\w+/).size / 250} min #{t('.lecture')}" %>
+              <% if blog.blog_view_ids.count >= 20 %>
+                <%= "· 👁 #{blog.blog_view_ids.count}" %>
+              <% end %>
+            </p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    </section>
+  <% end %>
+</main>
