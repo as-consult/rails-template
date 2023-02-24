@@ -25,7 +25,7 @@ CONTACT_FORM_RECIPIENT=noreply@example.com
 
 ## Project Creation
 
-`rails new APP_NAME --database=postgresql -m "https://raw.githubusercontent.com/alexstan67/rails-template/master/template.rb"`
+`rails new APP_NAME --database=postgresql -m "https://raw.githubusercontent.com/alexstan67/rails-template/master/pack-entrepreneur-template.rb"`
 
 ## AFTER Project Creation
 We will use here [Capistrano](https://github.com/capistrano/capistrano) to deploy in production.
