@@ -1,10 +1,7 @@
-#https://github.com/rails/rails/blob/968de9cc6d48ca026303566d7d1f437d40360820/activemodel/lib/active_model/locale/en.yml
-
 en:
   activerecord:
     models:
       contact: "Contact"
-      user: "User"
       blog: "Blog"
       subscriber: "Subscribers"
     attributes:
@@ -35,53 +32,18 @@ en:
         email: "Email"
         accept_private_data_policy: "Privacy policy:"
     errors:
-      messages:
-        blank:
-        taken:
-        invalid:
-        too_short:
-          one:
-          other:
       models:
         contact:
           attributes:
             accept_private_data_policy:
               inclusion: "Please read and accept"
-  forms:
-    submit: "Submit"
-    messages:
-      errors:
-        one: "An error prevent from saving"
-        other: "%{count} errors prevent from saving"
-  time:
-    am: a.m.
-    formats:
-      default: "%a, %d %b %Y %H:%M:%S %z"
-      long: "%B %d, %Y %H:%M"
-      short: "%d %b %H:%M"
-      date_short: "%d %b %Y"
-      date_very_short: "%d %b"
-    pm: p.m.
-  date:
-    abbr_day_names: [Sun, Mon, Tue, Wed, Thu, Fri, Sat]
-    abbr_month_names:
-      [~, Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec]
-    day_names: [Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday]
   shared:
-    sign_in:
-    sign_out:
-    sign_up:
-    account:
     services:
     about_us:
     blog:
     faq: "FAQ"
     contact:
-    console:
-    legal_mentions:
-    privacy_policy:
     social: "Social Networks"
-    copyright: "All rights reserved"
   contacts:
     acceptation: "By checking this box, I agree with the privacy policy of this website"
     privacy_policy:
@@ -94,16 +56,6 @@ en:
   pages:
     home:
       discover_services: "Discover our services →"
-    console:
-      title: "Administrator console"
-      export_title: "📤 Data Export"
-      export_button: "Export"
-      export_subscribers: "List of subscription Newsletter"
-      export_contacts: "Contact forms"
-      export_blog_views: "Views per post"
-      blog_views_title: "All posts views"
-      contacts_count_title: "Contact forms"
-      contacts_category_title: "Contact forms per category"
   blogs:
     buttons:
       edit: "Edit"
