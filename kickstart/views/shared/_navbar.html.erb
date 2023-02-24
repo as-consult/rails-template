@@ -10,11 +10,6 @@
   <nav>
     <div class="nav-links">
       <p class="nav-link"><%= link_to t("shared.home"), root_path %></p>
-      <p class="nav-link"><%= link_to t("shared.services"), services_index_path %></p>
-      <p class="nav-link"><%= link_to t("shared.about_us"), apropos_index_path %></p>
-      <p class="nav-link"><%= link_to t("shared.blog"), blogs_path %></p>
-      <p class="nav-link"><%= link_to t("shared.faq"), faqs_index_path %></p>
-      <p class="nav-button"><%= link_to t("shared.contact"), new_contact_path, class: "btn btn-primary" %></p>
       <ul class="nav-lang">
         <% I18n.available_locales.each do |loc| %>
           <li><%= link_to displayFlag(loc), root_path(locale: loc) %></li>
@@ -41,11 +36,6 @@
       <p data-burger-target="icon">&#9477;</p>
       <div class="burger-menu-content" data-burger-target="burger">
         <p><%= link_to t("shared.home"), root_path %></p>
-        <p><%= link_to t("shared.services"), services_index_path %></p>
-        <p><%= link_to t("shared.about_us"), apropos_index_path %></p>
-        <p><%= link_to t("shared.blog"), blogs_path %></p>
-        <p><%= link_to t("shared.faq"), faqs_index_path %></p>
-        <p><%= link_to t("shared.contact"), new_contact_path, class: "burger-divider"%></p>
         <% if user_signed_in? %>
           <p><%= link_to t("shared.account"), edit_user_registration_path %></p>
           <p><%= link_to t("shared.sign_out"), destroy_user_session_path, data: {turbo_method: :delete} %></p>
