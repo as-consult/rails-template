@@ -1,0 +1,67 @@
+<header>
+  <div class="logo" style="background-color: DarkKhaki; line-height: 64px;">
+    <p style="text-align: center;"><%= link_to "Logo", root_path, style: "font-size: 2em; text-align: center; color: white; text-decoration: none;" %></p>
+  <!--
+    <%= link_to root_path do %>
+      <%#= image_tag("logo.png", alt: "Company logo") %>
+    <% end %>
+  -->
+  </div>
+  <nav>
+    <div class="nav-links">
+      <p class="nav-link"><%= link_to t("shared.home"), root_path %></p>
+      <p class="nav-link"><%= link_to t("shared.services"), services_index_path %></p>
+      <p class="nav-link"><%= link_to t("shared.about_us"), apropos_index_path %></p>
+      <p class="nav-link"><%= link_to t("shared.blog"), blogs_path %></p>
+      <p class="nav-link"><%= link_to t("shared.faq"), faqs_index_path %></p>
+      <p class="nav-button"><%= link_to t("shared.contact"), new_contact_path, class: "btn btn-primary" %></p>
+      <ul class="nav-lang">
+        <% I18n.available_locales.each do |loc| %>
+          <li><%= link_to displayFlag(loc), root_path(locale: loc) %></li>
+        <% end %>
+      </ul>
+
+      <div data-controller="account" data-action="click->account#menu">
+        <p class="nav-account">♙</p>
+          <div class="account-menu-content" data-account-target="account">
+            <% if user_signed_in? %>
+              <p><%= link_to t("shared.account"), edit_user_registration_path %></p>
+              <p><%= link_to t("shared.sign_out"), destroy_user_session_path, data: {turbo_method: :delete} %></p>
+              <% if current_user.role == "admin" %>
+                <p><%= link_to t("shared.console"), pages_console_path %></p>
+              <% end %>
+            <% else %>
+              <p><%= link_to t("shared.sign_in"), new_user_session_path(redirect_to: request.path) %></p>
+              <p><%= link_to t("shared.sign_up"), new_user_registration_path %></p>
+            <% end %>
+        </div>
+      </div>
+    </div>
+    <div data-controller="burger" data-action="click->burger#menu" class="burger">
+      <p data-burger-target="icon">&#9477;</p>
+      <div class="burger-menu-content" data-burger-target="burger">
+        <p><%= link_to t("shared.home"), root_path %></p>
+        <p><%= link_to t("shared.services"), services_index_path %></p>
+        <p><%= link_to t("shared.about_us"), apropos_index_path %></p>
+        <p><%= link_to t("shared.blog"), blogs_path %></p>
+        <p><%= link_to t("shared.faq"), faqs_index_path %></p>
+        <p><%= link_to t("shared.contact"), new_contact_path, class: "burger-divider"%></p>
+        <% if user_signed_in? %>
+          <p><%= link_to t("shared.account"), edit_user_registration_path %></p>
+          <p><%= link_to t("shared.sign_out"), destroy_user_session_path, data: {turbo_method: :delete} %></p>
+          <% if current_user.role == "admin" %>
+            <p><%= link_to t("shared.console"), pages_console_path %></p>
+          <% end %>
+        <% else %>
+          <p><%= link_to t("shared.sign_in"), new_user_session_path(redirect_to: request.path) %></p>
+          <p><%= link_to t("shared.sign_up"), new_user_registration_path %></p>
+        <% end %>
+        <div class="nav-lang">
+          <% I18n.available_locales.each do |loc| %>
+            <p><%= link_to displayFlag(loc), root_path(locale: loc) %></p>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
