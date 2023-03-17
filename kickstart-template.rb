@@ -185,6 +185,9 @@ after_bundle do
   # Controllers
   ######################################
   generate(:controller, 'pages', 'home', 'console', '--skip-routes')
+  run "rm app/controllers/application_controller.rb"
+  run "curl -L https:///raw.githubusercontent.com/alexstan67/rails-template/master/pack-entrepreneur/controllers.tar.gz > controllers.tar.gz"
+  run "tar -xf controllers.tar.gz --directory app/ && rm controllers.tar.gz"
 
   # Views
   ########################################
