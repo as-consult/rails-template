@@ -10,10 +10,6 @@ export default class extends Controller {
 
   menu() {
     this.burgerTarget.classList.toggle("show");
-    if (this.iconTarget.innerHTML == "┅") {
-      this.iconTarget.innerHTML = "⁝";
-    } else {
-      this.iconTarget.innerHTML = "┅";
-    }
+    this.iconTarget.classList.toggle("rotate");
   }
 }

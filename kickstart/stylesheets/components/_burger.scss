@@ -2,6 +2,13 @@ nav .burger {
   text-align: center;
   font-size: 1em;
 }
+nav .rotate {
+  transform: rotate(-90deg);
+  transition: 0.25s;
+}
+nav .icon {
+  transition: 0.25s;
+}
 nav .burger > p {
   cursor: pointer;
   margin: 0;

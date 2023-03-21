@@ -38,7 +38,7 @@
       </div>
     </div>
     <div data-controller="burger" data-action="click->burger#menu" class="burger">
-      <p data-burger-target="icon">&#9477;</p>
+      <%= image_tag("menu-light.svg", class: "icon", data: { burger_target: 'icon'}) %>
       <div class="burger-menu-content" data-burger-target="burger">
         <p><%= link_to t("shared.home"), root_path %></p>
         <p><%= link_to t("shared.services"), services_index_path %></p>
