@@ -39,11 +39,10 @@ header .nav-link:hover {
 }
 header .nav-button {
   color: $light;
-  margin: 0 1em 0 1em;
-  //text-align: center;
   line-height: 64px;
   transition: 0.25s;
-  width: 6em;
+  margin-left: 0.25em;
+  margin-right: 0.25em;
 }
 header .nav-account {
   line-height: 64px;
