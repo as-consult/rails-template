@@ -10,6 +10,8 @@ header p {
 header .logo {
   height: 64px;
   width: 100px;
+  //background-color: $color4;
+  //line-height: 64px;
 }
 header .burger {
   color: $light;
@@ -23,6 +25,7 @@ header nav {
 header .nav-links {
   display: none;
   position: relative;
+  align-items: center;
 }
 header .nav-link {
   text-align: center;
@@ -45,9 +48,9 @@ header .nav-button {
 header .nav-account {
   line-height: 64px;
   text-align: center;
-  width: 2em;
   cursor: pointer;
-  font-size: 1.5em;
+  font-size: 0.75em;
+  margin: 1em;
   color: $light;
 }
 header .nav-link a {
@@ -62,8 +65,8 @@ header .nav-lang {
   padding: 0;
   align-self: center;
   justify-content: center;
-  a {
-    text-decoration: none;
+  li {
+    list-style-type: none;
   }
 }
 header .account-menu-content {

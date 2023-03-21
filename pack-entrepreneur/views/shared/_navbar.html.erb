@@ -22,18 +22,18 @@
       </ul>
 
       <div data-controller="account" data-action="click->account#menu">
-        <p class="nav-account">♙</p>
-          <div class="account-menu-content" data-account-target="account">
-            <% if user_signed_in? %>
-              <p><%= link_to t("shared.account"), edit_user_registration_path %></p>
-              <p><%= link_to t("shared.sign_out"), destroy_user_session_path, data: {turbo_method: :delete} %></p>
-              <% if current_user.role == "admin" %>
-                <p><%= link_to t("shared.console"), pages_console_path %></p>
-              <% end %>
-            <% else %>
-              <p><%= link_to t("shared.sign_in"), new_user_session_path(redirect_to: request.path) %></p>
-              <p><%= link_to t("shared.sign_up"), new_user_registration_path %></p>
+        <%= image_tag("user-light.svg", class: "nav-account") %>
+        <div class="account-menu-content" data-account-target="account">
+          <% if user_signed_in? %>
+            <p><%= link_to t("shared.account"), edit_user_registration_path %></p>
+            <p><%= link_to t("shared.sign_out"), destroy_user_session_path, data: {turbo_method: :delete} %></p>
+            <% if current_user.role == "admin" %>
+              <p><%= link_to t("shared.console"), pages_console_path %></p>
             <% end %>
+          <% else %>
+            <p><%= link_to t("shared.sign_in"), new_user_session_path(redirect_to: request.path) %></p>
+            <p><%= link_to t("shared.sign_up"), new_user_registration_path %></p>
+          <% end %>
         </div>
       </div>
     </div>
