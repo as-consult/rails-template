@@ -61,16 +61,27 @@ header .nav-link a {
 header .nav-lang {
   display: flex;
   flex-direction: row;
-  margin: 0;
   padding: 0;
   align-self: center;
   justify-content: center;
+  cursor: pointer;
+  line-height: 64px;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+  position: relative;
   li {
     list-style-type: none;
   }
   a {
     text-decoration: none;
   }
+}
+header .nav-lang-content {
+  line-height: 1.25em;
+  background-color: $dark;
+  position: absolute;
+  display: none;
+  z-index: 20;
 }
 header .account-menu-content {
   background-color: $dark;
@@ -109,7 +120,7 @@ header .show {
     display: flex;
   }
   header .nav-lang {
-    flex-direction: column;
+    display: inline;
   }
   .burger {
     display: none;
