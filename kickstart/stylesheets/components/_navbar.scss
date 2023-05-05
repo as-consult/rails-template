@@ -68,6 +68,9 @@ header .nav-lang {
   li {
     list-style-type: none;
   }
+  a {
+    text-decoration: none;
+  }
 }
 header .account-menu-content {
   background-color: $dark;
