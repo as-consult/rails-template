@@ -8,17 +8,20 @@
   -->
   </div>
   <nav>
-    <div class="nav-links">
+    <div class="nav-links" data-controller="submenu">
       <p class="nav-link"><%= link_to t("shared.home"), root_path %></p>
-      <ul class="nav-lang">
-        <% I18n.available_locales.each do |loc| %>
-          <li><%= link_to displayFlag(loc), root_path(locale: loc) %></li>
-        <% end %>
-      </ul>
+      <div class="nav-lang">
+        <p data-action="click->submenu#flagmenu"><%= displayFlag(locale) %></p>
+        <div class="nav-lang-content" data-submenu-target="flag">
+          <% I18n.available_locales.each do |loc| %>
+            <p><%= link_to displayFlag(loc), root_path(locale: loc) %></p>
+          <% end %>
+        </div>
+      </div>
 
-      <div data-controller="account" data-action="click->account#menu">
+      <div data-action="click->submenu#burgermenu">
         <%= image_tag("user-light.svg", class: "nav-account") %>
-        <div class="account-menu-content" data-account-target="account">
+        <div class="account-menu-content" data-submenu-target="account">
           <% if user_signed_in? %>
             <p><%= link_to t("shared.account"), edit_user_registration_path %></p>
             <p><%= link_to t("shared.sign_out"), destroy_user_session_path, data: {turbo_method: :delete} %></p>
