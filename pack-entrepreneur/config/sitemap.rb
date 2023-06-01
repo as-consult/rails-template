@@ -31,8 +31,10 @@ SitemapGenerator::Sitemap.create do
   add faqs_index_path,      :priority => 0.8, :changefreq => 'daily'
   add new_contact_path,     :priority => 0.8, :changefreq => 'daily'
 
-  Blog.find_each do |blog|
-    add blogs_path(blog), :lastmod => blog.updated_at
+  I18n.available_locales.each do |locale| 
+    Blog.find_each do |b|
+      add url_for(:controller => 'blogs', :action => 'show', :id => b, :host => '', :only_path => true, :locale => locale), :lastmod => b.updated_at
+    end
   end
   
 end
