@@ -238,7 +238,6 @@ after_bundle do
   ########################################
   file "app/javascript/controllers/alerts_controller.js"
   file "app/javascript/controllers/burger_controller.js"
-  file "app/javascript/controllers/account_controller.js"
   run "curl -L https://raw.githubusercontent.com/alexstan67/rails-template/master/kickstart/javascript.tar.gz > javascript.tar.gz"
   run "tar -xf javascript.tar.gz --directory app/ && rm javascript.tar.gz"
 

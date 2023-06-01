@@ -1,14 +1,16 @@
 import { Controller } from "@hotwired/stimulus";
 
-// Connects to data-controller="burger"
 export default class extends Controller {
-  static targets = ["account"];
+  static targets = ["account", "flag"];
 
   connect() {
-    console.log("Account connected!");
+    console.log("Submenu connected!");
   }
 
-  menu() {
+  burgermenu() {
     this.accountTarget.classList.toggle("show");
+  }
+  flagmenu() {
+    this.flagTarget.classList.toggle("show");
   }
 }
