@@ -79,11 +79,14 @@ run 'cp ../env .env'
 ########################################
 inject_into_file ".gitignore", after: "/config/master.key\n" do
   <<~GIT
-  \n
   # AS-Consult specific
-  *.swp
-  *.env
+  /node_modules
   /public/sitemap.xml.gz
+  # Ignore Mac and Linux file system files
+  *.swp
+  .DS_Store
+  # Ignore .env file containing credentials.
+  .env*
   GIT
 end
 
