@@ -9,41 +9,53 @@
 # Title:  Compress folders to work with rails template
 
 echo -e "Removing compressed folders:"
-if [ -e stylesheets.tar.gz ]
-  then echo "✅ stylesheets.tar.gz successfully removed"
+if [ -e stylesheets.tar.gz ]; then
+  rm stylesheets.tar.gz
+  echo "✅ stylesheets.tar.gz successfully removed"
 fi
-if [ -e javascript.tar.gz ]
-  then echo "✅ javascript.tar.gz successfully removed"
+if [ -e javascript.tar.gz ]; then
+  rm javascript.tar.gz
+  echo "✅ javascript.tar.gz successfully removed"
 fi
-if [ -e images.tar.gz ]
-  then echo "✅ images.tar.gz successfully removed"
+if [ -e images.tar.gz ]; then
+  rm images.tar.gz
+  echo "✅ images.tar.gz successfully removed"
 fi
-if [ -e views.tar.gz ]
-  then echo "✅ views.tar.gz successfully removed"
+if [ -e views.tar.gz ]; then
+  rm views.tar.gz
+  echo "✅ views.tar.gz successfully removed"
 fi
-if [ -e models.tar.gz ]
-  then echo "✅ models.tar.gz successfully removed"
+if [ -e models.tar.gz ]; then
+  rm models.tar.gz
+  echo "✅ models.tar.gz successfully removed"
 fi
-if [ -e controllers.tar.gz ]
-  then echo "✅ controllers.tar.gz successfully removed"
+if [ -e controllers.tar.gz ]; then
+  rm controllers.tar.gz
+  echo "✅ controllers.tar.gz successfully removed"
 fi
-if [ -e mailers.tar.gz ]
-  then echo "✅ mailers.tar.gz successfully removed"
+if [ -e mailers.tar.gz ]; then
+  rm mailers.tar.gz
+  echo "✅ mailers.tar.gz successfully removed"
 fi
-if [ -e db.tar.gz ]
-  then echo "✅ db.tar.gz successfully removed"
+if [ -e db.tar.gz ]; then
+  rm db.tar.gz
+  echo "✅ db.tar.gz successfully removed"
 fi
-if [ -e config.tar.gz ]
-  then echo "✅ config.tar.gz successfully removed"
+if [ -e config.tar.gz ]; then
+  rm config.tar.gz
+  echo "✅ config.tar.gz successfully removed"
 fi
-if [ -e helpers.tar.gz ]
-  then echo "✅ helpers.tar.gz successfully removed"
+if [ -e helpers.tar.gz ]; then
+  rm helpers.tar.gz
+  echo "✅ helpers.tar.gz successfully removed"
 fi
-if [ -e test.tar.gz ]
-  then echo "✅ test.tar.gz successfully removed"
+if [ -e test.tar.gz ]; then
+  rm test.tar.gz
+  echo "✅ test.tar.gz successfully removed"
 fi
-if [ -e public.tar.gz ]
-  then echo "✅ public.tar.gz successfully removed"
+if [ -e public.tar.gz ]; then
+  rm public.tar.gz
+  echo "✅ public.tar.gz successfully removed"
 fi
 echo -e "---"
 echo -e "Creating compressed forlders:"
