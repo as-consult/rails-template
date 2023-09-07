@@ -10,9 +10,9 @@ export default class extends Controller {
 
   show(event) {
     for (var answer of this.answerTargets) {
-      if (answer.id == event.originalTarget.parentElement.id) {
+      if (answer.id == event.target.parentElement.id) {
         answer.classList.toggle("show");
-        event.originalTarget.parentElement.classList.toggle("rotate");
+        event.target.parentElement.classList.toggle("rotate");
       }
     }
   }
